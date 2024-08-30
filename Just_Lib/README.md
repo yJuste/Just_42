@@ -10,6 +10,7 @@ Les fichiers qui vous sont donnes sont disponible pour votre confort. Elle s'uti
 * Les fichiers peuvent aussi etre des fichiers C headers pour contenir des prototypes ou des macros comme ft_abs.h, ft_boolean.h ...
 * Les fichiers se presente comme ceci : ( exemple avec ft_split )
 
+```
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -27,6 +28,7 @@ Les fichiers qui vous sont donnes sont disponible pour votre confort. Elle s'uti
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
+```
 
 Le header de 42 qui se compose :
 	du nom du fichier : ft_split.c
