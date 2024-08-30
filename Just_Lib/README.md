@@ -38,9 +38,9 @@ Le header de 42 qui se compose :
 * des fonctions externes utilises
 * ( > de la bibliotheque qui se trouve en dessous )
 
+/: EOF
+
 * Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
 Et Don't Panic!
-
-/: EOF
 
 Modifié le 30 août 2024 par Juste
