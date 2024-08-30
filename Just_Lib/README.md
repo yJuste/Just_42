@@ -29,11 +29,11 @@ Les fichiers qui vous sont donnes sont disponible pour votre confort. Elle s'uti
 #include <stdlib.h>
 
 Le header de 42 qui se compose :
-    du nom du fichier : ft_split.c
-    d'une description courte de la fonction
-    du prototypage avec le type et le nom des parametres
-    des fonctions externes utilises
-    ( > de la bibliotheque qui se trouve en dessous )
+	du nom du fichier : ft_split.c
+	d'une description courte de la fonction
+	du prototypage avec le type et le nom des parametres
+	des fonctions externes utilises
+	( > de la bibliotheque qui se trouve en dessous )
 
 * Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
 Et Don't Panic!
