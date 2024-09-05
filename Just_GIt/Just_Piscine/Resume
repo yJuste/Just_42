@@ -1,13 +1,13 @@
 Les exos qui sont affichés sont ceux qui n'ont pas été terminé.
 
 	SHELL//
-Shell00 - 50.0 % / gitignore / diff / clean / Illusions, not tricks, Michael... 
-Shell01 - 75.0 % / r_dwssap / add_chelou
+Shell00 - 100.0%
+Shell01 - 100.0%
 
 	RUSH/.
 Rush00 - 120.0 %
-Rush01 - 0.0 %
-Rush02 - 10.0 %
+Rush01 - 0.0 % / Everything
+Rush02 - 10.0 % / Everything
 
 	DAYS/:
 C00 - ~90.0 % / ft_print_combn
@@ -15,7 +15,7 @@ C01 - 100.0 %
 C02 - ~90.0 % / print_memory
 C03 - 100.0 %
 C04 - 100.0 %
-C05 -  50.0 % / ft_is_prime / ft_find_next_prime / ft_ten_queens_puzzle
+C05 -  50.0 % / ft_ten_queens_puzzle
 C06 - 100.0 %
 C07 - 100.0 %
 C08 - 100.0 %
