@@ -21,8 +21,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-# define MAX_N 9
-
 // Structure
 
 typedef struct s_grid
