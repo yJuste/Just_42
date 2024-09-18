@@ -28,8 +28,8 @@ int	ft_grid(int tab[], int size)
 
 	_grid.grid = NULL;
 	_grid.count = 0;
-	_grid.tab = malloc(sizeof(int) * (size * 4));
 	_grid.tab = tab;
+	// _grid.tab = tab;
 	_grid.size = size;
 	if (ft_combination(&_grid, size) == -1)
 		return (-1);
@@ -53,14 +53,7 @@ int	ft_combination(t_grid *_grid, int size)
 		i++;
 	}
 	ft_fill_grid(_grid, 0, 0, &found);
-	i = 0;
-	while (i < size)
-	{
-		free(_grid->grid[i]);
-		i++;
-	}
-	free(_grid->grid);
-	free(_grid->tab);
+	ft_free_grid(_grid, size);
 	if (found == 0)
 		return (-1);
 	return (0);

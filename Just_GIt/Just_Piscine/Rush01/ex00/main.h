@@ -45,6 +45,7 @@ void	ft_putchar(char c);
 
 int		ft_error(void);
 void	ft_free_grid(t_grid *_grid, int size);
+void	ft_free_tab(int *tab, int size);
 
 // main.c
 
