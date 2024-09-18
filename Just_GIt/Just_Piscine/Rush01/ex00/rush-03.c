@@ -9,106 +9,72 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Parse all grids and print the correct one.                             */
+/*        -> ft_print                                                         */
+/*        -> struct, malloc, free                                             */
+/* ************************************************************************** */
 #include "main.h"
 
-void	ft_combination(int size);
-void	ft_fill_grid(int **grid, int row, int col, int *count, int size);
-int	ft_is_valid(int **grid, int row, int col, int num, int size);
-void	ft_print_grid(int **grid, int size);
-int	main(void);
+// ---------------PROTOTYPE-------------------
+int	ft_check_grid(t_grid *_grid, int size);
+int	ft_parse_grid(t_grid *_grid, int size);
 
-void	ft_print_grid(int **grid, int size)
+int	ft_print_grid(t_grid *_grid, int size);
+// -------------------------------------------
+
+int	ft_check_grid(t_grid *_grid, int size)
+{
+	if (ft_parse_grid(_grid, size))
+		return (1);
+	else
+		return (0);
+	ft_free_grid(_grid, size);
+	return (0);
+}
+
+int	ft_parse_grid(t_grid *_grid, int size)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (i < size)
 	{
-		j = 0;
-		while (j < size)
-		{
-			printf("%d ", grid[i][j]);
-			j++;
-		}
-		printf("\n");
+		if (!ft_check_column_top(_grid, i, _grid->tab[i], size))
+			return (0);
+		if (!ft_check_column_bottom(_grid, i, _grid->tab[size + i], size))
+			return (0);
 		i++;
 	}
-	ft_putstr("-------------------------------\n");
-}
-
-int	ft_is_valid(int **grid, int row, int col, int num, int size)
-{
-	int	x;
-	
-	x = 0;
-	while (x < size)
+	i = 0;
+	while (i < size)
 	{
-		if (grid[row][x] == num || grid[x][col] == num)
+		if (!ft_check_row_left(_grid, i, _grid->tab[2 * size + i], size))
 			return (0);
-		x++;
+		if (!ft_check_row_right(_grid, i, _grid->tab[3 * size + i], size))
+			return (0);
+		i++;
 	}
 	return (1);
 }
 
-void	ft_fill_grid(int **grid, int row, int col, int *count, int size)
+int	ft_print_grid(t_grid *_grid, int size)
 {
-	int	num;
+	int	row;
+	int	col;
 
-	if (row == size - 1 && col == size)
+	row = 0;
+	while (row < size)
 	{
-		(*count)++;
-		return ;
-	}
-	if (col == size)
-	{
-		row++;
 		col = 0;
-	}
-	num = 1;
-	while (num <= size)
-	{
-		if (ft_is_valid(grid, row, col, num, size))
+		while (col < size)
 		{
-			grid[row][col] = num;
-			ft_fill_grid(grid, row, col + 1, count, size);
-			grid[row][col] = 0;
+			ft_putchar(_grid->grid[row][col] + '0');
+			if (col < size - 1)
+				ft_putchar(' ');
+			col++;
 		}
-		num++;
+		ft_putchar('\n');
+		row++;
 	}
-}
-
-void	ft_combination(int size)
-{
-	int	**grid;
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	grid = malloc(size * sizeof(int *));
-	while (i < size)
-	{
-		grid[i] = malloc(size * sizeof(int));
-		i++;
-	}
-	ft_fill_grid(grid, 0, 0, &count, size);
-	printf("Nombre total de solutions pour une grille %dx%d: %d\n", size, size, count);
-	while (i < size)
-	{
-		free(grid[i]);
-		i++;
-	}
-	free(grid);
-	return ;
-}
-
-int	main(void)
-{
-	int	size;
-	
-	size = 4;
-	if (size >= 1 && size <= 9)
-		ft_combination(size);
 	return (0);
 }

@@ -11,58 +11,25 @@
 /* ************************************************************************** */
 #include "main.h"
 
-int		ft_strlen(char *str);
-int		ft_isdigit(int c);
-int		ft_atoi(char *str);
-void	ft_putstr(char *str);
-void	ft_putchar(char c);
+int		ft_error(void);
+void	ft_free_grid(t_grid *_grid, int size);
 
-int	ft_strlen(char *str)
+int	ft_error(void)
+{
+	ft_putstr("Error\n");
+	return (-1);
+}
+
+void	ft_free_grid(t_grid *_grid, int size)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_atoi(char *str)
-{
-	int		i;
-	int		res;
-	int		sign;
-
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (i < size)
 	{
-		if (str[i] == '-')
-			sign = -sign;
+		free(_grid->grid[i]);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * res);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
+	free(_grid->grid);
+	free(_grid->tab);
 }
