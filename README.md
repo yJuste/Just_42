@@ -11,12 +11,13 @@
 * Les compilateurs cc, gcc et clang sont par defaut sur les macs.
 * Vim est par defaut sur les macs.
 * Xcode permet de lier git facilement et meme de push sans passer par le terminal.
-* 
 
 
-GIT //
 
-COMMANDES BASIQUES //
+		GIT //
+
+
+	COMMANDES BASIQUES //
 
 >>> git add .
 	ajoute tous les fichiers a l'expediteur.
@@ -29,9 +30,12 @@ COMMANDES BASIQUES //
 >>> git clone git@github.com:yJuste/#repository.git
 	clone le git de github.
 
-SHELL //
 
-ALIAS CC -WALL -WEXTRA -WERROR //
+
+		SHELL //
+
+
+	ALIAS CC -WALL -WEXTRA -WERROR //
 
 >>> touch ~/.shrc
 	creer un fichier si ton shell est sur /bin/zsh (echo $SHELL )
@@ -44,7 +48,8 @@ ALIAS CC -WALL -WEXTRA -WERROR //
 >>> source ~/.shrc
 	appliquer les modifications.
 
-STDHEADER 42 //
+
+	STDHEADER 42 //
 
 * Pour installer le header 42 sur sa machine, aller sur le site :
 	https://github.com/42Paris/42header
@@ -57,7 +62,31 @@ STDHEADER 42 //
 * Le header apparait.
 
 
-CODIUM ( COPILOT POUR XCODE ) //
+	PMSET //
+
+* Commande mac pour changer les temps d'inactivite du pc. Important de le changer rapidement pour economiser.
+* Telecharge en plus la version gratuite de AlDente permettant de charger le pc au maximum a 80%.
+
+
+GPUSWITCH //
+
+* Sur Macos, on peut changer le basculement pour gerer la puissance du gpu. Si vous ne faites que coder et vous ne compilez pas, vous pouvez mettre le gpu au plus bas et inversement.
+La commande : pmset gpuswitch [0, 1, 2]
+Le niveau 0 est le gpu integre et consomme moins, moins de puissance.
+Le niveau 1 est le gpu haute performance, consomme plus, toujours puissant.
+Le niveau 2 est le mode automatique, le mac decide de lui meme quand changer.
+
+	MEMORY LEAKS //
+
+* Si tu veux un outil pour identifier les fuites de memoires, tu peux utiliser "Leaks", l'outil de deboggage par defaut de Xcode.
+Il faut tout d'abord initialiser :
+	export MallocStackLogging=1
+Ensuite tu peux lancer leaks :
+	leaks --atExit -- ./a.out [parameters]
+Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees. Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.
+
+		CODIUM ( COPILOT POUR XCODE ) //
+
 
 * Aller sur le site et telecharger l'application.
 * Lancer le programme.
