@@ -13,6 +13,7 @@
 /*   • ./a.out ([size]) [clues]                                               */
 /*      -> size // [1 <= size <= 9]                                           */
 /*      -> clues // [top, bottom, left, right]                                */
+/*      -> ft_error                                                           */
 /* ************************************************************************** */
 #ifndef MAIN_H
 # define MAIN_H

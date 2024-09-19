@@ -9,7 +9,16 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • First Library.                                                         */
+/* ************************************************************************** */
 #include "main.h"
+
+// ----------PROTOTYPE-------------
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_isspace(char c);
+int		ft_atoi(char *str);
+// --------------------------------
 
 void	ft_putchar(char c)
 {

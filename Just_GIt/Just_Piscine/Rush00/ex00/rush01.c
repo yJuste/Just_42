@@ -9,7 +9,44 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Rush_id : 1                                                            */
+/*   • Displays :                                                             */
+/*     /**\                                                                   */
+/*     *  *                                                                   */
+/*     *  *                                                                   */
+/*     \**/                                                                   */
+/*      -> ft_putchar                                                         */
+/* ************************************************************************** */
 #include "main.h"
+
+// --------------------------PROTOTYPE-----------------------------
+void	rush01(int x, int y);
+int		print_corner01(int xi, int yi, int maxX, int maxY);
+int		print_edge01(int xi, int yi, int maxX, int maxY);
+// ----------------------------------------------------------------
+
+void	rush01(int x, int y)
+{
+	int	xi;
+	int	yi;
+
+	yi = 0;
+	while (yi < y)
+	{
+		xi = 0;
+		while (xi < x)
+		{
+			if (print_corner01(xi, yi, x - 1, y - 1) == 0)
+			{
+				if (print_edge01(xi, yi, x - 1, y - 1) == 0)
+					ft_putchar(' ');
+			}
+			xi++;
+		}
+		ft_putchar('\n');
+		yi++;
+	}
+}
 
 int	print_corner01(int xi, int yi, int maxX, int maxY)
 {
@@ -49,27 +86,4 @@ int	print_edge01(int xi, int yi, int maxX, int maxY)
 		return (1);
 	}
 	return (0);
-}
-
-void	rush01(int x, int y)
-{
-	int	xi;
-	int	yi;
-
-	yi = 0;
-	while (yi < y)
-	{
-		xi = 0;
-		while (xi < x)
-		{
-			if (print_corner01(xi, yi, x - 1, y - 1) == 0)
-			{
-				if (print_edge01(xi, yi, x - 1, y - 1) == 0)
-					ft_putchar(' ');
-			}
-			xi++;
-		}
-		ft_putchar('\n');
-		yi++;
-	}
 }
