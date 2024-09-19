@@ -29,7 +29,6 @@ int	ft_grid(int tab[], int size)
 	_grid.grid = NULL;
 	_grid.count = 0;
 	_grid.tab = tab;
-	// _grid.tab = tab;
 	_grid.size = size;
 	if (ft_combination(&_grid, size) == -1)
 		return (-1);
