@@ -2,7 +2,7 @@ Voici toute ma librairie de fonctions basiques en C.
 
 // INTRO
 
-Les fichiers qui vous sont donnes sont disponible pour votre confort. Elle s'utilise comme une librairie.
+Les fichiers qui vous sont donnes sont disponible pour votre confort. Elles s'utilisent comme une librairie.
 
 /. LIBRARY
 
