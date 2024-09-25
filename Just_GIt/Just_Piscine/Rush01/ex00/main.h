@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Resolve the skycraper game.                                            */
-/*   • ./a.out ([size]) [clues]                                               */
-/*      -> size // [1 <= size <= 9]                                           */
-/*      -> clues // [top, bottom, left, right]                                */
-/*      -> ft_error                                                           */
+/*   • This is the header for the main.c                                      */
 /* ************************************************************************** */
 #ifndef MAIN_H
 # define MAIN_H
@@ -52,7 +49,7 @@ int		main(int argc, char **argv);
 int		ft_init_2(char **argv, int size);
 int		ft_init_3(char **argv, int size);
 
-// rush01.c
+// rush-01.c
 
 int		ft_dimensions(char *str);
 int		ft_format(char *str, int size);
@@ -60,7 +57,7 @@ int		ft_check_format(char *str, int *count);
 int		*ft_create_format(char *str, int *tab, int size);
 void	ft_print_format(int *tab, int size);
 
-// rush02.c
+// rush-02.c
 
 int		ft_grid(int tab[], int size);
 int		ft_combination(t_grid *_grid, int size);
@@ -68,13 +65,13 @@ int		ft_fill_grid(t_grid *_grid, int row, int col, int *found);
 int		ft_end_of_line(int *row, int *col, int size);
 int		ft_is_valid(t_grid *_grid, int row, int col, int num);
 
-// rush03.c
+// rush-03.c
 
 int		ft_check_grid(t_grid *_grid, int size);
 int		ft_parse_grid(t_grid *_grid, int size);
 int		ft_print_grid(t_grid *_grid, int size);
 
-// rush04.c
+// rush-04.c
 
 int		ft_check_column_top(t_grid *_grid, int col, int expected, int size);
 int		ft_check_column_bottom(t_grid *_grid, int col, int expected, int size);
