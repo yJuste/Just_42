@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	else if (argc == 3)
 		ft_init_3(argv, size);
 	else
-		ft_error();
+		return (ft_error());
 	return (0);
 }
 
@@ -41,7 +41,7 @@ int	ft_init_2(char **argv, int size)
 {
 	size = 4;
 	if (ft_format(argv[1], size) == -1)
-		ft_error();
+		return (ft_error());
 	return (0);
 }
 
@@ -49,8 +49,8 @@ int	ft_init_3(char **argv, int size)
 {
 	size = ft_dimensions(argv[1]);
 	if (size == -1)
-		ft_error();
+		return (ft_error());
 	if (ft_format(argv[2], size) == -1)
-		ft_error();
+		return (ft_error());
 	return (0);
 }
