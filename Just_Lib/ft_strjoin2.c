@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,8 +9,8 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Gathers str of char.                                                   */
-/*   • Prototype:   CHAR* ( char* s1, char* s2 )                              */
+/*   • Gathers str of char based on a separator.                              */
+/*   • Prototype:   CHAR* ( int size, char** strs, char* sep )                */
 /*        -> malloc ( sizeof(type) * size )                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -25,30 +25,63 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+int	ft_len(char **strs, int size, char *sep)
 {
-	size_t	i;
-	size_t	c;
-	char	*str;
+	size_t		i;
+	int			len;
 
-	if (!s1)
+	i = 0;
+	len = 0;
+	while (i < size)
 	{
-		s1 = (char *)malloc(1 * sizeof(char));
-		s1[0] = '\0';
+		len += ft_strlen(strs[i]);
+		i++;
 	}
-	if (!s1 || !s2)
+	len = len + (size - 1) * ft_strlen(sep) + 1;
+	return (len);
+}
+
+char	*ft_strcat(char *dest, const char *src)
+{
+	size_t		i;
+	size_t		j;
+
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	size_t		i;
+	char		*tab;
+
+	i = 0;
+	if (size == 0)
+	{
+		tab = malloc(sizeof(char));
+		*tab = 0;
+		return (tab);
+	}
+	tab = malloc(sizeof(char) * ft_len(strs, size, sep));
+	if (!tab)
 		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	i = -1;
-	c = 0;
-	if (s1)
-		while (s1[++i] != '\0')
-			str[i] = s1[i];
-	while (s2[c] != '\0')
-		str[i++] = s2[c++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
-	return (str);
+	*tab = 0;
+	while (i < size)
+	{
+		ft_strcat(tab, strs[i]);
+		if (i < size - 1)
+			ft_strcat(tab, sep);
+		i++;
+	}
+	return (tab);
 }

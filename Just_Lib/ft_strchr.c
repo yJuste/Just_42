@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,11 +9,12 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Gathers str of char.                                                   */
-/*   • Prototype:   CHAR* ( char* s1, char* s2 )                              */
-/*        -> malloc ( sizeof(type) * size )                                   */
+/*   • Returns a str from a separator.                                        */
+/*   • Prototype:   CHAR* ( char *s, int c )                                  */
 /* ************************************************************************** */
-#include <stdlib.h>
+
+char		*ft_strchr(char *s, int c);
+size_t		ft_strlen(const char *str);
 
 size_t	ft_strlen(const char *str)
 {
@@ -25,30 +26,20 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strchr(char *s, int c)
 {
-	size_t	i;
-	size_t	c;
-	char	*str;
+	int	i;
 
-	if (!s1)
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
 	{
-		s1 = (char *)malloc(1 * sizeof(char));
-		s1[0] = '\0';
+		if (s[i] == (char) c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	i = -1;
-	c = 0;
-	if (s1)
-		while (s1[++i] != '\0')
-			str[i] = s1[i];
-	while (s2[c] != '\0')
-		str[i++] = s2[c++];
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
-	return (str);
+	return (0);
 }
