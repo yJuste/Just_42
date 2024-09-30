@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_findchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,21 +9,18 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays N if neg or P if pos.                                         */
-/*   • Prototype:   VOID ( int nbr )                                          */
-/*        -> write ( fd, buf, count )                                         */
+/*   • Finds a char from a str.                                               */
+/*   • Prototype:   CHAR* ( char *s, char *c )                                */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+const char	*ft_findchr(const char *s, int c)
 {
-	write(1, &c, 1);
-}
-
-void	ft_is_negative(int nbr)
-{
-	if (nbr < 0)
-		ft_putchar('N');
-	else
-		ft_putchar('P');
+	while (*s)
+	{
+		if (*s == c)
+			return (s);
+		++s;
+	}
+	return (0);
 }

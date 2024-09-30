@@ -9,11 +9,14 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays num up to 2 digits.                                           */
+/*   • Displays num up to 2 digits in hexa.                                   */
 /*   • Prototype:   VOID ( char c )                                           */
-/*        -> write ( fd, buf, count )                                         */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+
+void	ft_hex(unsigned char c);
+void	ft_putchar(char c);
 
 void	ft_putchar(char c)
 {

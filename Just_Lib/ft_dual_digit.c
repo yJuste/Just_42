@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 /*   • Displays a num up to 2 digits.                                         */
 /*   • Prototype:   VOID ( int nbr )                                          */
-/*        -> write ( fd, buf, count )                                         */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+
+void	ft_dual_digit(int nbr);
+void	ft_putchar(char c);
 
 void	ft_putchar(char c)
 {

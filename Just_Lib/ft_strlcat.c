@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Duplicates a str to a size.                                            */
-/*   • Prototype:   SIZE_T ( char* dest, char* src, size_t size )             */
+/*   • Prototype:   INT ( char *dest, char *src, int size )                   */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+int	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t		dlen;
 	size_t		slen;

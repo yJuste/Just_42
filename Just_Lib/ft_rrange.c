@@ -11,17 +11,16 @@
 /* ************************************************************************** */
 /*   • Returns an arr of int from max to min value.                           */
 /*   • Prototype:   INT* ( int start, int end )                               */
-/*        -> malloc ( sizeof(type) * size )                                   */
-/*        -> size_t                                                           */
+/*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
 
 int	*ft_rrange(int start, int end)
 {
-	size_t		i;
 	int			flg;
 	int			len;
 	int			*range;
+	size_t		i;
 
 	i = 0;
 	flg = 1;

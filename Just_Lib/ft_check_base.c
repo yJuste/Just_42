@@ -15,15 +15,8 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+int		ft_check_base(char *base);
+size_t	ft_strlen(const char *str);
 
 int	ft_check_base(char *base)
 {
@@ -35,8 +28,8 @@ int	ft_check_base(char *base)
 		return (0);
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-'
-			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13))
+		if (base[i] == '+' || base[i] == '-' || base[i] == ' '
+			|| (base[i] >= 9 && base[i] <= 13))
 			return (0);
 		j = i + 1;
 		while (base[j])
@@ -47,5 +40,15 @@ int	ft_check_base(char *base)
 		}
 		i++;
 	}
-	return (1);
+	return (i);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

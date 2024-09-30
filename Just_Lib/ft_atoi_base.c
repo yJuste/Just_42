@@ -9,21 +9,35 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Converts alpha to an int.                                              */
-/*   • Prototype:   INT ( char* str, char* base )                             */
+/*   • Converts alpha into int from a base.                                   */
+/*   • Prototype:   INT ( char *str, char *base )                             */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <unistd.h>
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+int		ft_atoi_base(char *str, char *base);
+int		ft_check_base(char *base);
+int		ft_strlen(char *str);
+int		ft_res(char *str, char *base, int i);
+
+int	ft_atoi_base(char *str, char *base)
 {
+	int			sign;
 	size_t		i;
 
+	if (!ft_check_base(base))
+		return (0);
 	i = 0;
-	while (str[i])
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	return (i);
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	return (ft_res(str, base, i) * sign);
 }
 
 int	ft_check_base(char *base)
@@ -51,6 +65,16 @@ int	ft_check_base(char *base)
 	return (i);
 }
 
+int	ft_strlen(char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
 int	ft_res(char *str, char *base, int i)
 {
 	int		res;
@@ -72,24 +96,4 @@ int	ft_res(char *str, char *base, int i)
 		i++;
 	}
 	return (res);
-}
-
-int	ft_atoi_base(char *str, char *base)
-{
-	int			sign;
-	size_t		i;
-
-	if (!ft_check_base(base))
-		return (0);
-	i = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	return (ft_res(str, base, i) * sign);
 }

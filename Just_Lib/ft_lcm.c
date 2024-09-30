@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Calculates the least common divisor of 2 num.                          */
-/*   • Prototype:   SIZE_T ( size_t a, size_t b )                             */
-/*        -> size_t                                                           */
+/*   • Prototype:   INT ( int a, int b )                                      */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-size_t	lcm(size_t a, size_t b)
+int	lcm(int a, int b)
 {
-	size_t		n;
+	int		n;
 
 	if (a == 0 || b == 0)
 		return (0);

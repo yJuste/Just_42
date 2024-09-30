@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,16 +9,22 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the factorial of a num.                                        */
-/*   • Prototype:   INT ( int nbr )                                           */
+/*   • Returns 1 if printable.                                                */
+/*   • Prototype:   INT ( char *str )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-int	ft_recursive_factorial(int nbr)
+int	ft_str_is_printable(char *str)
 {
-	if (nbr < 0)
-		return (0);
-	if (nbr > 1)
-		return (nbr * ft_recursive_factorial(nbr - 1));
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= 32 && str[i] <= 126))
+			return (0);
+		i++;
+	}
 	return (1);
 }

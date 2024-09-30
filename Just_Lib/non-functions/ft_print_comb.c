@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,27 +9,49 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Inverts arr values.                                                    */
-/*   • Prototype:   VOID ( int* tab, int size )                               */
+/*   • Displays the 1st combinaison.                                          */
+/*   • Prototype:   VOID ( VOID )                                             */
+/*        -> write                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-void	ft_swap(int *a, int *b)
+void	ft_putchar(char c)
 {
-	int		x;
-
-	x = *a;
-	*a = *b;
-	*b = x;
+	write(1, &c, 1);
 }
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_mid(char i, char j, char k)
 {
-	int		i;
-
-	i = 0;
-	while (i < size / 2)
+	ft_putchar(i);
+	ft_putchar(j);
+	ft_putchar(k);
+	if (i != '7')
 	{
-		ft_swap(&tab[i], &tab[size - 1 - i]);
+		ft_putchar(',');
+		ft_putchar(' ');
+	}
+}
+
+void	ft_print_comb(void)
+{
+	char	i;
+	char	j;
+	char	k;
+
+	i = '0';
+	while (i <= '7')
+	{
+		j = i + 1;
+		while (j <= '8')
+		{
+			k = j + 1;
+			while (k <= '9')
+			{
+				ft_mid(i, j, k);
+				k++;
+			}
+			j++;
+		}
 		i++;
 	}
 }

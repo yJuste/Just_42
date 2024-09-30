@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_len.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,22 +9,28 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns 1 if lowercase.                                                */
-/*   • Prototype:   INT ( char* str )                                         */
-/*        -> size_t                                                           */
+/*   • Calculates the len of a num.                                           */
+/*   • Prototype:   INT ( int nbr, int base_len )                             */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-int	ft_str_is_lowercase(char *str)
+int	ft_len(int nbr, int base_len)
 {
-	size_t		i;
+	int		len;
+	long	n;
 
-	i = 0;
-	while (str[i])
+	len = 0;
+	n = nbr;
+	if (n == 0)
+		return (1);
+	if (n < 0)
 	{
-		if (!(str[i] >= 'a' && str[i] <= 'z'))
-			return (0);
-		i++;
+		n = -n;
+		len++;
 	}
-	return (1);
+	while (n > 0)
+	{
+		n /= base_len;
+		len++;
+	}
+	return (len);
 }

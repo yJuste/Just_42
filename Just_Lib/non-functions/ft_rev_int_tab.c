@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,44 +9,27 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays the 2nd combinaison.                                          */
-/*   • Prototype:   VOID ( VOID )                                             */
-/*        -> write ( fd, buf, count )                                         */
+/*   • Inverts arr values.                                                    */
+/*   • Prototype:   VOID ( int *tab, int size )                               */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_swap(int *a, int *b)
 {
-	write(1, &c, 1);
+	int		x;
+
+	x = *a;
+	*a = *b;
+	*b = x;
 }
 
-void	ft_dual_digit(int nb)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	ft_putchar(nb / 10 + '0');
-	ft_putchar(nb % 10 + '0');
-}
-
-void	ft_print_comb2(void)
-{
-	int	i;
-	int	j;
+	int		i;
 
 	i = 0;
-	while (i < 99)
+	while (i < size / 2)
 	{
-		j = i + 1;
-		while (j < 100)
-		{
-			ft_dual_digit(i);
-			ft_putchar(' ');
-			ft_dual_digit(j);
-			if (i != 98)
-			{
-				ft_putchar(',');
-				ft_putchar(' ');
-			}
-			j++;
-		}
+		ft_swap(&tab[i], &tab[size - 1 - i]);
 		i++;
 	}
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,40 +9,13 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns a str with a capital letter on the 1st letter of a wd.         */
-/*   • Prototype:   VOID ( char* str )                                        */
-/*        -> write ( fd, buf, count )                                         */
-/*        -> size_t                                                           */
+/*   • Displays the alphabet in reverse.                                      */
+/*   • Prototype:   VOID ( VOID )                                             */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include <stdlib.h>
 
-void	ft_putchar(char c)
+void	ft_print_reverse_alphabet(void)
 {
-	write(1, &c, 1);
-}
-
-void	ft_hex(unsigned char c)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	ft_putchar('\\');
-	ft_putchar(hex[c / 16]);
-	ft_putchar(hex[c % 16]);
-}
-
-void	ft_putstr_non_printable(char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] < 32 || str[i] > 126)
-			ft_hex(str[i]);
-		else
-			ft_putchar(str[i]);
-		i++;
-	}
+	write(1, "zyxwvutsrqponmlkjihgfedcba", 26);
 }

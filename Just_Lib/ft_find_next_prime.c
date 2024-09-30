@@ -13,6 +13,9 @@
 /*   • Prototype:   INT ( int nbr )                                           */
 /* ************************************************************************** */
 
+int		ft_find_next_prime(int nbr);
+int		ft_is_prime(int nbr);
+
 int	ft_is_prime(int nbr)
 {
 	int		i;

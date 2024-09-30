@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,21 +9,30 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays the name of .o.                                               */
-/*        -> write ( fd, buf, count )                                         */
+/*   • Returns all int from in start to in end.                               */
+/*   • Prototype:   INT ( int **range, int start, int end )                   */
+/*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char *str)
+int	ft_ultimate_range(int **range, int start, int end)
 {
-	while (*str)
-		write(1, str++, 1);
-}
+	size_t		i;
 
-int	main(int argc, char **argv)
-{
-	if (argc > 0)
-		ft_putstr(argv[0]);
-	ft_putstr("\n");
-	return (0);
+	i = 0;
+	if (start >= end)
+	{
+		*range = 0;
+		return (0);
+	}
+	*range = malloc(sizeof(int) * (end - start));
+	if (!*range)
+		return (0);
+	while (end > start)
+	{
+		(*range)[i] = start;
+		start++;
+		i++;
+	}
+	return (i);
 }

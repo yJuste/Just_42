@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,17 +9,22 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the power of a num.                                            */
-/*   • Prototype:   INT ( int nbr, int power )                                */
+/*   • Returns 1 if num.                                                      */
+/*   • Prototype:   INT ( char *str )                                         */
+/*        -> size_t                                                           */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-int	ft_recursive_power(int nbr, int power)
+int	ft_str_is_numeric(char *str)
 {
-	if (power < 0)
-		return (0);
-	else if (power == 0)
-		return (1);
-	else if (power >= 1)
-		return (nbr * ft_recursive_power(nbr, power - 1));
-	return (nbr);
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
 }

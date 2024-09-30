@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,13 +9,13 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays the digits.                                                   */
+/*   • Displays the alphabet.                                                 */
 /*   • Prototype:   VOID ( VOID )                                             */
-/*        -> write ( fd, buf, count )                                         */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_print_numbers(void)
+void	ft_print_alphabet(void)
 {
-	write(1, "0123456789", 10);
+	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
 }

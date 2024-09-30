@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Calculates the greatest common divisor of 2 num.                       */
-/*   • Prototype:   SIZE_T ( size_t a, size_t b )                             */
-/*        -> size_t                                                           */
+/*   • Prototype:   int ( int a, int b )                                      */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-size_t	ft_pgcd(size_t a, size_t b)
+int	ft_pgcd(int a, int b)
 {
-	size_t		x;
+	int		x;
 
 	x = 0;
 	while (b != 0)

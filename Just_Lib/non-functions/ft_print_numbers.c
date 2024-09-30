@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,13 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays the parameters of .o in reverse.                              */
-/*        -> write ( fd, buf, count )                                         */
-/*        -> size_t                                                           */
+/*   • Displays the digits.                                                   */
+/*   • Prototype:   VOID ( VOID )                                             */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include <stdlib.h>
 
-void	ft_putstr(char *str)
+void	ft_print_numbers(void)
 {
-	while (*str)
-		write(1, str++, 1);
-}
-
-int	main(int argc, char **argv)
-{
-	size_t		i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		ft_putstr(argv[i]);
-		ft_putstr("\n");
-		i--;
-	}
-	return (0);
+	write(1, "0123456789", 10);
 }

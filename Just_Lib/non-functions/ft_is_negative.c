@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,36 +9,21 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Sorts an arr of int.                                                   */
-/*   • Prototype:   VOID ( int* tab, int size )                               */
-/*        -> size_t                                                           */
+/*   • Displays N if neg or P if pos.                                         */
+/*   • Prototype:   VOID ( int nbr )                                          */
+/*        -> write                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include <unistd.h>
 
-void	ft_swap(int *a, int *b)
+void	ft_putchar(char c)
 {
-	int		x;
-
-	x = *a;
-	*a = *b;
-	*b = x;
+	write(1, &c, 1);
 }
 
-void	ft_sort_int_tab(int *tab, int size)
+void	ft_is_negative(int nbr)
 {
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (j < size - 1 - i)
-		{
-			if (tab[j] > tab[j + 1])
-				ft_swap(&tab[j], &tab[j + 1]);
-			j++;
-		}
-		i++;
-	}
+	if (nbr < 0)
+		ft_putchar('N');
+	else
+		ft_putchar('P');
 }

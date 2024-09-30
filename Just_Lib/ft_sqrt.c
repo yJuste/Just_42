@@ -13,7 +13,7 @@
 /*   • Prototype:   INT ( int nbr )                                           */
 /* ************************************************************************** */
 
-// /. Only full square root.
+// Only full square root.
 int	ft_sqrt(int nbr)
 {
 	int		i;
@@ -26,8 +26,8 @@ int	ft_sqrt(int nbr)
 	return (0);
 }
 
-// /: The square root has 2 pres digits.
-//       -> 3 pres digits : l5. 0.000001 / l15. 1000, 1000
+// The square root has 2 pres digits.
+//	-> 3 pres digits : l5. 0.000001 / l15. 1000, 1000
 float	ft_sqrt_precise(float nbr)
 {
 	float		n;

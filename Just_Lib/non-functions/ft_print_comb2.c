@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,44 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays the parameters of .o.                                         */
-/*        -> write ( fd, buf, count )                                         */
-/*        -> size_t                                                           */
+/*   • Displays the 2nd combinaison.                                          */
+/*   • Prototype:   VOID ( VOID )                                             */
+/*        -> write                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include <stdlib.h>
 
-void	ft_putstr(char *str)
+void	ft_putchar(char c)
 {
-	while (*str)
-		write(1, str++, 1);
+	write(1, &c, 1);
 }
 
-int	main(int argc, char **argv)
+void	ft_dual_digit(int nb)
 {
-	size_t		i;
+	ft_putchar(nb / 10 + '0');
+	ft_putchar(nb % 10 + '0');
+}
 
-	i = 1;
-	while (i < argc)
+void	ft_print_comb2(void)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 99)
 	{
-		ft_putstr(argv[i]);
-		ft_putstr("\n");
+		j = i + 1;
+		while (j < 100)
+		{
+			ft_dual_digit(i);
+			ft_putchar(' ');
+			ft_dual_digit(j);
+			if (i != 98)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+			j++;
+		}
 		i++;
 	}
-	return (0);
 }

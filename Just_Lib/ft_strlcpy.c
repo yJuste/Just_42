@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Copies a str to a size.                                                */
-/*   • Prototype:   SIZE_T ( char* dest, char* src, size_t size )             */
+/*   • Prototype:   INT ( char *dest, char *src, size_t size )                */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t		s;
 	size_t		i;

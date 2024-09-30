@@ -11,19 +11,33 @@
 /* ************************************************************************** */
 /*   • Converts an int to a str.                                              */
 /*   • Prototype:   CHAR* ( int nbr )                                         */
-/*        -> malloc ( sizeof(type) * size )                                   */
-/*        -> size_t                                                           */
+/*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
+char	*ft_itoa(int nbr);
+char	*ft_strdup(char *src);
+int		ft_len(int nbr, int base_len);
+void	ft_res(int nbr, int len, char *result);
+size_t	ft_strlen(const char *str);
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+char	*ft_itoa(int nbr)
+{
+	int		len;
+	char	*result;
+	int		flg;
+
+	flg = nbr < 0;
+	if (nbr == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (flg)
+		nbr = -nbr;
+	len = ft_len(nbr, 10) + flg;
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (result == NULL)
+		return (NULL);
+	ft_res(nbr, len - 1, result);
+	return (result);
 }
 
 char	*ft_strdup(char *src)
@@ -44,21 +58,23 @@ char	*ft_strdup(char *src)
 	return (dest);
 }
 
-int	ft_len(int nbr)
+int	ft_len(int nbr, int base_len)
 {
 	int		len;
+	long	n;
 
 	len = 0;
-	if (nbr == 0)
+	n = nbr;
+	if (n == 0)
 		return (1);
-	if (nbr < 0)
+	if (n < 0)
 	{
-		nbr = -nbr;
+		n = -n;
 		len++;
 	}
-	while (nbr > 0)
+	while (n > 0)
 	{
-		nbr /= 10;
+		n /= base_len;
 		len++;
 	}
 	return (len);
@@ -86,21 +102,12 @@ void	ft_res(int nbr, int len, char *result)
 	}
 }
 
-char	*ft_itoa(int nbr)
+size_t	ft_strlen(const char *str)
 {
-	int		len;
-	char	*result;
-	int		flg;
+	size_t		i;
 
-	flg = nbr < 0;
-	if (nbr == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (flg)
-		nbr = -nbr;
-	len = ft_len(nbr) + flg;
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (result == NULL)
-		return (NULL);
-	ft_res(nbr, len - 1, result);
-	return (result);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

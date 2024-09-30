@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns the index to reject.                                           */
-/*   • Prototype:   SIZE_T ( char* s, char* reject )                          */
+/*   • Prototype:   INT ( char *s, char *reject )                             */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int	ft_strcspn(const char *s, const char *reject)
 {
 	size_t		i;
 	size_t		j;

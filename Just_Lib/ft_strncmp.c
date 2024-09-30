@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Compares and returns the index to n bytes.                             */
-/*   • Prototype:   INT ( char* s1, char* s2, size_t n )                      */
+/*   • Prototype:   INT ( char *s1, char *s2, size_t n )                      */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

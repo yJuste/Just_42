@@ -9,16 +9,14 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Find the maximum value of an arr.                                      */
-/*   • Prototype:   INT ( int* tab, size_t len )                              */
-/*        -> size_t                                                           */
+/*   • Finds the maximum value of an arr.                                     */
+/*   • Prototype:   INT ( int *tab, int len )                                 */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-int	max(int *tab, size_t len)
+int	max(int *tab, int len)
 {
-	int				result;
-	size_t			i;
+	int		result;
+	int		i;
 
 	i = 0;
 	if (len == 0)

@@ -9,8 +9,8 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns a sub-char str.                                                */
-/*   • Prototype:   CHAR* ( char* str, char* to_find )                        */
+/*   • Returns a sub-str from a str.                                          */
+/*   • Prototype:   CHAR* ( char *str, char *to_find )                        */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

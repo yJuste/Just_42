@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR* ( char* src )                                       */
+/*   • Prototype:   CHAR* ( char *src )                                       */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
+
+char	*ft_strdup(const char *src);
+size_t	ft_strlen(const char *str);
 
 size_t	ft_strlen(const char *str)
 {

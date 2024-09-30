@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,61 +9,22 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays a structure array.                                            */
-/*   • Prototype:   VOID ( struct* par )                                      */
-/*        -> malloc ( sizeof(type) * size )                                   */
+/*   • Returns 1 if uppercase.                                                */
+/*   • Prototype:   INT ( char *str )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <unistd.h>
-#include "ft_stock_str.h"
+#include <stdlib.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-size_t	ft_strlen(const char *str)
+int	ft_str_is_uppercase(char *str)
 {
 	size_t		i;
 
 	i = 0;
 	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
-
-void	ft_putnbr(int nb)
-{
-	char	c;
-
-	if (nb < 0)
 	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
-	if (nb / 10 > 0)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
-}
-
-void	ft_show_tab(struct s_stock_str *par)
-{
-	size_t		i;
-
-	i = 0;
-	while (par[i].str)
-	{
-		ft_putstr(par[i].str);
-		ft_putstr("\n");
-		ft_putnbr(par[i].size);
-		ft_putstr("\n");
-		ft_putstr(par[i].copy);
-		ft_putstr("\n");
+		if (!(str[i] >= 'A' && str[i] <= 'Z'))
+			return (0);
 		i++;
 	}
+	return (1);
 }

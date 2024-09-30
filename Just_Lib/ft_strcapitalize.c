@@ -9,8 +9,8 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Capitalize the 1st letter of a wd.                                     */
-/*   • Prototype:   CHAR* ( char* str )                                       */
+/*   • Capitalizes the 1st letter of a wd.                                    */
+/*   • Prototype:   CHAR* ( char *str )                                       */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

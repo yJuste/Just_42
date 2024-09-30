@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtolower.c                                    :+:      :+:    :+:   */
+/*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,18 +9,12 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the lowercase equivalent of an uppercase string.               */
-/*   • Prototype:   CHAR* ( char *str )                                       */
+/*   • Returns a structure array.                                             */
+/*   • Prototype:   STRUCT* ( int ac, char** av )                             */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
-
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
+#include "ft_stock_str.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -38,6 +32,8 @@ char	*ft_strdup(const char *src)
 	char		*dest;
 
 	i = 0;
+	if (src == NULL)
+		return (NULL);
 	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (dest == NULL)
 		return (NULL);
@@ -50,19 +46,22 @@ char	*ft_strdup(const char *src)
 	return (dest);
 }
 
-const char	*ft_strtolower(const char *str)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int		i;
-	char	*lwr_str;
+	t_stock_str		*tab;
+	size_t			i;
 
 	i = 0;
-	lwr_str = ft_strdup(str);
-	if (!lwr_str)
+	tab = malloc(sizeof(t_stock_str) * (ac + 1));
+	if (tab == NULL)
 		return (NULL);
-	while (lwr_str[i])
+	while (i < ac)
 	{
-		lwr_str[i] = ft_tolower(lwr_str[i]);
+		tab[i].size = ft_strlen(av[i]);
+		tab[i].str = av[i];
+		tab[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	return (lwr_str);
+	tab[i].str = 0;
+	return (tab);
 }

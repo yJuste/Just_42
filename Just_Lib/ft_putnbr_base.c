@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Displays a num in a base.                                              */
-/*   • Prototype:   VOID ( int nbr, char* base )                              */
-/*        -> write ( fd, buf, count )                                         */
-/*        -> size_t                                                           */
+/*   • Prototype:   VOID ( int nbr, char *base )                              */
+/*        -> write, size_t                                                    */
 /* ************************************************************************** */
 #include <unistd.h>
 #include <stdlib.h>

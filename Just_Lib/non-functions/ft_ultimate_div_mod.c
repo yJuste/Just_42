@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,31 +9,17 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns all int from in start to in end.                               */
-/*   • Prototype:   INT ( int** range, int start, int end )                   */
-/*        -> malloc ( sizeof(type) * size )                                   */
-/*        -> size_t                                                           */
+/*   • Divides & mod.                                                         */
+/*   • Prototype:   VOID ( int *a, int *b )                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-int	ft_ultimate_range(int **range, int start, int end)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	size_t		i;
+	int		div;
+	int		mod;
 
-	i = 0;
-	if (start >= end)
-	{
-		*range = 0;
-		return (0);
-	}
-	*range = malloc(sizeof(int) * (end - start));
-	if (!*range)
-		return (0);
-	while (end > start)
-	{
-		(*range)[i] = start;
-		start++;
-		i++;
-	}
-	return (i);
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }

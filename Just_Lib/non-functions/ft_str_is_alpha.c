@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,25 +9,23 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the power of a num.                                            */
-/*   • Prototype:   INT ( int nbr, int power )                                */
+/*   • Returns 1 if alpha.                                                    */
+/*   • Prototype:   INT ( char *str )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_iterative_power(int nbr, int power)
+int	ft_str_is_alpha(char *str)
 {
-	size_t		i;
-	int			res;
+	size_t		i;ß
 
 	i = 0;
-	res = 1;
-	if (power < 0)
-		return (0);
-	while (i < power)
+	while (str[i] != '\0')
 	{
-		res = res * nbr;
+		if (!((str[i] >= 'a' && str[i] <= 'z')
+				|| (str[i] >= 'A' && str[i] <= 'Z')))
+			return (0);
 		i++;
 	}
-	return (res);
+	return (1);
 }

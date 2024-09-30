@@ -10,60 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Converts an int from one base to another.                              */
-/*   • Prototype:   CHAR* ( char* nbr, char* base_from, char* base_to )       */
-/*        -> size_t                                                           */
+/*   • Prototype:   CHAR* ( char *nbr, char *base_from, char *base_to )       */
+/*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_iswhitespace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r')
-		return (1);
-	return (0);
-}
+// file 1/2
 
-int	get_base_len(char *base)
-{
-	int		i;
-	int		j;
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
+int		ft_check_base(char *base);
+int		ft_len(int nbr, int base_len);
+void	ft_putnbr_base(int nbr, char *base, char *res, int *i);
 
+// file 2/2
+
+int		ft_atoi_base(char *str, char *base);
+int		ft_res(char *str, char *base, int i);
+size_t	ft_strlen(const char *str);
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int			sign;
+	size_t		i;
+
+	if (!ft_check_base(base))
+		return (0);
 	i = 0;
-	while (base[i])
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		if (base[i] == '+' || base[i] == '-' || ft_iswhitespace(base[i]))
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (i);
+	return (ft_res(str, base, i) * sign);
 }
 
-void	put_in_buffer(char *buffer, char c)
+int	ft_res(char *str, char *base, int i)
 {
-	int		i;
-
-	i = 0;
-	while (buffer[i])
-		i++;
-	buffer[i] = c;
-	buffer[i + 1] = '\0';
-}
-
-int	calc_res(char *str, char *base, int i)
-{
-	int		base_len;
 	int		res;
 	int		j;
 
 	res = 0;
-	base_len = get_base_len(base);
 	while (str[i])
 	{
 		j = 0;
@@ -75,26 +65,18 @@ int	calc_res(char *str, char *base, int i)
 		}
 		if (base[j] == '\0')
 			break ;
-		res = res * base_len + j;
+		res = res * ft_strlen(base) + j;
 		i++;
 	}
 	return (res);
 }
 
-int	ft_atoi_base(char *str, char *base)
+size_t	ft_strlen(const char *str)
 {
-	int		sign;
-	int		i;
+	size_t		i;
 
 	i = 0;
-	sign = 1;
-	while (ft_iswhitespace(str[i]))
+	while (str[i])
 		i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	return (calc_res(str, base, i) * sign);
+	return (i);
 }

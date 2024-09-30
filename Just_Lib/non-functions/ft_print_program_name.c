@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,22 +9,21 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns 1 if printable.                                                */
-/*   • Prototype:   INT ( char* str )                                         */
-/*        -> size_t                                                           */
+/*   • Displays the name of a file.o.                                         */
+/*        -> write                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include <unistd.h>
 
-int	ft_str_is_printable(char *str)
+void	ft_putstr(char *str)
 {
-	size_t		i;
+	while (*str)
+		write(1, str++, 1);
+}
 
-	i = 0;
-	while (str[i])
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-			return (0);
-		i++;
-	}
-	return (1);
+int	main(int argc, char **argv)
+{
+	if (argc > 0)
+		ft_putstr(argv[0]);
+	ft_putstr("\n");
+	return (0);
 }

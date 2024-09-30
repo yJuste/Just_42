@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Copies a str to n bytes.                                               */
-/*   • Prototype:   CHAR* ( char* dest, char* src, size_t n )                 */
+/*   • Prototype:   CHAR* ( char *dest, char *src, size_t n )                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>
