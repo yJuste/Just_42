@@ -28,7 +28,7 @@ size_t	ft_strlen(const char *str)
 void	*ft_malloc(int size)
 {
 	void	*ptr;
-	
+
 	ptr = malloc(size);
 	if (ptr == NULL)
 		return (NULL);

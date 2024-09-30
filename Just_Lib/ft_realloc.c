@@ -35,7 +35,7 @@ void	*ft_realloc(void *ptr, int old_size, int new_size)
 {
 	int		i;
 	char	*new_ptr;
-	
+
 	i = 0;
 	new_ptr = ft_calloc(new_size, sizeof(char));
 	while (i < old_size)

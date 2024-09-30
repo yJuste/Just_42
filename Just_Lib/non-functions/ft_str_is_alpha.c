@@ -17,7 +17,7 @@
 
 int	ft_str_is_alpha(char *str)
 {
-	size_t		i;ß
+	size_t		i;
 
 	i = 0;
 	while (str[i] != '\0')
