@@ -1,10 +1,10 @@
 # Just_42
 
-// INTRO
+##// INTRO
 
 * Voici le tronc commun de 42, tous les exos sont affiches.
 
-/. HELP
+##/. HELP
 
 * Toutes ces manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
 * J'utilise comme IDE : Xcode.
@@ -14,18 +14,17 @@
 
 
 
-		GIT //
+##	GIT //
 
+####		COMMANDES BASIQUES //
 
-	COMMANDES BASIQUES //
-
->>> git add .
+> git add .
 	ajoute tous les fichiers a l'expediteur.
->>> git commit -m "#commentary"
+> git commit -m "#commentary"
 	package tous les fichiers.
->>> git push
+> git push
 	envoie tous les fichiers a git, c'est fini.
->>> git rm #file
+> git rm #file
 	supprime un fichier du commit.
 >>> git clone git@github.com:yJuste/#repository.git
 	clone le git de github.
@@ -96,3 +95,7 @@ Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.
 * Dans SERVICE :
 	- Enregistrer un compte avec SIGN IN.
 * Codium est pret.
+
+##/: EOF
+
+Modifié le 9 octobre 2024 par Juste.
