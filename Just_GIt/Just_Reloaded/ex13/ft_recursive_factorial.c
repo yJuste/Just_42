@@ -9,4 +9,12 @@
 /*   Updated: 2024/09/05 17:29:15 by jlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
+int	ft_recursive_factorial(int nbr)
+{
+	if (nbr < 0)
+		return (0);
+	if (nbr > 1)
+		return (nbr * ft_factorial(nbr - 1));
+	return (1);
+}
