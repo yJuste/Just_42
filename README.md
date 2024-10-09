@@ -18,7 +18,7 @@
 
 ###		COMMANDES BASIQUES //
 
-> `git add .`\n
+> `git add .`<br>
 	ajoute tous les fichiers a l'expediteur.
 > `git commit -m "#commentary"`
 	package tous les fichiers.
