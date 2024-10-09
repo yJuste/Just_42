@@ -9,8 +9,18 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Read a line from a file.                                               */
+/*        -> ft_strchr, ft_strlen, ft_strjoin                                 */
+/*        -> malloc, free, buffer, read                                       */
+/* ************************************************************************** */
 #ifndef FT_GET_NEXT_LINE_H
 # define FT_GET_NEXT_LINE_H
+
+// Buffer
+
+#ifndef BUFFER_SIZE
+# define BUFFER_GET_LINE 60 // BUFFER_MIN = 50 | BUFFER_MAX = 100
+#endif
 
 // ft_get_next_line.c
 

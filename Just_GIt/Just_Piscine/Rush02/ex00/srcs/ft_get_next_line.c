@@ -9,6 +9,10 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Read a line from a file.                                               */
+/*        -> ft_strchr, ft_strlen, ft_strjoin                                 */
+/*        -> malloc, free, buffer, read                                       */
+/* ************************************************************************** */
 #include "../includes/main.h"
 #include "../includes/ft_get_next_line.h"
 

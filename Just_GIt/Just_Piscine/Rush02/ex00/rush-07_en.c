@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush-08.c                                          :+:      :+:    :+:   */
+/*   rush-07.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,21 +9,21 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • The literal number algorithm.                            FR - PART 1   */
+/*   • The literal number algorithm.                            EN - PART 1   */
 /*        -> ft_strlen                                                        */
-/*        -> malloc                                                           */
+/*        -> malloc, buffer                                                   */
 /* ************************************************************************** */
 #include "includes/main.h"
 
-// ---------------------------PROTOTYPE----------------------------
-void	ft_separate_fr(char ***separated, char *nb);
-void	ft_alloc_str_fr(char ***str);
-void	ft_trio_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_2_digits_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_2_digits_next_fr(t_sep *_sep, char **str, char *nb);
-// ----------------------------------------------------------------
+// --------------------------PROTOTYPE--------------------------
+void	ft_separate(char ***separated, char *nb);
+void	ft_alloc_str(char ***str);
+void	ft_trio(t_sep *_sep, char **str, char *nb);
+void	ft_get_2_digits(t_sep *_sep, char **str, char *nb);
+void	ft_get_2_digits_next(t_sep *_sep, char **str, char *nb);
+// -------------------------------------------------------------
 
-void	ft_separate_fr(char ***separated, char *nb)
+void	ft_separate(char ***separated, char *nb)
 {
 	t_sep	_sep;
 
@@ -33,7 +33,7 @@ void	ft_separate_fr(char ***separated, char *nb)
 	_sep.xnb = 0;
 	_sep.len = ft_strlen(nb) % 3;
 	_sep.len_A = ft_strlen(nb);
-	ft_alloc_str_fr(&*separated);
+	ft_alloc_str(&*separated);
 	if (!*separated)
 		return ;
 	if (ft_strlen(nb) >= 40)
@@ -43,13 +43,13 @@ void	ft_separate_fr(char ***separated, char *nb)
 	while (_sep.len_A > 0)
 	{
 		if (_sep.len >= 1 && _sep.len <= 3)
-			ft_trio_fr(&_sep, *separated, nb);
+			ft_trio(&_sep, *separated, nb);
 		_sep.len_A -= 3;
 	}
 	return ;
 }
 
-void	ft_alloc_str_fr(char ***arr)
+void	ft_alloc_str(char ***arr)
 {
 	int	i;
 
@@ -68,35 +68,35 @@ void	ft_alloc_str_fr(char ***arr)
 	return ;
 }
 
-void	ft_trio_fr(t_sep *_sep, char **str, char *nb)
+void	ft_trio(t_sep *_sep, char **str, char *nb)
 {
 	_sep->cooldown = 0;
 	while (_sep->len != 0)
 	{
 		if (_sep->len == 1)
 		{
-			ft_get_digit_fr(_sep, str, nb);
+			ft_get_digit(_sep, str, nb);
 			_sep->xnb++;
 			_sep->len--;
 		}
 		else if (_sep->len == 2)
 		{
-			ft_get_2_digits_fr(_sep, str, nb);
+			ft_get_2_digits(_sep, str, nb);
 			_sep->len -= 2;
 		}
 		else if (_sep->len == 3)
 		{
-			ft_get_digit_fr(_sep, str, nb);
-			ft_get_100_fr(_sep, str, nb);
+			ft_get_digit(_sep, str, nb);
+			ft_get_100(_sep, str, nb);
 		}
 	}
 	_sep->len = 3;
 	if (!_sep->cooldown)
-		ft_get_power_fr(_sep, str);
+		ft_get_power(_sep, str);
 	return ;
 }
 
-void	ft_get_2_digits_fr(t_sep *_sep, char **str, char *nb)
+void	ft_get_2_digits(t_sep *_sep, char **str, char *nb)
 {
 	if (nb[_sep->xnb] == '0')
 	{
@@ -108,11 +108,11 @@ void	ft_get_2_digits_fr(t_sep *_sep, char **str, char *nb)
 		str[_sep->xj][_sep->xi] = nb[_sep->xnb + 1];
 		str[_sep->xj][_sep->xi + 1] = '\0';
 	}
-	ft_get_2_digits_next_fr(_sep, str, nb);
+	ft_get_2_digits_next(_sep, str, nb);
 	return ;
 }
 
-void	ft_get_2_digits_next_fr(t_sep *_sep, char **str, char *nb)
+void	ft_get_2_digits_next(t_sep *_sep, char **str, char *nb)
 {
 	if (nb[_sep->xnb] == '1')
 	{
@@ -138,3 +138,34 @@ void	ft_get_2_digits_next_fr(t_sep *_sep, char **str, char *nb)
 	_sep->xj++;
 	return ;
 }
+
+/*	-------------------------Bonus----------------------------
+	---------- displays the sub-numbers of the num. ----------
+	----------------------------------------------------------
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	char	**separated;
+	
+	if (argc != 2)
+		return (1);
+	ft_separate(&separated, argv[1]); // the algorithm is called here
+	if (separated != NULL)
+	{
+		i = 0;
+		while (separated[i] != NULL)
+		{
+			printf("%s,", separated[i]);
+			i++;
+		}
+		printf("\n");
+		ft_free_str(separated);
+	}
+	else
+	{
+		printf("Erreur dans le traitement.\n");
+	}
+	return 0;
+}
+*/

@@ -9,6 +9,13 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Converts a number into its literal value.                              */
+/*   • ./a.out ([ dictionnary ]) [ number ]                                   */
+/*      -> dictionnary   [ en, fr ]                                           */
+/*      -> number        [ -10^39 < x < +10^39 ]                              */
+/*        -> ft_error, ft_strdup, ft_strtolower, ft_strcmp                    */
+/*        -> free                                                             */
+/* ************************************************************************** */
 #ifndef MAIN_H
 # define MAIN_H
 
@@ -19,14 +26,10 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-// Buffers
+// Buffer
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SEP 90 // BUFFER_MIN = 87
-#endif
-
-#ifndef BUFFER_SIZE
-# define BUFFER_GET_LINE 60 // BUFFER_MIN = 50 | BUFFER_MAX = 100
 #endif
 
 // Structures
@@ -63,7 +66,6 @@ char		*ft_get_line(char *f_save);
 char		*ft_next_line(char *f_save);
 
 
-
 // ---MY LIBRARY---
 
 // ft_lib.c
@@ -71,13 +73,10 @@ char		*ft_next_line(char *f_save);
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
 int			ft_strlen(const char *str);
-
-// ft_lib2.c
-
 int			ft_error(void);
 void		ft_free_str(char **str);
 
-// ft_lib3.c
+// ft_lib2.c
 
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
@@ -85,19 +84,18 @@ int			ft_isspace(int c);
 int			ft_tolower(int c);
 char		*ft_strtolower(char *str);
 
-// ft_lib4.c
+// ft_lib3.c
 
 char		*ft_strdup(const char *src);
 void		*ft_malloc(int size);
 void		*ft_calloc(int size_of, int size);
 
-// ft_lib5.c
+// ft_lib4.c
 
 int			ft_strcmp(char *s1, char *s2);
 char		*ft_strcpy(char *dest, char *src);
 char		*ft_strchr(char *s, int c);
 char		*ft_strjoin(char *s1, char *s2);
-
 
 
 // ---MY CODE---
@@ -155,7 +153,6 @@ void		ft_join_equivalent(t_num *_num, char **str);
 void		ft_tiret(t_num *_num);
 
 
-
 // ALGORITHM FOR ENGLISH
 
 // rush-07.c
@@ -173,6 +170,7 @@ void	ft_get_100(t_sep *_sep, char **str, char *nb);
 void	ft_get_power(t_sep *_sep, char **str);
 void	ft_get_power_2(t_sep *_sep, char **str, int *flg);
 void	ft_get_power_3(t_sep *_sep, char **str, int *flg);
+
 
 // ALGORITHM FOR FRENCH
 

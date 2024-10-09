@@ -9,53 +9,54 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Third Library.                                                         */
+/* ************************************************************************** */
 #include "../includes/main.h"
 
-// ---------PROTOTYPE-------------
-int		ft_isdigit(int c);
-int		ft_isprint(int c);
-int		ft_isspace(int c);
-int		ft_tolower(int c);
-char	*ft_strtolower(char *str);
-// -------------------------------
+// --------------PROTOTYPE----------------
+char	*ft_strdup(const char *src);
+void	*ft_malloc(int size);
+void	*ft_calloc(int size_of, int size);
+// ---------------------------------------
 
-int	ft_isdigit(int c)
+char	*ft_strdup(const char *src)
 {
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_isprint(int c)
-{
-	return (c >= 32 && c <= 126);
-}
-
-int	ft_isspace(int c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
-
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
-
-char	*ft_strtolower(char *str)
-{
-	int		i;
-	char	*lwr_str;
+	size_t		i;
+	char		*dest;
 
 	i = 0;
-	if (!str)
+	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
+	if (dest == NULL)
 		return (NULL);
-	lwr_str = ft_strdup(str);
-	if (!lwr_str)
-		return (NULL);
-	while (lwr_str[i])
+	while (src[i])
 	{
-		lwr_str[i] = ft_tolower(lwr_str[i]);
+		dest[i] = src[i];
 		i++;
 	}
-	return (lwr_str);
+	dest[i] = '\0';
+	return (dest);
+}
+
+void	*ft_malloc(int size)
+{
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+		return (NULL);
+	return (ptr);
+}
+
+void	*ft_calloc(int size_of, int size)
+{
+	int		i;
+	char	*ptr;
+
+	i = 0;
+	ptr = malloc(size_of * size);
+	if (ptr == 0)
+		return (NULL);
+	while (i < size_of * size)
+		ptr[i++] = 0;
+	return (ptr);
 }
