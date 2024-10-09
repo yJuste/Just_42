@@ -67,7 +67,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	i;
 	size_t	c;
 	char	*str;
-	
+
 	if (!s1)
 	{
 		s1 = ft_malloc(sizeof(char) * 1);

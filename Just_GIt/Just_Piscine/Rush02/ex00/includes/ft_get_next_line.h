@@ -18,9 +18,9 @@
 
 // Buffer
 
-#ifndef BUFFER_SIZE
-# define BUFFER_GET_LINE 60 // BUFFER_MIN = 50 | BUFFER_MAX = 100
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_GET_LINE 60 // BUFFER_MIN = 50 | BUFFER_MAX = 100
+# endif
 
 // ft_get_next_line.c
 

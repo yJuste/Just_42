@@ -45,7 +45,9 @@ void	ft_get_digit_fr(t_sep *_sep, char **str, char *nb)
 
 void	ft_get_100_fr(t_sep *_sep, char **str, char *nb)
 {
-	if (nb[_sep->xnb] == '0' && nb[_sep->xnb + 1] == '0' && nb[_sep->xnb + 2] == '0')
+	if (nb[_sep->xnb] == '0'
+		&& nb[_sep->xnb + 1] == '0'
+		&& nb[_sep->xnb + 2] == '0')
 	{
 		_sep->cooldown = 1;
 		_sep->xnb += 3;
@@ -70,22 +72,22 @@ void	ft_get_power_fr(t_sep *_sep, char **str)
 	int	flg;
 
 	flg = 0;
-	if (_sep->len_A >= 4 && _sep->len_A <= 6)
+	if (_sep->len_total >= 4 && _sep->len_total <= 6)
 	{
 		ft_strcpy(str[_sep->xj], "1000");
 		flg = 1;
 	}
-	else if (_sep->len_A >= 7 && _sep->len_A <= 9)
+	else if (_sep->len_total >= 7 && _sep->len_total <= 9)
 	{
 		ft_strcpy(str[_sep->xj], "1000000");
 		flg = 1;
 	}
-	else if (_sep->len_A >= 10 && _sep->len_A <= 12)
+	else if (_sep->len_total >= 10 && _sep->len_total <= 12)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000");
 		flg = 1;
 	}
-	else if (_sep->len_A >= 13 && _sep->len_A <= 15)
+	else if (_sep->len_total >= 13 && _sep->len_total <= 15)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000");
 		flg = 1;
@@ -96,22 +98,22 @@ void	ft_get_power_fr(t_sep *_sep, char **str)
 
 void	ft_get_power_2_fr(t_sep *_sep, char **str, int *flg)
 {
-	if (_sep->len_A >= 16 && _sep->len_A <= 18)
+	if (_sep->len_total >= 16 && _sep->len_total <= 18)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 19 && _sep->len_A <= 21)
+	else if (_sep->len_total >= 19 && _sep->len_total <= 21)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 22 && _sep->len_A <= 24)
+	else if (_sep->len_total >= 22 && _sep->len_total <= 24)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 25 && _sep->len_A <= 27)
+	else if (_sep->len_total >= 25 && _sep->len_total <= 27)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000000");
 		*flg = 1;
@@ -122,22 +124,22 @@ void	ft_get_power_2_fr(t_sep *_sep, char **str, int *flg)
 
 void	ft_get_power_3_fr(t_sep *_sep, char **str, int *flg)
 {
-	if (_sep->len_A >= 28 && _sep->len_A <= 30)
+	if (_sep->len_total >= 28 && _sep->len_total <= 30)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 31 && _sep->len_A <= 33)
+	else if (_sep->len_total >= 31 && _sep->len_total <= 33)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 34 && _sep->len_A <= 36)
+	else if (_sep->len_total >= 34 && _sep->len_total <= 36)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000000000000000");
 		*flg = 1;
 	}
-	else if (_sep->len_A >= 37 && _sep->len_A <= 39)
+	else if (_sep->len_total >= 37 && _sep->len_total <= 39)
 	{
 		ft_strcpy(str[_sep->xj], "1000000000000000000000000000000000000");
 		*flg = 1;

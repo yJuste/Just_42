@@ -53,7 +53,7 @@ void	ft_free_str(char **str)
 
 	i = 0;
 	if (!str)
-		return;
+		return ;
 	while (i < BUFFER_SEP + 1)
 	{
 		free(str[i]);

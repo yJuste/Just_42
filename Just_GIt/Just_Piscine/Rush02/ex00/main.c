@@ -23,7 +23,7 @@ int		main(int argc, char **argv);
 int		ft_init(char **filename, char *nb);
 void	ft_get_dict(char **filename, int *filename_flg);
 void	ft_select_dict(char **filename, char *lw_filename,
-		char *dict, int *filename_flg);
+			char *dict, int *filename_flg);
 // -------------------------------------------------------
 
 int	main(int argc, char **argv)
@@ -98,11 +98,13 @@ void	ft_get_dict(char **filename, int *filename_flg)
 	return ;
 }
 
-void	ft_select_dict(char **filename, char *lw_filename, char *dict, int *filename_flg)
+void	ft_select_dict(char **filename, char *lw_filename,
+			char *dict, int *filename_flg)
 {
-	if (dict == NULL && (ft_strcmp(lw_filename, "dictionnaries/spanish.dict") == 0
-		|| ft_strcmp(lw_filename, "spanish") == 0
-		|| ft_strcmp(lw_filename, "es") == 0))
+	if (dict == NULL && (ft_strcmp(lw_filename,
+				"dictionnaries/spanish.dict") == 0
+			|| ft_strcmp(lw_filename, "spanish") == 0
+			|| ft_strcmp(lw_filename, "es") == 0))
 	{
 		*filename_flg = 3;
 		dict = "Dictionnaries/spanish.dict";

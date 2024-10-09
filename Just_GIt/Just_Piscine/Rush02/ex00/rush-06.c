@@ -23,9 +23,9 @@ void	ft_tiret(t_num *_num);
 
 void	ft_equivalent(t_num *_num, char *line)
 {
-	int	i;
-	int	j;
-	int	k;
+	int		i;
+	int		j;
+	int		k;
 	char	*str;
 
 	i = 0;

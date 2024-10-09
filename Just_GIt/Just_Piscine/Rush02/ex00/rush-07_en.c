@@ -32,7 +32,7 @@ void	ft_separate(char ***separated, char *nb)
 	_sep.xj = 0;
 	_sep.xnb = 0;
 	_sep.len = ft_strlen(nb) % 3;
-	_sep.len_A = ft_strlen(nb);
+	_sep.len_total = ft_strlen(nb);
 	ft_alloc_str(&*separated);
 	if (!*separated)
 		return ;
@@ -40,11 +40,11 @@ void	ft_separate(char ***separated, char *nb)
 		return ;
 	if (_sep.len == 0)
 		_sep.len = 3;
-	while (_sep.len_A > 0)
+	while (_sep.len_total > 0)
 	{
 		if (_sep.len >= 1 && _sep.len <= 3)
 			ft_trio(&_sep, *separated, nb);
-		_sep.len_A -= 3;
+		_sep.len_total -= 3;
 	}
 	return ;
 }
