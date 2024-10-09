@@ -128,6 +128,9 @@ ft_allocate_str(&block);
 
 ...
 ```
+* En remontant les stacks, tu trouveras l'endroit ou tu n'utilises plus du tout ta variable et où il faut libérer la mémoire. (j'appelle `stack` mais c'est pas ca, c'est juste la piste ou passe la fuite.)
+* En desous, tu peux voir `1 (48 bytes)`, signifiant que c'est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
+
 
 ###		CODIUM ( COPILOT POUR XCODE ) //
 
