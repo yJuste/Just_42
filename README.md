@@ -100,7 +100,34 @@ export MallocStackLogging=1
 ``` sh
 leaks --atExit -- ./a.out [parameters]
 ```
-Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees. Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.<br>
+Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.<br>
+Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.<br>
+Comprendre l'essentiel dans Leaks pour identifer les fuites de memoire.
+
+<img width="612" alt="Leaks-example" src="https://github.com/user-attachments/assets/9c9a1a83-cb62-4797-8f7a-9074e8700974">
+
+Tu as le nombre de stack representant les fonctions dans lesquels passent la fuite de memoire.
+La fuite commence à `0`. Il represente l'allocation de ton système.
+A `1`, c'est l'endroit où tu as malloc. Logiquement, la variable alloué doit etre libéré proprement. Evite de renvoyer une variable alloué pour la stocker dans une autre variable, ex à proscrire :
+``` c
+char *block;
+
+block = ft_allocate_str();
+
+char **ft_allocate_str();
+{
+	str = malloc(...);
+	return (str);
+}
+```
+Il vaut mieux passer en parametre la seule et unique variable que tu vas utiliser (tu ne peux pas tout le temps le faire mais c'est une erreur courante.)
+``` c
+char *block;
+
+ft_allocate_str(&block);
+
+...
+```
 
 ###		CODIUM ( COPILOT POUR XCODE ) //
 
@@ -115,33 +142,33 @@ Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.
 
 ###		DEBUGGING //
 
-* Tout d'abord, si tu peux debugger par toi-meme avec une feuille de papier et un stylo, tu seras beaucoup plus concentré et tu comprendras mieux ton code en fond. Le debugging sert surtout pour les fuites de mémoire.
-* Creer un algorithme avec un logiciel de debug est à proscrire, vraiment.
-* Donc, j'utilise `lldb`.
-Juste avant, vous devez compiler tout tes fichiers avec -g, ex :
+* Tout d'abord, si tu peux debugger par toi-meme avec une feuille de papier et un stylo, tu seras beaucoup plus concentré et tu comprendras mieux ton code en fond. Le debugging sert surtout pour les fuites de mémoire.<br>
+* Creer un algorithme avec un logiciel de debug est à proscrire, vraiment.<br>
+* Donc, j'utilise `lldb`.<br>
+Juste avant, vous devez compiler tout tes fichiers avec -g, ex :<br>
 ``` sh
 cc -g mon-fichier.c
 ```
-Ensuite, vous devez lancer lldb :
+Ensuite, vous devez lancer lldb :<br>
 ``` sh
 lldb mon-fichier.c [parametres]
 ```
-Mettre les parametres va suivre le deroulement pour ce cas particulier. Tu peux tester avec plusieurs autres parametres en fonction de ton code.
-Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c'est un endroit d'entrée. Car le point d'entree par defaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, ex :
+Mettre les parametres va suivre le deroulement pour ce cas particulier. Tu peux tester avec plusieurs autres parametres en fonction de ton code.<br>
+Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c'est un endroit d'entrée. Car le point d'entree par defaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, ex :<br>
 ``` sh
 breakpoint set --name main
 ```
-Ceci est le main par defaut, pour une fonction comme :		int	ft_get_next_line(int fd)
+Ceci est le main par defaut, pour une fonction comme :		int	ft_get_next_line(int fd)<br>
 ``` sh
 breakpoint set --name ft_get_next_line
 ```
-* Il y aura alors une interface ou tu pourras naviguer, les commandes a retenir sont `s`, `n`, `finish`. (s = step, n = next) (tu dois juste marquer la lettre).
+* Il y aura alors une interface ou tu pourras naviguer, les commandes a retenir sont `s`, `n`, `finish`. (s = step, n = next) (tu dois juste marquer la lettre).<br>
 ``` sh
 `s` : avancer pas a pas, instruction par instruction
 `n` : pas a pas mais si il rencontre une fonction, il le passe (comme si il avait terminé la fonction pointé.)
 `finish` : si tu es dans une fonction, tu termines la fonction en cours (tu dois etre dans la fonction.)
 ```
-Pour quitter, tu fais `q` (q = quit).
+Pour quitter, tu fais `q` (q = quit).<br>
 
 ##	/: EOF
 
