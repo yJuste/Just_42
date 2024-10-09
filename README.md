@@ -18,16 +18,16 @@
 
 ###		COMMANDES BASIQUES //
 
-> `git add .`<br>
-	ajoute tous les fichiers a l'expediteur.
-> `git commit -m "#commentary"`
-	package tous les fichiers.
-> `git push`
-	envoie tous les fichiers a git, c'est fini.
-> `git rm .file`
-	supprime un fichier du commit.
->>> git clone git@github.com:yJuste/#repository.git
-	clone le git de github.
+* `git add .`<br>
+	ajoute tous les fichiers a l'expediteur.<br>
+* `git commit -m "#commentary"`<br>
+	package tous les fichiers.<br>
+* `git push`<br>
+	envoie tous les fichiers a git, c'est fini.<br>
+* `git rm .file`<br>
+	supprime un fichier du commit.<br>
+* `git clone git@github.com:yJuste/#repository.git`<br>
+	clone le git de github.<br>
 
 
 
