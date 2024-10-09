@@ -8,7 +8,6 @@ SRC =	srcs/ft_get_next_line.c	\
 	srcs/ft_lib2.c		\
 	srcs/ft_lib3.c		\
 	srcs/ft_lib4.c		\
-	srcs/ft_lib5.c		\
 	main.c			\
 	rush-01.c		\
 	rush-02.c		\
@@ -16,10 +15,10 @@ SRC =	srcs/ft_get_next_line.c	\
 	rush-04.c		\
 	rush-05.c		\
 	rush-06.c		\
-	rush-07.c		\
-	rush-08.c		\
-	rush-09.c		\
-	rush-10.c
+	rush-07_en.c		\
+	rush-08_en.c		\
+	rush-09_fr.c		\
+	rush-10_fr.c
 
 OBJ = $(SRC:.c=.o)
 
