@@ -15,6 +15,7 @@
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return ;
 }
 
 size_t	ft_strlen(const char *str)
@@ -30,12 +31,11 @@ size_t	ft_strlen(const char *str)
 void	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
+	return ;
 }
 
 void	ft_putnbr(int nb)
 {
-	char	c;
-
 	if (nb < 0)
 	{
 		write(1, "-", 1);
@@ -44,6 +44,7 @@ void	ft_putnbr(int nb)
 	if (nb / 10 > 0)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + '0');
+	return ;
 }
 
 void	ft_show_tab(struct s_stock_str *par)
@@ -61,4 +62,5 @@ void	ft_show_tab(struct s_stock_str *par)
 		ft_putstr("\n");
 		i++;
 	}
+	return ;
 }
