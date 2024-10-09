@@ -29,3 +29,4 @@ Et Don't Panic!
 /:  EOF
 
 Modifié le 30 août 2024 par Juste
+Merci à Gab pour le coup de main du rush-02

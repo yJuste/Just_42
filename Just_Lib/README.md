@@ -43,4 +43,6 @@ Le header de 42 qui se compose :
 * Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
 Et Don't Panic!
 
-Modifié le 30 août 2024 par Juste
+Modifié le 9 octobre 2024 par Juste
+
+Merci à Lucas pour le ft_convert_base
