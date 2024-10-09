@@ -173,6 +173,13 @@ breakpoint set --name ft_get_next_line
 ```
 Pour quitter, tu fais `q` (q = quit).<br>
 
+###		MAKEFILE
+
+* Make (petit logiciel utilisé avec les fichiers Makefile (et pas Makefile.txt, il y a une grande différence)) est utile pour compiler plusieurs fichiers .c en meme temps. Ca utilise des commandes **shell**. Voici un exemple de Makefile tres simple :
+
+<img width="675" alt="Makefil example" src="https://github.com/user-attachments/assets/a44fd852-9ec3-43e3-8dcb-0a68ebfc8121">
+
+
 ##	/: EOF
 
 Modifié le 9 octobre 2024 par Juste.<br>
