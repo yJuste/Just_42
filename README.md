@@ -44,12 +44,12 @@
 
 ###		STDHEADER 42 //
 
-* Pour installer le header 42 sur sa machine, aller sur le site :<br>
-`https://github.com/42Paris/42header`<br>
-* Les informations sont clairs et precis. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
-* Faites le directement dans le terminal avec ~/... ou vous pouvez l'avoir partout'<br>
-* Apres avoir coller les informations dans zshrc, vous pouvez utiliser les commandes :<br>
-`vim file.txt`<br>
+Pour installer le header 42 sur sa machine, aller sur le site :<br>
+* `https://github.com/42Paris/42header`
+Les informations sont clairs et precis. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
+Faites le directement dans le terminal avec ~/... ou vous pouvez l'avoir partout'<br>
+Apres avoir coller les informations dans zshrc, vous pouvez utiliser les commandes :<br>
+* `vim file.txt`
 * Dans vim, vous faites CTRL + :<br>
 * Vous ecrivez soit Stdheader, soit Std, soit vous appuyez sur F1.<br>
 * Le header apparait.<br>
@@ -71,13 +71,12 @@ Le niveau 2 est le mode automatique, le mac decide de lui meme quand changer.<br
 
 * Si tu veux un outil pour identifier les fuites de memoires, tu peux utiliser "Leaks", l'outil de deboggage par defaut de Xcode.<br>
 Il faut tout d'abord initialiser :<br>
-`export MallocStackLogging=1`<br>
+* `export MallocStackLogging=1`
 * Ensuite tu peux lancer leaks :<br>
-`leaks --atExit -- ./a.out [parameters]`<br>
+* `leaks --atExit -- ./a.out [parameters]`
 Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees. Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.<br>
 
 ###		CODIUM ( COPILOT POUR XCODE ) //
-
 
 * Aller sur le site et telecharger l'application.<br>
 * Lancer le programme.<br>
@@ -90,4 +89,4 @@ Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.
 
 ##	/: EOF
 
-Modifié le 9 octobre 2024 par Juste.
+Modifié le 9 octobre 2024 par Juste.<br>
