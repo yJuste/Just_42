@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Resolve the skycraper game.                                            */
-/*   • ./a.out ([size]) [clues]                                               */
-/*      -> size // [1 <= size <= 9]                                           */
-/*      -> clues // [top, bottom, left, right]                                */
-/*      -> ft_error                                                           */
+/*   • ./a.out ([ size ]) [ clues ]                                           */
+/*        -> size    [ 1 <= size <= 9 ]                                       */
+/*        -> clues   [ top, bottom, left, right ]                             */
+/*        -> ft_error                                                         */
 /* ************************************************************************** */
 #include "main.h"
 
