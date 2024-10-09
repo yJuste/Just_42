@@ -19,23 +19,23 @@
 ``` sh
 git add .
 ```
-	ajoute tous les fichiers a l'expediteur.<br>
+ajoute tous les fichiers a l'expediteur.<br>
 ``` sh
 git commit -m "#commentary"
 ```
-	package tous les fichiers.<br>
+package tous les fichiers.<br>
 ``` sh
 git push
 ```
-	envoie tous les fichiers a git, c'est fini.<br>
+envoie tous les fichiers a git, c'est fini.<br>
  ``` sh
 git rm .file
 ```
-	supprime un fichier du commit.<br>
+supprime un fichier du commit.<br>
 ``` sh
 git clone git@github.com:yJuste/#repository.git
 ```
-	clone le git de github.<br>
+clone le git de github.<br>
 
 ##	SHELL //
 
@@ -44,19 +44,18 @@ git clone git@github.com:yJuste/#repository.git
 ``` sh
 touch ~/.shrc
 ```
-	creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
-
+creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
 ``` sh
 open ~/.shrc
 ```
-	ouvrir le fichier et coller.
+ouvrir le fichier et coller.
 ``` sh
 alias W='cc -Wall -Wextra -Werror'
 ```
 ``` sh
 source ~/.shrc
 ```
-	appliquer les modifications.<br>
+appliquer les modifications.<br>
 
 ###		STDHEADER 42 //
 
