@@ -16,40 +16,60 @@
 
 ###		COMMANDES BASIQUES //
 
-* `git add .`<br>
+``` sh
+git add .
+```
 	ajoute tous les fichiers a l'expediteur.<br>
-* `git commit -m "#commentary"`<br>
+``` sh
+git commit -m "#commentary"
+```
 	package tous les fichiers.<br>
-* `git push`<br>
+``` sh
+git push
+```
 	envoie tous les fichiers a git, c'est fini.<br>
-* `git rm .file`<br>
+ ``` sh
+git rm .file
+```
 	supprime un fichier du commit.<br>
-* `git clone git@github.com:yJuste/#repository.git`<br>
+``` sh
+git clone git@github.com:yJuste/#repository.git
+```
 	clone le git de github.<br>
 
 ##	SHELL //
 
 ###		ALIAS CC -WALL -WEXTRA -WERROR //
 
-* `touch ~/.shrc`
+``` sh
+touch ~/.shrc
+```
 	creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
 
-* `open ~/.shrc`
-	ouvrir le fichier et coller.<br>
-	``` sh
-	alias W='cc -Wall -Wextra -Werror'
-	```
-* `source ~/.shrc`
+``` sh
+open ~/.shrc
+```
+	ouvrir le fichier et coller.
+``` sh
+alias W='cc -Wall -Wextra -Werror'
+```
+``` sh
+source ~/.shrc
+```
 	appliquer les modifications.<br>
 
 ###		STDHEADER 42 //
 
 Pour installer le header 42 sur sa machine, aller sur le site :<br>
-* `https://github.com/42Paris/42header`
+``` sh
+https://github.com/42Paris/42header
+```
 Les informations sont clairs et precis. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
 Faites le directement dans le terminal avec ~/... ou vous pouvez l'avoir partout'<br>
 Apres avoir coller les informations dans zshrc, vous pouvez utiliser les commandes :<br>
-* `vim file.txt`
+```
+vim file.txt
+```
 * Dans vim, vous faites CTRL + :<br>
 * Vous ecrivez soit Stdheader, soit Std, soit vous appuyez sur F1.<br>
 * Le header apparait.<br>
@@ -62,7 +82,10 @@ Apres avoir coller les informations dans zshrc, vous pouvez utiliser les command
 ###			GPUSWITCH //
 
 * Sur Macos, on peut changer le basculement pour gerer la puissance du gpu. Si vous ne faites que coder et vous ne compilez pas, vous pouvez mettre le gpu au plus bas et inversement.<br>
-La commande est : `pmset gpuswitch [0, 1, 2]`<br>
+La commande est :
+``` sh
+pmset gpuswitch [0, 1, 2]
+```
 Le niveau 0 est le gpu integre et consomme moins, moins de puissance.<br>
 Le niveau 1 est le gpu haute performance, consomme plus, toujours puissant.<br>
 Le niveau 2 est le mode automatique, le mac decide de lui meme quand changer.<br>
@@ -71,9 +94,13 @@ Le niveau 2 est le mode automatique, le mac decide de lui meme quand changer.<br
 
 * Si tu veux un outil pour identifier les fuites de memoires, tu peux utiliser "Leaks", l'outil de deboggage par defaut de Xcode.<br>
 Il faut tout d'abord initialiser :<br>
-* `export MallocStackLogging=1`
+``` sh
+export MallocStackLogging=1
+```
 * Ensuite tu peux lancer leaks :<br>
-* `leaks --atExit -- ./a.out [parameters]`
+``` sh
+leaks --atExit -- ./a.out [parameters]
+```
 Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees. Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.<br>
 
 ###		CODIUM ( COPILOT POUR XCODE ) //
