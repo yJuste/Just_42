@@ -113,6 +113,36 @@ Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.
 	- Enregistrer un compte avec SIGN IN.<br>
 * Codium est pret.<br>
 
+###		DEBUGGING //
+
+* Tout d'abord, si tu peux debugger par toi-meme avec une feuille de papier et un stylo, tu seras beaucoup plus concentré et tu comprendras mieux ton code en fond. Le debugging sert surtout pour les fuites de mémoire.
+* Creer un algorithme avec un logiciel de debug est à proscrire, vraiment.
+* Donc, j'utilise `lldb`.
+Juste avant, vous devez compiler tout tes fichiers avec -g, ex :
+``` sh
+cc -g mon-fichier.c
+```
+Ensuite, vous devez lancer lldb :
+``` sh
+lldb mon-fichier.c [parametres]
+```
+Mettre les parametres va suivre le deroulement pour ce cas particulier. Tu peux tester avec plusieurs autres parametres en fonction de ton code.
+Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c'est un endroit d'entrée. Car le point d'entree par defaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, ex :
+``` sh
+breakpoint set --name main
+```
+Ceci est le main par defaut, pour une fonction comme :		int	ft_get_next_line(int fd)
+``` sh
+breakpoint set --name ft_get_next_line
+```
+* Il y aura alors une interface ou tu pourras naviguer, les commandes a retenir sont `s`, `n`, `finish`. (s = step, n = next) (tu dois juste marquer la lettre).
+``` sh
+`s` : avancer pas a pas, instruction par instruction
+`n` : pas a pas mais si il rencontre une fonction, il le passe (comme si il avait terminé la fonction pointé.)
+`finish` : si tu es dans une fonction, tu termines la fonction en cours (tu dois etre dans la fonction.)
+```
+Pour quitter, tu fais `q` (q = quit).
+
 ##	/: EOF
 
 Modifié le 9 octobre 2024 par Juste.<br>
