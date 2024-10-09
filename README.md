@@ -1,10 +1,10 @@
 # Just_42
 
-##// INTRO
+## // INTRO
 
 * Voici le tronc commun de 42, tous les exos sont affiches.
 
-##/. HELP
+## /. HELP
 
 * Toutes ces manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
 * J'utilise comme IDE : Xcode.
@@ -16,25 +16,24 @@
 
 ##	GIT //
 
-####		COMMANDES BASIQUES //
+###		COMMANDES BASIQUES //
 
-> git add .
+> `git add .`
 	ajoute tous les fichiers a l'expediteur.
-> git commit -m "#commentary"
+> `git commit -m "#commentary"`
 	package tous les fichiers.
-> git push
+> `git push`
 	envoie tous les fichiers a git, c'est fini.
-> git rm #file
+> `git rm .file`
 	supprime un fichier du commit.
 >>> git clone git@github.com:yJuste/#repository.git
 	clone le git de github.
 
 
 
-		SHELL //
+SHELL //
 
-
-	ALIAS CC -WALL -WEXTRA -WERROR //
+ALIAS CC -WALL -WEXTRA -WERROR //
 
 >>> touch ~/.shrc
 	creer un fichier si ton shell est sur /bin/zsh (echo $SHELL )
