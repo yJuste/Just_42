@@ -46,6 +46,10 @@ int	ft_dict(char *filename, char *nb, int *sign, int *filename_flg)
 	return (0);
 }
 
+/* add in line 9-10, for another language.
+if (_num->filename_flg == 2)
+	ft_separate_fr(sub_numbers, _num->nb);
+*/
 int	ft_dict_init(t_num *_num, char ***sub_numbers)
 {
 	_num->final_nb = ft_malloc(sizeof(char) * 1);
@@ -57,8 +61,6 @@ int	ft_dict_init(t_num *_num, char ***sub_numbers)
 	_num->tmp = 0;
 	if (_num->filename_flg == 1)
 		ft_separate(sub_numbers, _num->nb);
-	else if (_num->filename_flg == 2)
-		ft_separate_fr(sub_numbers, _num->nb);
 	else
 	{
 		free(_num->final_nb);

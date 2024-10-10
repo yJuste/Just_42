@@ -16,9 +16,9 @@
 // --------------PROTOTYPE-----------------
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
-int		ft_strlen(const char *str);
-int		ft_error(void);
 void	ft_free_str(char **str);
+int		ft_strlen(const char *str);
+int		ft_error(int error);
 // ----------------------------------------
 
 void	ft_putchar(char c)
@@ -29,22 +29,6 @@ void	ft_putchar(char c)
 void	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
-}
-
-int	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_error(void)
-{
-	ft_putstr("Dict Error\n");
-	return (-1);
 }
 
 void	ft_free_str(char **str)
@@ -60,4 +44,30 @@ void	ft_free_str(char **str)
 		i++;
 	}
 	free(str);
+}
+
+int	ft_strlen(const char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	ft_error(int error)
+{
+	char		*red;
+	char		*reset;
+
+	red = "\033[1;31m";
+	reset = "\033[0m";
+	if (error == -1)
+	{
+		ft_putstr(red);
+		ft_putstr("Dict Error\n");
+		ft_putstr(reset);
+	}
+	return (error);
 }

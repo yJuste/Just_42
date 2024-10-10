@@ -12,6 +12,7 @@
 /*   • Functions for accessing dictionary values.                    PART 2   */
 /*        -> ft_isdigit, ft_isspace, ft_isprint, ft_strjoin                   */
 /*        -> malloc                                                           */
+/*        -> Bonus for the main                                               */
 /* ************************************************************************** */
 #include "includes/main.h"
 
@@ -19,6 +20,9 @@
 void	ft_equivalent(t_num *_num, char *line);
 void	ft_join_equivalent(t_num *_num, char **str);
 void	ft_tiret(t_num *_num);
+
+char	*ft_read(const char *message, const char *default_vle);
+char	*ft_read_get_default(const char *default_vle);
 // -------------------------------------------------
 
 void	ft_equivalent(t_num *_num, char *line)
@@ -66,4 +70,44 @@ void	ft_tiret(t_num *_num)
 	chr = "-";
 	_num->final_nb = ft_strjoin(_num->final_nb, chr);
 	return ;
+}
+
+/*	------------------------------Bonus------------------------------
+	--------- Allows the program to run without arguments. ----------
+	---------     Used in the main.c but I had no room.    ----------
+	------------                 ._.                   --------------
+	-----------------------------------------------------------------*/
+
+char	*ft_read(const char *message, const char *default_vle)
+{
+	char		buffer[42];
+	ssize_t		len;
+
+	write(STDOUT_FILENO, message, ft_strlen(message));
+	len = read(STDIN_FILENO, buffer, 42 - 1);
+	if (len >= 42)
+		return (NULL);
+	if (len >= 0 && buffer[len - 1] == '\n')
+		buffer[len - 1] = '\0';
+	if (buffer[0] == '\0')
+		return (ft_read_get_default(default_vle));
+	return (ft_strdup(buffer));
+}
+
+char	*ft_read_get_default(const char *default_vle)
+{
+	char		*default_cpy;
+
+	if (default_vle != NULL)
+	{
+		if (default_vle[ft_strlen(default_vle) - 1] == '\n')
+		{
+			default_cpy = ft_strdup(default_vle);
+			default_cpy[ft_strlen(default_cpy) - 1] = '\0';
+		}
+		else
+			default_cpy = ft_strdup(default_vle);
+		return (default_cpy);
+	}
+	return (NULL);
 }

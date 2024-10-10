@@ -65,15 +65,15 @@ char	*ft_read_f_save(int fd, char *f_save);
 char	*ft_get_line(char *f_save);
 char	*ft_next_line(char *f_save);
 
-//	----------MY-LIBRARY----------
+//	----------MY LIBRARY----------
 
 // ft_lib.c
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
-int		ft_strlen(const char *str);
-int		ft_error(void);
 void	ft_free_str(char **str);
+int		ft_strlen(const char *str);
+int		ft_error(int error);
 
 // ft_lib2.c
 
@@ -96,11 +96,12 @@ char	*ft_strcpy(char *dest, char *src);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 
-//	----------MY-CODE----------
+//	----------MY CODE----------
 
 // main.c
 
 int		main(int argc, char **argv);
+int		ft_get_args(int argc, char **argv, char **filename, char **param);
 int		ft_init(char **filename, char *nb);
 void	ft_get_dict(char **filename, int *filename_flg);
 void	ft_select_dict(char **filename, char *lw_filename,
@@ -151,7 +152,10 @@ void	ft_equivalent(t_num *_num, char *line);
 void	ft_join_equivalent(t_num *_num, char **str);
 void	ft_tiret(t_num *_num);
 
-//	-----ALGORITHM-FOR-ENGLISH-----
+char	*ft_read(const char *message, const char *default_vle);
+char	*ft_read_get_default(const char *default_vle);
+
+//	-----ALGORITHM FOR ENGLISH-----
 
 // rush-07.c
 
@@ -168,23 +172,5 @@ void	ft_get_100(t_sep *_sep, char **str, char *nb);
 void	ft_get_power(t_sep *_sep, char **str);
 void	ft_get_power_2(t_sep *_sep, char **str, int *flg);
 void	ft_get_power_3(t_sep *_sep, char **str, int *flg);
-
-//	----ALGORITHM-FOR-FRENCH-----
-
-// rush-09.c
-
-void	ft_separate_fr(char ***separated, char *nb);
-void	ft_alloc_str_fr(char ***str);
-void	ft_trio_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_2_digits_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_2_digits_next_fr(t_sep *_sep, char **str, char *nb);
-
-// rush-10.c
-
-void	ft_get_digit_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_100_fr(t_sep *_sep, char **str, char *nb);
-void	ft_get_power_fr(t_sep *_sep, char **str);
-void	ft_get_power_2_fr(t_sep *_sep, char **str, int *flg);
-void	ft_get_power_3_fr(t_sep *_sep, char **str, int *flg);
 
 #endif

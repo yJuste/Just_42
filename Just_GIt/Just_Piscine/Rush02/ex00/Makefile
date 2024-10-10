@@ -16,9 +16,7 @@ SRC =	srcs/ft_get_next_line.c	\
 	rush-05.c		\
 	rush-06.c		\
 	rush-07_en.c		\
-	rush-08_en.c		\
-	rush-09_fr.c		\
-	rush-10_fr.c
+	rush-08_en.c
 
 OBJ = $(SRC:.c=.o)
 
