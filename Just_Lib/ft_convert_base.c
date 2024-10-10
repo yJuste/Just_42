@@ -13,39 +13,41 @@
 /*   • Prototype:   CHAR* ( char *nbr, char *base_from, char *base_to )       */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
+#include <unistd.h>
 #include <stdlib.h>
 
-// file 1/2
-
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
-int		ft_check_base(char *base);
-int		ft_len(int nbr, int base_len);
 void	ft_putnbr_base(int nbr, char *base, char *res, int *i);
-
-// file 2/2
-
-int		ft_atoi_base(char *str, char *base);
-int		ft_res(char *str, char *base, int i);
 size_t	ft_strlen(const char *str);
+int		ft_check_base(char *str);
+int		ft_findchr(char *base, char c);
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		i;
 	int		nb;
-	int		len;
+	int		i;
+	int		sign;
 	char	*res;
 
-	i = 0;
+	res = malloc(sizeof(char) * 42);
 	if (ft_check_base(base_from) < 2 || ft_check_base(base_to) < 2)
 		return (0);
-	nb = ft_atoi_base(nbr, base_from);
-	len = ft_len(nb, ft_check_base(base_to));
-	res = malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
+	nb = 0;
 	i = 0;
-	ft_putnbr_base(nb, base_to, res, &i);
-	res[i++] = '\0';
+	sign = 1;
+	while (nbr[i] == ' ' || (nbr[i] >= '\t' && nbr[i] <= '\r'))
+		i++;
+	while (nbr[i] == '-' || nbr[i] == '+')
+	{
+		if (nbr[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_findchr(base_from, nbr[i]) != -1)
+		nb = nb * ft_check_base(base_from) + (ft_findchr(base_from, nbr[i]));
+	i = 0;
+	ft_putnbr_base((nb * sign), base_to, res, &i);
+	res[i] = 0;
 	return (res);
 }
 
@@ -74,45 +76,46 @@ int	ft_check_base(char *base)
 	return (i);
 }
 
-int	ft_len(int nbr, int base_len)
-{
-	int		len;
-	long	n;
-
-	len = 0;
-	n = nbr;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	while (n > 0)
-	{
-		n /= base_len;
-		len++;
-	}
-	return (len);
-}
-
 void	ft_putnbr_base(int nbr, char *base, char *res, int *i)
 {
-	int long	n;
+	int long	nbl;
 	int			b;
 
 	b = ft_check_base(base);
-	n = nbr;
-	if (n < 0)
+	nbl = nbr;
+	if (nbl < 0)
 	{
-		res[(*i)++] = '-';
-		n *= -1;
+		(*i)++;
+		res[*i] = '-';
+		nbl *= -1;
 	}
-	if (n >= b)
+	if (nbl >= b)
+		ft_putnbr_base(nbl / b, base, res, i);
+	(*i)++;
+	res[*i] = base[nbl % b];
+	return ;
+}
+
+int	ft_findchr(char *base, char c)
+{
+	int	i;
+
+	i = 0;
+	while (base[i])
 	{
-		ft_putnbr_base(n / b, base, res, i);
-		ft_putnbr_base(n % b, base, res, i);
+		if (base[i] == c)
+			return (i);
+		i++;
 	}
-	else
-		res[(*i)++] = base[n];
+	return (-1);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
