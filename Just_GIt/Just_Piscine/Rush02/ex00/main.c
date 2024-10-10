@@ -43,19 +43,21 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+/* ---Bonus in rush-06.c / line 0-1---
+if (argc == 1)
+{
+	*filename = ft_read("Enter dict. : ", "Dictionnaries/englishUS.dict");
+	if (*filename == NULL)
+		return (-1);
+	*param = ft_read("Enter number : ", NULL);
+	if (*param == NULL)
+		return (-1);
+	return (0);
+ }
+*/
 int	ft_get_args(int argc, char **argv, char **filename, char **param)
 {
-	if (argc == 1)
-	{
-		*filename = ft_read("Enter dict. : ", "Dictionnaries/englishUS.dict");
-		if (*filename == NULL)
-			return (-1);
-		*param = ft_read("Enter number : ", NULL);
-		if (*param == NULL)
-			return (-1);
-		return (0);
-	}
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		*filename = ft_strdup("Dictionnaries/englishUS.dict");
 		*param = ft_strdup(argv[1]);

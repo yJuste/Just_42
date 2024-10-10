@@ -75,8 +75,8 @@ void	ft_tiret(t_num *_num)
 /*	------------------------------Bonus------------------------------
 	--------- Allows the program to run without arguments. ----------
 	---------     Used in the main.c but I had no room.    ----------
-	------------                 ._.                   --------------
-	-----------------------------------------------------------------*/
+	---------                      ._.                     ----------
+	-----------------------------------------------------------------
 
 char	*ft_read(const char *message, const char *default_vle)
 {
@@ -111,3 +111,4 @@ char	*ft_read_get_default(const char *default_vle)
 	}
 	return (NULL);
 }
+*/
