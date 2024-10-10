@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 /*   • Converts a number into its literal value.                              */
 /*   • ./a.out ([ dictionnary ]) [ number ]                                   */
-/*      -> dictionnary   [ en, fr ]                                           */
+/*      -> dictionnary   [ en ]                                               */
 /*      -> number        [ -10^39 < x < +10^39 ]                              */
 /*        -> ft_error, ft_strdup, ft_strtolower, ft_strcmp                    */
 /*        -> free                                                             */

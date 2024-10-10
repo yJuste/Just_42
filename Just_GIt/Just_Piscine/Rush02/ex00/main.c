@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 /*   • Converts a number into its literal value.                              */
 /*   • ./a.out ([ dictionnary ]) [ number ]                                   */
-/*      -> dictionnary   [ en, fr ]                                           */
+/*      -> dictionnary   [ en ]                                               */
 /*      -> number        [ -10^39 < x < +10^39 ]                              */
 /*        -> ft_error, ft_strdup, ft_strtolower, ft_strcmp                    */
 /*        -> free                                                             */
@@ -43,20 +43,19 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-/* ---Bonus in rush-06.c / line 0-1---
-if (argc == 1)
-{
-	*filename = ft_read("Enter dict. : ", "Dictionnaries/englishUS.dict");
-	if (*filename == NULL)
-		return (-1);
-	*param = ft_read("Enter number : ", NULL);
-	if (*param == NULL)
-		return (-1);
-	return (0);
- }
-*/
+// ---Bonus in rush-06.c / line 1-10---
 int	ft_get_args(int argc, char **argv, char **filename, char **param)
 {
+	if (argc == 1)
+	{
+		*filename = ft_read("Enter dict. : ", "Dictionnaries/englishUS.dict");
+		if (*filename == NULL)
+			return (-1);
+		*param = ft_read("Enter number : ", NULL);
+		if (*param == NULL)
+			return (-1);
+		return (0);
+	}
 	if (argc == 2)
 	{
 		*filename = ft_strdup("Dictionnaries/englishUS.dict");
