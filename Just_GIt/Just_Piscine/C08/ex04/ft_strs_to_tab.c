@@ -12,14 +12,28 @@
 #include <stdlib.h>
 #include "ft_stock_str.h"
 
-size_t	ft_strlen(const char *str)
+struct s_stock_str	*ft_strs_to_tab(int argc, char **argv);
+char				*ft_strdup(const char *src);
+size_t				ft_strlen(const char *str);
+
+struct s_stock_str	*ft_strs_to_tab(int argc, char **argv)
 {
-	size_t		i;
+	int			i;
+	t_stock_str	*_stock_str;
 
 	i = 0;
-	while (str[i])
+	_stock_str = malloc(sizeof(t_stock_str) * (argc + 1));
+	if (_stock_str == NULL)
+		return (NULL);
+	while (i < argc)
+	{
+		_stock_str[i].size = ft_strlen(argv[i]);
+		_stock_str[i].str = argv[i];
+		_stock_str[i].copy = ft_strdup(argv[i]);
 		i++;
-	return (i);
+	}
+	_stock_str[i].str = 0;
+	return (_stock_str);
 }
 
 char	*ft_strdup(const char *src)
@@ -42,22 +56,12 @@ char	*ft_strdup(const char *src)
 	return (dst);
 }
 
-struct s_stock_str	*ft_strs_to_tab(int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
-	int			i;
-	t_stock_str	*_stock_str;
+	size_t		i;
 
 	i = 0;
-	_stock_str = malloc(sizeof(t_stock_str) * (argc + 1));
-	if (_stock_str == NULL)
-		return (NULL);
-	while (i < argc)
-	{
-		_stock_str[i].size = ft_strlen(argv[i]);
-		_stock_str[i].str = argv[i];
-		_stock_str[i].copy = ft_strdup(argv[i]);
+	while (str[i])
 		i++;
-	}
-	_stock_str[i].str = 0;
-	return (_stock_str);
+	return (i);
 }

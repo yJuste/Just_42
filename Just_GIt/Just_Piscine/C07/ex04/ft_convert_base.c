@@ -25,7 +25,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		sign;
 	char	*res;
 
-	res = malloc(sizeof(char) * 36);
+	res = malloc(sizeof(char) * 42);
 	if (ft_check_base(base_from) < 2 || ft_check_base(base_to) < 2)
 		return (0);
 	nb = 0;
@@ -40,10 +40,10 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		i++;
 	}
 	while (ft_findchr(base_from, nbr[i]) != -1)
-		nb = nb * ft_check_base(base_from) + (ft_findchr(base_from, nbr[i++]));
+		nb = nb * ft_check_base(base_from) + (ft_findchr(base_from, nbr[i]));
 	i = 0;
 	ft_putnbr_base((nb * sign), base_to, res, &i);
-	res[i++] = 0;
+	res[i] = 0;
 	return (res);
 }
 
@@ -81,26 +81,28 @@ void	ft_putnbr_base(int nbr, char *base, char *res, int *i)
 	nbl = nbr;
 	if (nbl < 0)
 	{
-		res[++(*i)] = '-';
+		(*i)++;
+		res[*i] = '-';
 		nbl *= -1;
 	}
 	if (nbl >= b)
-	{
 		ft_putnbr_base(nbl / b, base, res, i);
-		ft_putnbr_base(nbl % b, base, res, i);
-	}
-	else
-		res[++(*i)] = base[nbl];
+	(*i)++;
+	res[*i] = base[nbl % b];
+	return ;
 }
 
 int	ft_findchr(char *base, char c)
 {
 	int	i;
 
-	i = -1;
-	while (base[++i])
+	i = 0;
+	while (base[i])
+	{
 		if (base[i] == c)
 			return (i);
+		i++;
+	}
 	return (-1);
 }
 

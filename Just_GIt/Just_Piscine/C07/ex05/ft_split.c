@@ -11,45 +11,10 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_is_sep(char c, char *charset)
-{
-	size_t		i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_strdup(const char *src, int start, int end)
-{
-	char		*dst;
-	size_t		i;
-
-	i = 0;
-	dst = malloc(sizeof(char) * (end - start + 1));
-	while (i < end - start)
-	{
-		dst[i] = src[start + i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
+char	**ft_split(char *str, char *charset);
+char	*ft_strdup(const char *src, int start, int end);
+int		ft_is_sep(char c, char *charset);
+size_t	ft_strlen(const char *str);
 
 char	**ft_split(char *str, char *charset)
 {
@@ -77,4 +42,44 @@ char	**ft_split(char *str, char *charset)
 	}
 	res[substr] = NULL;
 	return (res);
+}
+
+char	*ft_strdup(const char *src, int start, int end)
+{
+	char		*dst;
+	size_t		i;
+
+	i = 0;
+	dst = malloc(sizeof(char) * (end - start + 1));
+	while (i < end - start)
+	{
+		dst[i] = src[start + i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+int	ft_is_sep(char c, char *charset)
+{
+	size_t		i;
+
+	i = 0;
+	while (charset[i])
+	{
+		if (c == charset[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -12,14 +12,29 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ft_strlen(char *str)
+int		ft_atoi_base(char *str, char *base);
+int		ft_check_base(char *base);
+int		ft_res(char *str, char *base, int i);
+size_t	ft_strlen(char *str);
+
+int	ft_atoi_base(char *str, char *base)
 {
+	int			sign;
 	size_t		i;
 
+	if (!ft_check_base(base))
+		return (0);
 	i = 0;
-	while (str[i])
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	return (i);
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	return (ft_res(str, base, i) * sign);
 }
 
 int	ft_check_base(char *base)
@@ -70,22 +85,12 @@ int	ft_res(char *str, char *base, int i)
 	return (res);
 }
 
-int	ft_atoi_base(char *str, char *base)
+size_t	ft_strlen(char *str)
 {
-	int			sign;
 	size_t		i;
 
-	if (!ft_check_base(base))
-		return (0);
 	i = 0;
-	sign = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i])
 		i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	return (ft_res(str, base, i) * sign);
+	return (i);
 }

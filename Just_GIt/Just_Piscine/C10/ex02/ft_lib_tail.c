@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_lib_tail.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,71 +9,69 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
+#include "./ft_tail.h"
 
-void	ft_putnbr_base(int nbr, char *base);
-int		ft_check_base(char *base);
+// ---------------PROTOTYPE-------------------
+int		ft_strcmp(char *s1, char *s2);
+int		ft_atoi(char *str);
+int		ft_tolower(int c);
+int		ft_isdigit(int c);
 size_t	ft_strlen(char *str);
-void	ft_putchar(char c);
+// -------------------------------------------
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_strcmp(char *s1, char *s2)
 {
-	long int	nb;
-
-	nb = nbr;
-	if (!ft_check_base(base))
-		return ;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= ft_strlen(base))
-	{
-		ft_putnbr_base(nb / ft_strlen(base), base);
-		ft_putnbr_base(nb % ft_strlen(base), base);
-	}
-	else
-		ft_putchar(base[nb]);
-}
-
-int	ft_check_base(char *base)
-{
-	size_t		i;
-	size_t		j;
+	int	i;
 
 	i = 0;
-	if (ft_strlen(base) < 2)
-		return (0);
-	while (base[i])
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int	ft_atoi(char *str)
+{
+	ssize_t		i;
+	ssize_t		res;
+	ssize_t		sign;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if (base[i] == '+' || base[i] == '-'
-			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13))
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
+		if (str[i] == '-')
+			sign = -sign;
 		i++;
 	}
-	return (1);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (sign * res);
+}
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
 }
 
 size_t	ft_strlen(char *str)
 {
-	size_t		i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
 }

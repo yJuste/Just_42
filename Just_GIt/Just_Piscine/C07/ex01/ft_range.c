@@ -13,29 +13,18 @@
 
 int	*ft_range(int start, int end)
 {
+	int			*tab;
 	size_t		i;
-	int			len;
-	int			*res;
 
 	i = 0;
-	len = end - start;
-	if (len < 0)
-		len = -len;
-	res = (int *)malloc(sizeof(int) * (len + 1));
-	while (i < len)
+	if (start >= end)
+		return (NULL);
+	tab = (int *)malloc(sizeof(int) * (end - start));
+	while (start < end)
 	{
-		if (start < end)
-		{
-			res[i] = start;
-			start++;
-			i++;
-		}
-		else
-		{
-			res[i] = start;
-			start--;
-			i++;
-		}
+		tab[i] = end;
+		i++;
+		end++;
 	}
-	return (res);
+	return (tab);
 }

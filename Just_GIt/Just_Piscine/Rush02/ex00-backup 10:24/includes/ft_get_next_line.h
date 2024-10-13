@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,18 +9,30 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the length of a str.                                           */
-/*   • Prototype:   SIZE_T ( char *str )                                      */
-/*        -> size_t                                                           */
+/*   • Read a line from a file.                                               */
+/*        -> ft_strchr, ft_strlen, ft_strjoin                                 */
+/*        -> malloc, free, buffer, read                                       */
 /* ************************************************************************** */
-#include <stdlib.h>
+#ifndef FT_GET_NEXT_LINE_H
+# define FT_GET_NEXT_LINE_H
 
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
+// Buffer
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_GET_LINE 60 // BUFFER_MIN = 50 | BUFFER_MAX = 100
+# endif
+
+// ft_get_next_line.c
+
+char		*ft_get_next_line(int fd);
+char		*ft_read_f_save(int fd, char *f_save);
+char		*ft_get_line(char *f_save);
+char		*ft_next_line(char *f_save);
+
+// In other libraries
+
+int			ft_strlen(const char *str);
+char		*ft_strchr(char *s, int c);
+char		*ft_strjoin(char *s1, char *s2);
+
+#endif

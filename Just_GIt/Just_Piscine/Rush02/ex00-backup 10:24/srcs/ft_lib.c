@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_show_tab.c                                      :+:      :+:    :+:   */
+/*   ft_lib.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,41 +9,29 @@
 /*   Updated:   by 42                                 ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include "ft_stock_str.h"
+/*   • First Library.                                                         */
+/* ************************************************************************** */
+#include "../includes/main.h"
 
-void	ft_show_tab(struct s_stock_str *par)
+// --------------PROTOTYPE-----------------
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+int		ft_strlen(const char *str);
+int		ft_error(void);
+void	ft_free_str(char **str);
+// ----------------------------------------
+
+void	ft_putchar(char c)
 {
-	int		i;
-
-	i = 0;
-	while (par[i].str)
-	{
-		ft_putstr(par[i].str);
-		ft_putstr("\n");
-		ft_putnbr(par[i].size);
-		ft_putstr("\n");
-		ft_putstr(par[i].copy);
-		ft_putstr("\n");
-		i++;
-	}
-	return ;
+	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putstr(char *str)
 {
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-	}
-	if (nb / 10 > 0)
-		ft_putnbr(nb / 10);
-	ft_putchar(nb % 10 + '0');
-	return ;
+	write(1, str, ft_strlen(str));
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	size_t		i;
 
@@ -53,12 +41,23 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str)
+int	ft_error(void)
 {
-	write(1, str, ft_strlen(str));
+	ft_putstr("Dict Error\n");
+	return (-1);
 }
 
-void	ft_putchar(char c)
+void	ft_free_str(char **str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (i < BUFFER_SEP + 1)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

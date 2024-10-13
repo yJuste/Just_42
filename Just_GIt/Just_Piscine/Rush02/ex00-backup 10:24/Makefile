@@ -16,7 +16,9 @@ SRC =	srcs/ft_get_next_line.c	\
 	rush-05.c		\
 	rush-06.c		\
 	rush-07_en.c		\
-	rush-08_en.c
+	rush-08_en.c		\
+	rush-09_fr.c		\
+	rush-10_fr.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,8 +44,5 @@ rf : re
 	@rm -f $(OBJ)
 	@rm -f $(NAME)
 	@echo $(RED)"--- EXECUTABLE ./$(NAME) is removed ---"$(RESET)
-
-s:
-	ls -lh $(NAME)
 
 .PHONY: all clean fclean re rf
