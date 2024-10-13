@@ -10,17 +10,17 @@ Rush01 - 120.0 %
 Rush02 - 115.0 % // other language ( fr )
 
 	DAYS/:
-C00 - ~90.0 % / ft_print_combn
+C00 -  90.0 % / ft_print_combn
 C01 - 100.0 %
-C02 - ~90.0 % / print_memory
+C02 -  90.0 % / print_memory
 C03 - 100.0 %
 C04 - 100.0 %
-C05 -  50.0 % / ft_ten_queens_puzzle
+C05 -  90.0 % / ft_ten_queens_puzzle
 C06 - 100.0 %
 C07 - 100.0 %
 C08 - 100.0 %
 C09 - 100.0 %
-C10 - in progress
-C11 - ...
+C10 -  75.0 % / hexdump
+C11 - in progress
 C12 - ...
 C13 - ...

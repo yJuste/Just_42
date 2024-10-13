@@ -24,18 +24,18 @@ void	ft_tail(t_range *_range, int fd, char *arg)
 {
 	char		buffer[29500];
 	ssize_t		b_read;
-	ssize_t		total_read;
+	ssize_t		t_read;
 	ssize_t		to_read;
 
-	total_read = 0;
+	t_read = 0;
 	to_read = _range->size;
 	b_read = read(fd, buffer, sizeof(buffer));
 	while (b_read > 0)
 	{
-		total_read += b_read;
-		if (total_read > to_read)
+		t_read += b_read;
+		if (t_read > to_read)
 		{
-			write(1, buffer + (total_read - to_read), to_read);
+			write(1, buffer + (t_read - to_read), to_read);
 			return ;
 		}
 		write(1, buffer, b_read);
@@ -73,7 +73,7 @@ int	ft_echo(char **argv)
 
 int	ft_read_file(char **content)
 {
-	char	buffer[1024];
+	char	buffer[29500];
 	char	*tmp;
 	int		t_read;
 	int		b_read;
