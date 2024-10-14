@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush-04.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Rush_id : 2                                                            */
+/*   • Rush_id : 4                                                            */
 /*   • Displays :                                                             */
-/*     ABBA                                                                   */
+/*     ABBC                                                                   */
 /*     B  B                                                                   */
 /*     B  B                                                                   */
-/*     CBBC                                                                   */
+/*     CBBA                                                                   */
 /*      -> ft_putchar                                                         */
 /* ************************************************************************** */
 #include "main.h"
 
-// --------------------------PROTOTYPE-----------------------------
-void	rush02(int x, int y);
-int		print_corner02(int xi, int yi, int maxX, int maxY);
-int		print_edge02(int xi, int yi, int maxX, int maxY);
-// ----------------------------------------------------------------
+// ----------------------------PROTOTYPE------------------------------
+void	ft_rush04(int x, int y);
+int		ft_print_corner04(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge04(int xi, int yi, int maxX, int maxY);
+// -------------------------------------------------------------------
 
-void	rush02(int x, int y)
+void	ft_rush04(int x, int y)
 {
 	int	xi;
 	int	yi;
@@ -36,9 +36,9 @@ void	rush02(int x, int y)
 		xi = 0;
 		while (xi < x)
 		{
-			if (print_corner02(xi, yi, x - 1, y - 1) == 0)
+			if (ft_print_corner04(xi, yi, x - 1, y - 1) == 0)
 			{
-				if (print_edge02(xi, yi, x - 1, y - 1) == 0)
+				if (ft_print_edge04(xi, yi, x - 1, y - 1) == 0)
 					ft_putchar(' ');
 			}
 			xi++;
@@ -48,14 +48,19 @@ void	rush02(int x, int y)
 	}
 }
 
-int	print_corner02(int xi, int yi, int maxX, int maxY)
+int	ft_print_corner04(int xi, int yi, int maxX, int maxY)
 {
-	if ((yi == 0 && xi == 0) || (yi == 0 && xi == maxX))
+	if (xi == 0 && yi == 0)
 	{
 		ft_putchar('A');
 		return (1);
 	}
-	if ((yi == maxY && xi == 0) || (yi == maxY && xi == maxX))
+	if (xi == maxX && yi == maxY && maxY != 0 && maxX != 0)
+	{
+		ft_putchar('A');
+		return (1);
+	}
+	if ((xi == maxX && yi == 0) || (xi == 0 && yi == maxY))
 	{
 		ft_putchar('C');
 		return (1);
@@ -63,14 +68,9 @@ int	print_corner02(int xi, int yi, int maxX, int maxY)
 	return (0);
 }
 
-int	print_edge02(int xi, int yi, int maxX, int maxY)
+int	ft_print_edge04(int xi, int yi, int maxX, int maxY)
 {
-	if (xi == 0 || xi == maxX)
-	{
-		ft_putchar('B');
-		return (1);
-	}
-	if (yi == 0 || yi == maxY)
+	if (xi == 0 || xi == maxX || yi == 0 || yi == maxY)
 	{
 		ft_putchar('B');
 		return (1);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Displays a rectangle.                                                  */
@@ -30,34 +30,34 @@ void	ft_putstr(char *str);
 // main.c
 
 int		main(int argc, char **argv);
-void	run_rush(int rush_id, int x, int y);
+void	ft_run_rush(int rush_id, int x, int y);
 
-// rush00.c
+// rush-00.c
 
-void	rush00(int x, int y);
-int		print_corner00(int xi, int yi, int maxX, int maxY);
-int		print_edge00(int xi, int yi, int maxX, int maxY);
+void	ft_rush00(int x, int y);
+int		ft_print_corner00(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge00(int xi, int yi, int maxX, int maxY);
 
-// rush01.c
+// rush-01.c
 
-void	rush01(int x, int y);
-int		print_corner01(int xi, int yi, int maxX, int maxY);
-int		print_edge01(int xi, int yi, int maxX, int maxY);
+void	ft_rush01(int x, int y);
+int		ft_print_corner01(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge01(int xi, int yi, int maxX, int maxY);
 
-// rush02.c
+// rush-02.c
 
-void	rush02(int x, int y);
-int		print_corner02(int xi, int yi, int maxX, int maxY);
-int		print_edge02(int xi, int yi, int maxX, int maxY);
+void	ft_rush02(int x, int y);
+int		ft_print_corner02(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge02(int xi, int yi, int maxX, int maxY);
 
-// rush03.c
+// rush-03.c
 
-void	rush03(int x, int y);
+void	ft_rush03(int x, int y);
 
-// rush04.c
+// rush-04.c
 
-void	rush04(int x, int y);
-int		print_corner04(int xi, int yi, int maxX, int maxY);
-int		print_edge04(int xi, int yi, int maxX, int maxY);
+void	ft_rush04(int x, int y);
+int		ft_print_corner04(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge04(int xi, int yi, int maxX, int maxY);
 
 #endif

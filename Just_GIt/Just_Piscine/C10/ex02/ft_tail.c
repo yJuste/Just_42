@@ -5,17 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./ft_tail.h"
 
 // ----------------------PROTOTYPE-------------------------
 int	main(int argc, char **argv);
-int	ft_range(int argc, char **argv);
-int	ft_range_2(t_range *_range, int argc, char **argv);
-int	ft_range_3(t_range *_range, char **argv);
+int	ft_lrange(int argc, char **argv);
+int	ft_lrange_2(t_range *_range, int argc, char **argv);
+int	ft_lrange_3(t_range *_range, char **argv);
 int	ft_init(t_range *_range, int argc, char **argv);
 // --------------------------------------------------------
 
@@ -38,13 +38,13 @@ int	main(int argc, char **argv)
 			ft_tail_error(-2, "");
 			return (-1);
 		}
-		if (ft_range(argc, argv) == -1)
+		if (ft_lrange(argc, argv) == -1)
 			return (-1);
 	}
 	return (0);
 }
 
-int	ft_range(int argc, char **argv)
+int	ft_lrange(int argc, char **argv)
 {
 	int		i;
 	t_range	_range;
@@ -65,14 +65,14 @@ int	ft_range(int argc, char **argv)
 			return (-1);
 		}
 	}
-	if (ft_range_2(&_range, argc, argv) == -1)
+	if (ft_lrange_2(&_range, argc, argv) == -1)
 		return (-1);
 	return (0);
 }
 
-int	ft_range_2(t_range *_range, int argc, char **argv)
+int	ft_lrange_2(t_range *_range, int argc, char **argv)
 {
-	if (ft_range_3(_range, argv) == -1)
+	if (ft_lrange_3(_range, argv) == -1)
 		return (-1);
 	if (argc == 3)
 	{
@@ -84,7 +84,7 @@ int	ft_range_2(t_range *_range, int argc, char **argv)
 	return (0);
 }
 
-int	ft_range_3(t_range *_range, char **argv)
+int	ft_lrange_3(t_range *_range, char **argv)
 {
 	int		i;
 

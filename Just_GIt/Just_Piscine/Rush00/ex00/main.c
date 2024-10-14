@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Displays a rectangle.                                                  */
@@ -17,10 +17,10 @@
 /* ************************************************************************** */
 #include "main.h"
 
-// --------------PROTOTYPE------------------
+// ----------------PROTOTYPE-------------------
 int		main(int argc, char **argv);
-void	run_rush(int rush_id, int x, int y);
-// -----------------------------------------
+void	ft_run_rush(int rush_id, int x, int y);
+// -------------------------------------------
 
 int	main(int argc, char **argv)
 {
@@ -32,11 +32,11 @@ int	main(int argc, char **argv)
 		ft_putstr(" [rush_id] [x] [y]\n");
 		return (1);
 	}
-	run_rush(ft_atoi(argv[1]), ft_atoi(argv[2]), ft_atoi(argv[3]));
+	ft_run_rush(ft_atoi(argv[1]), ft_atoi(argv[2]), ft_atoi(argv[3]));
 	return (0);
 }
 
-void	run_rush(int rush_id, int x, int y)
+void	ft_run_rush(int rush_id, int x, int y)
 {
 	if (x <= 0 || y <= 0)
 	{
@@ -44,17 +44,15 @@ void	run_rush(int rush_id, int x, int y)
 		return ;
 	}
 	if (rush_id == 0)
-		rush00(x, y);
+		ft_rush00(x, y);
 	else if (rush_id == 1)
-		rush01(x, y);
+		ft_rush01(x, y);
 	else if (rush_id == 2)
-		rush02(x, y);
+		ft_rush02(x, y);
 	else if (rush_id == 3)
-		rush03(x, y);
+		ft_rush03(x, y);
 	else if (rush_id == 4)
-		rush04(x, y);
+		ft_rush04(x, y);
 	else
-	{
 		ft_putstr("Rush not found. [0-4]\n");
-	}
 }

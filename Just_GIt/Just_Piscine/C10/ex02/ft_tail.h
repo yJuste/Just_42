@@ -36,9 +36,9 @@ typedef struct s_range
 // ft_tail.c
 
 int		main(int argc, char **argv);
-int		ft_range(int argc, char **argv);
-int		ft_range_2(t_range *_range, int argc, char **argv);
-int		ft_range_3(t_range *_range, char **argv);
+int		ft_lrange(int argc, char **argv);
+int		ft_lrange_2(t_range *_range, int argc, char **argv);
+int		ft_lrange_3(t_range *_range, char **argv);
 int		ft_init(t_range *_range, int argc, char **argv);
 
 // ft_tail_2.c

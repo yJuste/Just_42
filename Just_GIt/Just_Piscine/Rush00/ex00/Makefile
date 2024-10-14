@@ -3,7 +3,7 @@ NAME = rush-00
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c rush00.c rush01.c rush02.c rush03.c rush04.c ft_lib.c
+SRC = main.c rush-00.c rush-01.c rush-02.c rush-03.c rush-04.c ft_lib.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)

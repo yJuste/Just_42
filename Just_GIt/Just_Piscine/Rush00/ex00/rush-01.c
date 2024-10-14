@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush01.c                                           :+:      :+:    :+:   */
+/*   rush-01.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Rush_id : 1                                                            */
@@ -19,13 +19,13 @@
 /* ************************************************************************** */
 #include "main.h"
 
-// --------------------------PROTOTYPE-----------------------------
-void	rush01(int x, int y);
-int		print_corner01(int xi, int yi, int maxX, int maxY);
-int		print_edge01(int xi, int yi, int maxX, int maxY);
-// ----------------------------------------------------------------
+// ----------------------------PROTOTYPE------------------------------
+void	ft_rush01(int x, int y);
+int		ft_print_corner01(int xi, int yi, int maxX, int maxY);
+int		ft_print_edge01(int xi, int yi, int maxX, int maxY);
+// -------------------------------------------------------------------
 
-void	rush01(int x, int y)
+void	ft_rush01(int x, int y)
 {
 	int	xi;
 	int	yi;
@@ -36,9 +36,9 @@ void	rush01(int x, int y)
 		xi = 0;
 		while (xi < x)
 		{
-			if (print_corner01(xi, yi, x - 1, y - 1) == 0)
+			if (ft_print_corner01(xi, yi, x - 1, y - 1) == 0)
 			{
-				if (print_edge01(xi, yi, x - 1, y - 1) == 0)
+				if (ft_print_edge01(xi, yi, x - 1, y - 1) == 0)
 					ft_putchar(' ');
 			}
 			xi++;
@@ -48,7 +48,7 @@ void	rush01(int x, int y)
 	}
 }
 
-int	print_corner01(int xi, int yi, int maxX, int maxY)
+int	ft_print_corner01(int xi, int yi, int maxX, int maxY)
 {
 	if (yi == 0 && xi == 0)
 	{
@@ -73,7 +73,7 @@ int	print_corner01(int xi, int yi, int maxX, int maxY)
 	return (0);
 }
 
-int	print_edge01(int xi, int yi, int maxX, int maxY)
+int	ft_print_edge01(int xi, int yi, int maxX, int maxY)
 {
 	if (xi == 0 || xi == maxX)
 	{

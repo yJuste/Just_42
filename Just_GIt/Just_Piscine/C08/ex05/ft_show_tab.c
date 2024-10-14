@@ -5,12 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include "ft_stock_str.h"
+
+void	ft_show_tab(struct s_stock_str *par);
+void	ft_putnbr(int nb);
+size_t	ft_strlen(const char *str);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
 
 void	ft_show_tab(struct s_stock_str *par)
 {
