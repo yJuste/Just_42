@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns a str with a capital letter on the 1st letter of a wd.         */

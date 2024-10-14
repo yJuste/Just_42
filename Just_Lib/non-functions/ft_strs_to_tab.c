@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns a structure array.                                             */
-/*   • Prototype:   STRUCT* ( int ac, char** av )                             */
+/*   • Prototype:   STRUCT* ( int argc, char **argv )                         */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

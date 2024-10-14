@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Divides & mod.                                                         */
@@ -15,8 +15,8 @@
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
-	int		div;
-	int		mod;
+	int	div;
+	int	mod;
 
 	div = *a / *b;
 	mod = *a % *b;

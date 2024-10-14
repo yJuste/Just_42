@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by 42                                  #+#    #+#             */
-/*   Updated:   by 42                                 ###   ########.fr       */
+/*   Created:   by Just'                               #+#    #+#             */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Divides & mod.                                                         */
-/*   • Prototype:   VOID ( int a, int b, int* div, int* mod )                 */
+/*   • Prototype:   VOID ( int a, int b, int *div, int *mod )                 */
 /* ************************************************************************** */
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
