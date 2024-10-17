@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Converts alpha into int from a base.                                   */
-/*   • Prototype:   INT ( char *str, char *base )                             */
+/*   • Prototype:   INT ( char *, char * )                                    */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

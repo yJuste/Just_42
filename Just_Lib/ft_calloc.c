@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Allocates and initializes memory.                                      */
-/*   • Prototype:   VOID* ( int size_of, int size )                           */
+/*   • Prototype:   VOID * ( int, int )                                       */
 /*        -> malloc                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

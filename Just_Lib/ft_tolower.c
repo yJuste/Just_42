@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns the lower-case equivalent of an upper-case character.          */
-/*   • Prototype:   INT ( int c )                                             */
+/*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)

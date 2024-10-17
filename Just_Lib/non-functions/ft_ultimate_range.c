@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns all int from in start to in end.                               */
-/*   • Prototype:   INT ( int **range, int start, int end )                   */
+/*   • Prototype:   INT ( int **, int, int )                                  */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

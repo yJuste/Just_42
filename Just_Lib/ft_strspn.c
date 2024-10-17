@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns the index of the exact occurences of a str.                    */
-/*   • Prototype:   SIZE_T ( char *s, char *accept )                          */
+/*   • Prototype:   SIZE_T ( char *, char * )                                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

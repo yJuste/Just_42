@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns a str with a capital letter on the 1st letter of a wd.         */
-/*   • Prototype:   VOID ( char *str )                                        */
+/*   • Prototype:   VOID ( char * )                                           */
 /*        -> write, size_t                                                    */
 /* ************************************************************************** */
 #include <unistd.h>

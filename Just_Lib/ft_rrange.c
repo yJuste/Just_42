@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns an arr of int from max to min value.                           */
-/*   • Prototype:   INT* ( int start, int end )                               */
+/*   • Prototype:   INT * ( int, int )                                        */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

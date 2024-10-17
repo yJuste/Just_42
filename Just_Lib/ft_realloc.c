@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Reallocates memory.                                                    */
-/*   • Prototype:   VOID* ( void* ptr, int old_size, int new_size )           */
+/*   • Prototype:   VOID * ( void *, int, int )                               */
 /*        -> malloc, free                                                     */
 /* ************************************************************************** */
 #include <stdlib.h>

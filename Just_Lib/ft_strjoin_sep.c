@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Gathers str of char based on a separator.                              */
-/*   • Prototype:   CHAR* ( int size, char **strs, char *sep )                */
+/*   • Prototype:   CHAR * ( int, char **, char * )                           */
 /*        -> malloc                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

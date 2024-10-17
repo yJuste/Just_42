@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Calculates the greatest common divisor of 2 num.                       */
-/*   • Prototype:   int ( int a, int b )                                      */
+/*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
 
 int	ft_pgcd(int a, int b)

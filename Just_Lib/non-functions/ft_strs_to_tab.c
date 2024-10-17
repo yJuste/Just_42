@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns a structure array.                                             */
-/*   • Prototype:   STRUCT* ( int argc, char **argv )                         */
+/*   • Prototype:   STRUCT * ( int , char ** )                                */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

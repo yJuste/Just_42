@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Calculates the least common divisor of 2 num.                          */
-/*   • Prototype:   INT ( int a, int b )                                      */
+/*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
 
 int	lcm(int a, int b)

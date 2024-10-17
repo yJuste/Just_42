@@ -10,40 +10,65 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Converts an int to a str.                                              */
-/*   • Prototype:   CHAR* ( int nbr )                                         */
+/*   • Prototype:   CHAR * ( int )                                            */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>
 
 char	*ft_itoa(int nbr);
-char	*ft_strdup(char *src);
-int		ft_len(int nbr, int base_len);
-void	ft_res(int nbr, int len, char *result);
+void	ft_itoa_next(int nbr, char *res, int len);
+char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *str);
 
 char	*ft_itoa(int nbr)
 {
+	int		n;
 	int		len;
-	char	*result;
-	int		flg;
+	char	*res;
 
-	flg = nbr < 0;
+	n = nbr;
+	len = 0;
 	if (nbr == -2147483648)
 		return (ft_strdup("-2147483648"));
-	if (flg)
-		nbr = -nbr;
-	len = ft_len(nbr, 10) + flg;
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (result == NULL)
+	if (nbr <= 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	res = malloc(sizeof(char) * (len + 1));
+	if (res == NULL)
 		return (NULL);
-	ft_res(nbr, len - 1, result);
-	return (result);
+	ft_itoa_next(nbr, res, len);
+	return (res);
 }
 
-char	*ft_strdup(char *src)
+void	ft_itoa_next(int nbr, char *res, int len)
 {
-	int		i;
-	char	*dest;
+	res[len] = '\0';
+	if (nbr == 0)
+	{
+		res[0] = '0';
+		return ;
+	}
+	if (nbr < 0)
+	{
+		res[0] = '-';
+		nbr = -nbr;
+	}
+	while (nbr)
+	{
+		res[--len] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	return ;
+}
+
+char	*ft_strdup(const char *src)
+{
+	size_t		i;
+	char		*dest;
 
 	i = 0;
 	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
@@ -56,50 +81,6 @@ char	*ft_strdup(char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-int	ft_len(int nbr, int base_len)
-{
-	int		len;
-	long	n;
-
-	len = 0;
-	n = nbr;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	while (n > 0)
-	{
-		n /= base_len;
-		len++;
-	}
-	return (len);
-}
-
-void	ft_res(int nbr, int len, char *result)
-{
-	if (nbr == 0)
-	{
-		result[0] = '0';
-		result[1] = '\0';
-		return ;
-	}
-	if (nbr < 0)
-	{
-		result[0] = '-';
-		nbr = -nbr;
-	}
-	result[len--] = '\0';
-	while (nbr > 0)
-	{
-		result[len - 1] = nbr % 10 + '0';
-		nbr /= 10;
-		len--;
-	}
 }
 
 size_t	ft_strlen(const char *str)

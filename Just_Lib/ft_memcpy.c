@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Copies to n bytes a memory block.                                      */
-/*   • Prototype:   VOID* ( void *dst, void *src, size_t n)                   */
+/*   • Prototype:   VOID * ( void *, void *, size_t )                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

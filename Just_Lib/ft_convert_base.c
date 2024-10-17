@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Converts an int from one base to another.                              */
-/*   • Prototype:   CHAR* ( char *nbr, char *base_from, char *base_to )       */
+/*   • Prototype:   CHAR * ( char *, char *, char * )                         */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <unistd.h>

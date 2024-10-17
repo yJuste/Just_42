@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns the lowercase equivalent of an uppercase string.               */
-/*   • Prototype:   CHAR* ( char *str )                                       */
+/*   • Prototype:   CHAR * ( char * )                                         */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

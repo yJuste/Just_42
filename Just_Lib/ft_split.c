@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns an arr of arr defined by a separator.                          */
-/*   • Prototype:   CHAR** ( char *str, char *charset )                       */
+/*   • Prototype:   CHAR ** ( char *, char * )                                */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
 #include <stdlib.h>

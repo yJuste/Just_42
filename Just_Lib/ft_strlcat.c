@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Duplicates a str to a size.                                            */
-/*   • Prototype:   INT ( char *dest, char *src, int size )                   */
+/*   • Prototype:   INT ( char *, char *, int )                               */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

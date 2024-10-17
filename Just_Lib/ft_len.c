@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Calculates the len of a num.                                           */
-/*   • Prototype:   INT ( int nbr, int base_len )                             */
+/*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
 
 int	ft_len(int nbr, int base_len)

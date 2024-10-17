@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns the fibonnacci sequence at an index.                           */
-/*   • Prototype:   INT ( int index )                                         */
+/*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
 
 int	ft_fibonacci(int index)

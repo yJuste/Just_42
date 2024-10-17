@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Concatenates a str to n bytes.                                         */
-/*   • Prototype:   CHAR* ( char *dest, char *src, size_t n )                 */
+/*   • Prototype:   CHAR * ( char *, char *, size_t )                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
 #include <stdlib.h>

@@ -23,7 +23,7 @@ Les fichiers qui vous sont donnes sont disponible pour votre confort. Elles s'ut
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Returns an arr of arr defined by a separator.                          */
-/*   • Prototype:   CHAR** ( char *str, char *charset )                       */
+/*   • Prototype:   CHAR ** ( char *, char * )                                */
 /*        -> malloc ( sizeof(type) * size )                                   */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
@@ -38,7 +38,18 @@ Le header de 42 qui se compose :
 * des fonctions externes utilises
 * ( > de la bibliotheque qui se trouve en dessous )
 
-/: EOF
+/: PROTOTYPE
+
+Pour rechercher une fonction dans le dossier Just_Lib, soit :
+* Vous marquez le nom de la fonction,
+* Soit vous écrivez le prototypage avec comme patterne :
+[type][space][*][space] ( [space][type][space][*][,][space][type][space][*][space][,]... )
+
+ex (pour ft_split): "CHAR ** ( char *, char * )"
+(pour ft_putchar): "VOID ( char )"
+(pour ft_calloc): "VOID * ( int, int )"
+
+/:. EOF
 
 * Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
 Et Don't Panic!
