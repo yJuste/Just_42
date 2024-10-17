@@ -27,7 +27,7 @@ size_t	ft_strlen(const char *str)
 
 void	*ft_malloc(int size)
 {
-	void	*ptr;
+	void		*ptr;
 
 	ptr = malloc(size);
 	if (ptr == NULL)
@@ -37,9 +37,9 @@ void	*ft_malloc(int size)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	c;
-	char	*str;
+	size_t		i;
+	size_t		c;
+	char		*str;
 
 	if (!s1)
 	{

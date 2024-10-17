@@ -21,3 +21,13 @@ void	ft_swap(int *a, int *b)
 	*a = *b;
 	*b = x;
 }
+
+// Ajout de pointeur et change en chaine de caracteres
+void	ft_swap_extra(char **a, char **b)
+{
+	char		*x;
+
+	x = *a;
+	*a = *b;
+	*b = x;
+}

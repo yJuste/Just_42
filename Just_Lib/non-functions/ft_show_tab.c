@@ -38,7 +38,7 @@ void	ft_putstr(char *str)
 
 void	ft_putnbr(int nb)
 {
-	char	c;
+	char		c;
 
 	if (nb < 0)
 	{

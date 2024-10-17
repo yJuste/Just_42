@@ -23,7 +23,7 @@ void	ft_putstr(char *str)
 
 void	ft_swap(char **a, char **b)
 {
-	char	*x;
+	char		*x;
 
 	x = *a;
 	*a = *b;

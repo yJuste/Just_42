@@ -34,9 +34,9 @@ void	ft_mid(char i, char j, char k)
 
 void	ft_print_comb(void)
 {
-	char	i;
-	char	j;
-	char	k;
+	char		i;
+	char		j;
+	char		k;
 
 	i = '0';
 	while (i <= '7')

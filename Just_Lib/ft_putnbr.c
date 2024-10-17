@@ -39,7 +39,6 @@ void	ft_putnbr(int nbr)
 }
 
 // mini ft_putnbr
-
 void	ft_putnbr(int nb)
 {
 	if (nb < 0)

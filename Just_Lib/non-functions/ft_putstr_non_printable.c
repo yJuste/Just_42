@@ -23,7 +23,7 @@ void	ft_putchar(char c)
 
 void	ft_hex(unsigned char c)
 {
-	char	*hex;
+	char		*hex;
 
 	hex = "0123456789abcdef";
 	ft_putchar('\\');

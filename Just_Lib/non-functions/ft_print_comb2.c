@@ -28,8 +28,8 @@ void	ft_dual_digit(int nb)
 
 void	ft_print_comb2(void)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < 99)

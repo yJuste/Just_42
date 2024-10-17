@@ -98,7 +98,7 @@ void	ft_putnbr_base(int nbr, char *base, char *res, int *i)
 
 int	ft_findchr(char *base, char c)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (base[i])
