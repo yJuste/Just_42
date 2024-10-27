@@ -35,9 +35,17 @@ int	main(int argc, char **argv)
 	filename = NULL;
 	param = NULL;
 	if (ft_get_args(argc, argv, &filename, &param) == -1)
+	{
+		free(filename);
+		free(param);
 		return (ft_error(-1));
+	}
 	if (ft_init(&filename, param) == -1)
+	{
+		free(filename);
+		free(param);
 		return (ft_error(-1));
+	}
 	free(filename);
 	free(param);
 	return (0);
@@ -73,19 +81,22 @@ int	ft_get_args(int argc, char **argv, char **filename, char **param)
 
 int	ft_init(char **filename, char *nb)
 {
-	char	*f_nb;
-	int		sign;
 	int		filename_flg;
+	int		sign;
+	char	*f_nb;
 
-	f_nb = 0;
-	sign = 0;
 	filename_flg = 0;
+	sign = 0;
+	f_nb = NULL;
 	ft_get_dict(filename, &filename_flg);
 	if (!*filename)
 		return (-1);
 	if (ft_check_format(nb, &f_nb, &sign) == -1)
+	{
+		free(f_nb);
 		return (-1);
-	if (ft_dict(*filename, f_nb, &sign, &filename_flg) == -1)
+	}
+	if (ft_dict(*filename, &f_nb, &sign, &filename_flg) == -1)
 	{
 		free(f_nb);
 		return (-1);
@@ -117,6 +128,7 @@ void	ft_get_dict(char **filename, int *filename_flg)
 		dict = "Dictionnaries/french.dict";
 	}
 	ft_select_dict(filename, lw_filename, dict, filename_flg);
+	free(lw_filename);
 	return ;
 }
 
@@ -130,16 +142,11 @@ void	ft_select_dict(char **filename, char *lw_filename,
 		*filename_flg = 3;
 		dict = "Dictionnaries/spanish.dict";
 	}
-	free(lw_filename);
+	if (*filename)
+		free(*filename);
 	if (dict)
-	{
-		free(*filename);
 		*filename = ft_strdup(dict);
-	}
 	else
-	{
-		free(*filename);
 		*filename = NULL;
-	}
 	return ;
 }

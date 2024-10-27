@@ -117,7 +117,7 @@ char	*ft_trim_zero(char *nb);
 
 // rush-02.c
 
-int		ft_dict(char *filename, char *nb, int *sign, int *filename_flg);
+int		ft_dict(char *filename, char **nb, int *sign, int *filename_flg);
 int		ft_dict_init(t_num *_num, char ***sub_numbers);
 int		ft_print_equivalent(t_num *_num, char **sub_numbers, char *line);
 void	ft_append_sign(t_num *_num);

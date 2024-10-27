@@ -16,35 +16,31 @@
 #include "includes/main.h"
 
 // ----------------------------------PROTOTYPE----------------------------------
-int		ft_dict(char *filename, char *nb, int *sign, int *filename_flg);
+int		ft_dict(char *filename, char **nb, int *sign, int *filename_flg);
 int		ft_dict_init(t_num *_num, char ***sub_numbers);
 int		ft_print_equivalent(t_num *_num, char **sub_numbers, char *line);
 void	ft_append_sign(t_num *_num);
 void	ft_print_final_nb(t_num *_num);
 // -----------------------------------------------------------------------------
 
-int	ft_dict(char *filename, char *nb, int *sign, int *filename_flg)
+int	ft_dict(char *filename, char **nb, int *sign, int *filename_flg)
 {
 	char	**sub_numbers;
 	char	*line;
 	t_num	_num;
 
 	_num.filename = filename;
-	_num.nb = nb;
+	_num.nb = *nb;
 	_num.sign = *sign;
 	_num.filename_flg = *filename_flg;
 	line = NULL;
 	sub_numbers = NULL;
-	if (ft_strlen(nb) >= 40)
-	{
-		free(nb);
+	if (ft_strlen(*nb) >= 40)
 		return (-1);
-	}
 	if (ft_dict_init(&_num, &sub_numbers) == -1)
 		return (-1);
 	if (ft_print_equivalent(&_num, sub_numbers, line) == -1)
 	{
-		free(_num.final_nb);
 		ft_free_str(sub_numbers);
 		return (-1);
 	}
@@ -119,8 +115,6 @@ void	ft_append_sign(t_num *_num)
 				ft_putstr("minus ");
 			if (_num->filename_flg == 2)
 				ft_putstr("moins ");
-			if (_num->filename_flg == 3)
-				ft_putstr("menos ");
 		}
 		_num->sign_flg = 1;
 	}
