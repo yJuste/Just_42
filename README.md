@@ -19,23 +19,23 @@
 ``` sh
 git add .
 ```
-ajoute tous les fichiers a l'expediteur.<br>
+'-> ajoute tous les fichiers a l'expediteur.<br>
 ``` sh
 git commit -m "#commentary"
 ```
-package tous les fichiers.<br>
+'-> package tous les fichiers.<br>
 ``` sh
 git push
 ```
-envoie tous les fichiers a git, c'est fini.<br>
+'-> envoie tous les fichiers a git, c'est fini.<br>
  ``` sh
 git rm .file
 ```
-supprime un fichier du commit.<br>
+'-> supprime un fichier du commit.<br>
 ``` sh
 git clone git@github.com:yJuste/#repository.git
 ```
-clone le git de github.<br>
+'-> clone le git de github.<br>
 
 ##	SHELL //
 
@@ -44,18 +44,18 @@ clone le git de github.<br>
 ``` sh
 touch ~/.shrc
 ```
-creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
+'-> creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
 ``` sh
 open ~/.shrc
 ```
-ouvrir le fichier et coller.
+'-> ouvrir le fichier et coller.
 ``` sh
 alias W='cc -Wall -Wextra -Werror'
 ```
 ``` sh
 source ~/.shrc
 ```
-appliquer les modifications.<br>
+'-> appliquer les modifications.<br>
 
 ###		STDHEADER 42 //
 
@@ -63,13 +63,13 @@ Pour installer le header 42 sur sa machine, aller sur le site :<br>
 ``` sh
 https://github.com/42Paris/42header
 ```
-Les informations sont clairs et precis. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
+Les informations sont clairs et precises. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
 Faites le directement dans le terminal avec ~/... ou vous pouvez l'avoir partout'<br>
 Apres avoir coller les informations dans zshrc, vous pouvez utiliser les commandes :<br>
 ```
 vim file.txt
 ```
-* Dans vim, vous faites CTRL + :<br>
+* Dans vim, vous faites `CTRL + :`<br>
 * Vous ecrivez soit Stdheader, soit Std, soit vous appuyez sur F1.<br>
 * Le header apparait.<br>
 
