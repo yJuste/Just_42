@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,44 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
+/*   • Get each line from a file.                                             */
+/*   • Prototype:   CHAR * ( int )                                            */
+/*        -> malloc, size_t, static                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#ifndef FT_GET_NEXT_LINE_H
+# define FT_GET_NEXT_LINE_H
 
-char	*ft_strdup(const char *src)
+// Standard Libraries
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
+
+// Buffers
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 60
+# endif
+
+# ifndef MAX_LINE
+#  define MAX_LINE 50000
+# endif
+
+// Structure
+
+typedef struct s_lne
 {
-	char	*dest;
-	int		i;
+	char	buffer[BUFFER_SIZE];
+	int		read_bf;
+	int		pos_bf;
+	int		fd;
+}	t_lne;
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
+// ft_get_next_line.c
+
+char	*ft_get_next_line(int fd);
+int		ft_get_line(t_lne *_lne, char *line, int *i);
+char	*ft_strdup(const char *src);
+
+#endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,71 +9,73 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Converts an int to a str.                                              */
+/*   • Get each line from a file.                                             */
 /*   • Prototype:   CHAR * ( int )                                            */
-/*        -> malloc, size_t                                                   */
+/*        -> malloc, size_t, static                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "ft_get_next_line.h"
 
-char	*ft_itoa(int nbr);
-void	ft_itoa_next(int nbr, char *res, int len);
+// don't forget to free the line !
+
+char	*ft_get_next_line(int fd);
+int		ft_get_line(t_lne *_lne, char *line, int *i);
 char	*ft_strdup(const char *src);
-size_t	ft_strlen(const char *str);
 
-char	*ft_itoa(int nbr)
+char	*ft_get_next_line(int fd)
 {
-	int		n;
-	int		len;
-	char	*res;
+	static t_lne	_lne;
+	char			line[MAX_LINE];
+	int				i;
 
-	n = nbr;
-	len = 0;
-	if (nbr == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (nbr <= 0)
-		len++;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	res = malloc(sizeof(char) * (len + 1));
-	if (!res)
+	i = 0;
+	_lne.fd = fd;
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_itoa_next(nbr, res, len);
-	return (res);
+	if (ft_get_line(&_lne, line, &i) == -1)
+		return (NULL);
+	line[i] = '\0';
+	if (i == 0)
+		return (NULL);
+	return (ft_strdup(line));
 }
 
-void	ft_itoa_next(int nbr, char *res, int len)
+int	ft_get_line(t_lne *_lne, char *line, int *i)
 {
-	res[len] = '\0';
-	if (nbr == 0)
+	int		flg;
+
+	flg = 0;
+	while (flg < MAX_LINE)
 	{
-		res[0] = '0';
-		return ;
+		if (_lne->pos_bf >= _lne->read_bf)
+		{
+			_lne->read_bf = read(_lne->fd, _lne->buffer, BUFFER_SIZE);
+			_lne->pos_bf = 0;
+			if (_lne->read_bf <= 0)
+				break ;
+		}
+		if (line[*i] == '\n')
+			break ;
+		line[*i] = _lne->buffer[_lne->pos_bf++];
+		(*i)++;
+		flg++;
 	}
-	if (nbr < 0)
-	{
-		res[0] = '-';
-		nbr = -nbr;
-	}
-	while (nbr)
-	{
-		res[--len] = nbr % 10 + '0';
-		nbr /= 10;
-	}
-	return ;
+	if (flg == MAX_LINE)
+		return (-1);
+	return (0);
 }
 
 char	*ft_strdup(const char *src)
 {
-	size_t		i;
 	char		*dest;
+	size_t		i;
 
 	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
-	if (dest == NULL)
+	while (src[i])
+		i++;
+	dest = malloc(sizeof(char) * (i + 1));
+	if (!dest)
 		return (NULL);
+	i = 0;
 	while (src[i])
 	{
 		dest[i] = src[i];
@@ -81,14 +83,4 @@ char	*ft_strdup(const char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

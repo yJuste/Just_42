@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,16 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
-/* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	char	*dest;
-	int		i;
+	int	i;
 
 	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	while (i < length)
 	{
-		dest[i] = src[i];
+		f(tab[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return ;
 }

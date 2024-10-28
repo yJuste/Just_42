@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,21 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
-/* ************************************************************************** */
 #include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
-	char	*dest;
 	int		i;
+	int		*n_tab;
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
+	n_tab = malloc(sizeof(int) * length);
+	if (!n_tab)
 		return (NULL);
 	i = 0;
-	while (src[i])
+	while (i < length)
 	{
-		dest[i] = src[i];
+		n_tab[i] = f(tab[i]);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (n_tab);
 }

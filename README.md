@@ -37,6 +37,15 @@ git clone git@github.com:yJuste/#repository.git
 ```
 '-> clone le git de github.<br>
 
+``` sh
+git reset --hard <id-commit>
+```
+'-> revient a une ancienne version de git.<br>
+``` sh
+git push --force
+```
+'-> suite a reset, tu appliques les modifications.<br>
+
 ##	SHELL //
 
 ###		ALIAS CC -WALL -WEXTRA -WERROR //

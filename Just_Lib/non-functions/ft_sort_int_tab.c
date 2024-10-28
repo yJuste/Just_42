@@ -26,19 +26,17 @@ void	ft_swap(int *a, int *b)
 
 void	ft_sort_int_tab(int *tab, int size)
 {
-	size_t		i;
-	size_t		j;
+	int		i;
 
 	i = 0;
 	while (i < size - 1)
 	{
-		j = 0;
-		while (j < size - 1 - i)
+		if (tab[i] > tab[i + 1])
 		{
-			if (tab[j] > tab[j + 1])
-				ft_swap(&tab[j], &tab[j + 1]);
-			j++;
+			ft_swap(&tab[i], &tab[i + 1]);
+			i = 0;
 		}
-		i++;
+		else
+			i++;
 	}
 }

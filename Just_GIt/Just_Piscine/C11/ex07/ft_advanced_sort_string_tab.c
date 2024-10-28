@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_advanced_sort_string_tab.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,39 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
-/* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *));
+void	ft_swap_extra(char **a, char **b);
+
+void	ft_advanced_sort_string_tab(char **tab, int (*cmp)(char *, char *))
 {
-	char	*dest;
-	int		i;
+	int	size;
+	int	i;
+	int	j;
 
+	size = 0;
+	while (tab[size])
+		size++;
 	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	while (i < size - 1)
 	{
-		dest[i] = src[i];
+		j = 0;
+		while (j < size - 1 - i)
+		{
+			if (cmp(tab[j], tab[j + 1]) > 0)
+				ft_swap_extra(&tab[j], &tab[j + 1]);
+			j++;
+		}
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return ;
+}
+
+void	ft_swap_extra(char **a, char **b)
+{
+	char	*x;
+
+	x = *a;
+	*a = *b;
+	*b = x;
 }

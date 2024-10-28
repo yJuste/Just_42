@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_operator.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,41 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
-/* ************************************************************************** */
-#include <stdlib.h>
+#include "ft_do_op.h"
 
-char	*ft_strdup(const char *src)
+int	ft_add(int a, int b);
+int	ft_sub(int a, int b);
+int	ft_div(int a, int b);
+int	ft_mult(int a, int b);
+int	ft_mod(int a, int b);
+
+int	ft_add(int a, int b)
 {
-	char	*dest;
-	int		i;
+	return (a + b);
+}
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+int	ft_sub(int a, int b)
+{
+	return (a - b);
+}
+
+int	ft_mult(int a, int b)
+{
+	return (a * b);
+}
+
+int	ft_div(int a, int b)
+{
+	if (b != 0)
+		return (a / b);
+	else
+		return (0);
+}
+
+int	ft_mod(int a, int b)
+{
+	if (b != 0)
+		return (a % b);
+	else
+		return (0);
 }

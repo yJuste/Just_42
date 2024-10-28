@@ -15,72 +15,75 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-char	**ft_split(char *str);
-int		ft_split_word_count(char *str);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	**ft_split(char *str, char *charset);
+char	*ft_strdup_split(char *src, int start, int end);
+int		ft_is_sep(char c, char *charset);
+size_t	ft_strlen(const char *str);
 
-// pas de gestion d'erreur de malloc
-char	**ft_split(char *str)
+char	**ft_split(char *str, char *charset)
 {
+	char		**res;
+	int			start;
+	int			substr;
 	int		i;
-	int		j;
-	int		k;
-	char	**str_split;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	str_split = malloc(sizeof(char *) * (ft_split_word_count(str) + 1));
+	start = 0;
+	substr = 0;
+	res = malloc(sizeof(char *) * (ft_strlen(str) + 1));
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (str[i] && ft_is_sep(str[i], charset))
 			i++;
-		j = i;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+		start = i;
+		while (str[i] && !ft_is_sep(str[i], charset))
 			i++;
-		if (i > j)
+		if (start < i)
 		{
-			str_split[k] = malloc(sizeof(char) * ((i - j) + 1));
-			ft_strncpy(str_split[k++], &str[j], i - j);
+			res[substr] = ft_strdup_split(str, start, i);
+			substr++;
 		}
 	}
-	str_split[k] = NULL;
-	return (str_split);
+	res[substr] = NULL;
+	return (res);
 }
 
-int	ft_split_word_count(char *str)
+char	*ft_strdup_split(char *src, int start, int end)
 {
+	char		*res;
 	int		i;
-	int		word_count;
 
+	res = malloc(sizeof(char) * (end - start + 1));
 	i = 0;
-	word_count = 0;
-	while (str[i])
+	while (i < end - start)
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
-			i++;
-		if (str[i])
-			word_count++;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
-			i++;
+		res[i] = src[start + i];
+		i++;
 	}
-	return (word_count);
+	res[i] = '\0';
+	return (res);
 }
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_is_sep(char c, char *charset)
 {
 	size_t		i;
 
 	i = 0;
-	while (src[i] && i < n)
+	while (charset[i])
 	{
-		dest[i] = src[i];
+		if (c == charset[i])
+			return (1);
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
+	return (0);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t		i;
+
+	i = 0;
+	while (str[i])
 		i++;
-	}
-	return (dest);
+	return (i);
 }

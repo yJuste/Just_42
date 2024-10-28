@@ -25,40 +25,26 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	*ft_malloc(int size)
-{
-	void		*ptr;
-
-	ptr = malloc(size);
-	if (ptr == NULL)
-		return (NULL);
-	return (ptr);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t		i;
-	size_t		c;
+	size_t		j;
 	char		*str;
 
-	if (!s1)
-	{
-		s1 = ft_malloc(sizeof(char) * 1);
-		s1[0] = '\0';
-	}
-	if (!s2)
+	if (!s1 || !s2)
 		return (NULL);
-	str = ft_malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (s1[i] != '\0')
+	while (s1[i])
 	{
 		str[i] = s1[i];
 		i++;
 	}
-	c = 0;
-	while (s2[c] != '\0')
-		str[i++] = s2[c++];
+	j = 0;
+	while (s2[j])
+		str[i++] = s2[j++];
 	str[i] = '\0';
-	free(s1);
 	return (str);
 }

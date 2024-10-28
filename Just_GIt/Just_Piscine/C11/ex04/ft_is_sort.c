@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,25 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str.                                                      */
-/*   • Prototype:   CHAR * ( char * )                                         */
-/*        -> size_t                                                           */
-/* ************************************************************************** */
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	char	*dest;
 	int		i;
+	int		up;
+	int		down;
 
 	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
+	up = 1;
+	down = 1;
+	while (i < length - 1)
 	{
-		dest[i] = src[i];
+		if (f(tab[i], tab[i + 1]) < 0)
+			up = 0;
+		if (f(tab[i], tab[i + 1]) > 0)
+			down = 0;
+		if (!up && !down)
+			return (0);
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (up || down);
 }
