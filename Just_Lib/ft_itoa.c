@@ -18,8 +18,8 @@
 char	*ft_itoa(int nbr);
 void	ft_itoa_next(int nbr, char *res, int len);
 char	*ft_strdup(const char *src);
-size_t	ft_strlen(const char *str);
 
+// utilise : getconf INT_MAX pour connaitre la valeure max d'un int.
 char	*ft_itoa(int nbr)
 {
 	int		n;
@@ -81,14 +81,4 @@ char	*ft_strdup(const char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

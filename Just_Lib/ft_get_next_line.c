@@ -21,6 +21,7 @@ char	*ft_get_next_line(int fd);
 int		ft_get_line(t_lne *_lne, char *line, int *i);
 char	*ft_strdup(const char *src);
 
+// get_next_line sur la heap
 char	*ft_get_next_line(int fd)
 {
 	static t_lne	_lne;
@@ -84,3 +85,35 @@ char	*ft_strdup(const char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
+/* ----------ft_get_next_line_mini sur la stack----------
+char	*get_next_line_mini(int fd)
+{
+	static char	buffer[BUFFER_SIZE];
+	static int	buf_read;
+	static int 	buf_pos;
+	char		line[50000];
+	int			i;
+
+	i = 0;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	while (1)
+	{
+		if (buf_pos >= buf_read)
+		{
+			buf_read = read(fd, buffer, BUFFER_SIZE);
+			buf_pos = 0;
+			if (buf_read <= 0)
+				break ;
+		}
+		if (line[i] == '\n')
+			break ;
+		line[i++] = buffer[buf_pos++];
+	}
+	line[i] = '\0';
+	if (i == 0)
+		return (NULL);
+	return (ft_strdup(line));
+}
+*/

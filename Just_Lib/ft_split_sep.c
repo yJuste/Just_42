@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_sep.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,7 +25,7 @@ char	**ft_split(char *str, char *charset)
 	char		**res;
 	int			start;
 	int			substr;
-	int		i;
+	int			i;
 
 	i = 0;
 	start = 0;
@@ -51,7 +51,7 @@ char	**ft_split(char *str, char *charset)
 char	*ft_strdup_split(char *src, int start, int end)
 {
 	char		*res;
-	int		i;
+	int			i;
 
 	res = malloc(sizeof(char) * (end - start + 1));
 	i = 0;

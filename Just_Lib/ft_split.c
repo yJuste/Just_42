@@ -13,13 +13,17 @@
 /*   • Prototype:   CHAR ** ( char *, char * )                                */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
+/*   • Returns an arr of arr defined by spaces.                               */
+/*   • Prototype:   CHAR ** ( char * )                                        */
+/*        -> malloc, size_t                                                   */
+/* ************************************************************************** */
 #include <stdlib.h>
 
 char	**ft_split(char *str);
 int		ft_split_word_count(char *str);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 
-// pas de gestion d'erreur de malloc
+// attention : pas de gestion d'erreur de malloc
 char	**ft_split(char *str)
 {
 	int		i;

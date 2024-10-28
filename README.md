@@ -82,6 +82,19 @@ vim file.txt
 * Vous ecrivez soit Stdheader, soit Std, soit vous appuyez sur F1.<br>
 * Le header apparait.<br>
 
+###		NORMINETTE 42 //
+
+Pour installer la norminette, cherchez j'ai la flemme.<br>
+Sinon 2 commandes à retenir :<br>
+``` sh
+norminette
+```
+'-> Vous devez etre dans le dossier en question (cd <dir-name>) et vous lancer la commande sur tous les fichiers du repertoire.<br>
+``` sh
+norminette -R CheckDefine
+```
+'-> Les macros des fichiers .H seront ignores.<br>
+
 ###		PMSET //
 
 * Commande mac pour changer les temps d'inactivite du pc. Important de le changer rapidement pour economiser.<br>
