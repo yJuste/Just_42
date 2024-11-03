@@ -30,8 +30,6 @@ char	**ft_split(char *str, char *charset)
 	i = 0;
 	start = 0;
 	substr = 0;
-	if (!str || !charset)
-		return (NULL);
 	res = malloc(sizeof(char *) * (ft_strlen(str) + 1));
 	while (str[i])
 	{
