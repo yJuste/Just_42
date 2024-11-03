@@ -22,6 +22,8 @@ int	ft_strcspn(const char *s, const char *reject)
 
 	i = 0;
 	j = 0;
+	if (!s || !reject)
+		return (0);
 	while (s[i])
 	{
 		j = 0;

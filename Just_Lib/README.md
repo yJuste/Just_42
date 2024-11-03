@@ -49,6 +49,14 @@ ex (pour ft_split): "CHAR ** ( char *, char * )"
 (pour ft_putchar): "VOID ( char )"
 (pour ft_calloc): "VOID * ( int, int )"
 
+/:. MORE
+
+* size_t / il ne peut etre negatif et toujours utilisé pour les incrementations.
+* toujours verifier les parametres si ils sont nuls.
+* \0 et 0 n'est pas la meme chose.
+* Il vaut mieux retourner NULL pour les pointeurs et 0 pour les erreurs de types.
+* Toujours initialiser les variables créées.
+
 /:. EOF
 
 * Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.

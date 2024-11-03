@@ -22,6 +22,8 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 
 	i = 0;
 	j = 0;
+	if (!dest || !src || n < 0)
+		return (NULL);
 	while (dest[i])
 		i++;
 	while (src[j] && j < n)

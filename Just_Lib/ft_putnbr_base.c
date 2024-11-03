@@ -26,6 +26,8 @@ int	ft_strlen(char *str)
 	size_t		i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -37,6 +39,7 @@ int	ft_check_base(char *base)
 	size_t		j;
 
 	i = 0;
+	j = 0;
 	if (ft_strlen(base) < 2)
 		return (0);
 	while (base[i])
@@ -61,7 +64,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	long int	nb;
 
 	nb = nbr;
-	if (!ft_check_base(base))
+	if (!ft_check_base(base) || !base)
 		return ;
 	if (nb < 0)
 	{
@@ -75,4 +78,5 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	else
 		ft_putchar(base[nb]);
+	return ;
 }

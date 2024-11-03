@@ -16,33 +16,46 @@
 #include <stdlib.h>
 
 // Don't forget to free !
+// Don't forget to put sizof(..) in size .
 
-void	*ft_calloc(int count, int size_of)
+void	*ft_calloc(size_t size)
 {
-	int		i;
-	char	*ptr;
+	size_t		i;
+	char		*ptr;
 
 	i = 0;
-	ptr = malloc(size_of * count);
-	if (ptr == 0)
+	ptr = malloc(size);
+	if (!ptr)
 		return (NULL);
-	while (i < size_of * count)
-		ptr[i++] = 0;
+	while (i < size)
+		ptr[i++] = '\0';
 	return (ptr);
 }
 
-void	*ft_realloc(void *ptr, int old_size, int new_size)
+// Si tu veux raccourcir un tableau, tu dois ajouter 1 a la nouvelle taille.
+// Ce sera pour le \0
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 {
-	int		i;
-	char	*new_ptr;
+	size_t		i;
+	char		*n_ptr;
 
 	i = 0;
-	new_ptr = ft_calloc(new_size, sizeof(char));
-	while (i < old_size)
+	if (new_size == 0)
 	{
-		new_ptr[i] = ((char *)ptr)[i];
+		free(ptr);
+		return (NULL);
+	}
+	n_ptr = ft_calloc(sizeof(char) * new_size);
+	if (!n_ptr)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	while (i < old_size && i < new_size)
+	{
+		n_ptr[i] = ((char *)ptr)[i];
 		i++;
 	}
 	free(ptr);
-	return (new_ptr);
+	return (n_ptr);
 }

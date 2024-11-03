@@ -25,10 +25,12 @@ int	ft_atoi_base(char *str, char *base)
 	int			sign;
 	size_t		i;
 
-	if (!ft_check_base(base))
-		return (0);
 	i = 0;
 	sign = 1;
+	if (!str || !base)
+		return (0);
+	if (!ft_check_base(base))
+		return (0);
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while (str[i] == '+' || str[i] == '-')

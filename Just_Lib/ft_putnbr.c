@@ -15,13 +15,11 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 void	ft_putnbr(int nbr)
 {
+	char		c;
+
+	c = 0;
 	if (nbr == -2147483648)
 	{
 		write(1, "-2147483648", 11);
@@ -38,7 +36,11 @@ void	ft_putnbr(int nbr)
 		ft_putnbr(nbr % 10);
 	}
 	else
-		ft_putchar(nbr + '0');
+	{
+		c = nbr + '0';
+		write(1, &c, 1);
+	}
+	return ;
 }
 
 // mini ft_putnbr
@@ -52,4 +54,5 @@ void	ft_putnbr_mini(int nbr)
 	if (nbr / 10 > 0)
 		ft_putnbr_mini(nbr / 10);
 	ft_putchar(nbr % 10 + '0');
+	return ;
 }

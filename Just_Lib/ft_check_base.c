@@ -24,6 +24,9 @@ int	ft_check_base(char *base)
 	size_t		j;
 
 	i = 0;
+	j = 0;
+	if (!base)
+		return (0);
 	if (ft_strlen(base) < 2)
 		return (0);
 	while (base[i])
@@ -48,6 +51,8 @@ size_t	ft_strlen(const char *str)
 	size_t		i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 		i++;
 	return (i);

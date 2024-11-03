@@ -21,8 +21,10 @@ void	*ft_malloc(int size)
 {
 	void		*ptr;
 
+	if (size < 0)
+		return (NULL);
 	ptr = malloc(size);
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
 	return (ptr);
 }

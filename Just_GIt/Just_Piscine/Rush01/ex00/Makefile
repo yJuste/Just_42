@@ -19,6 +19,8 @@ fclean : clean
 
 re : fclean all
 
-rf : re fclean
+rf : re
+	rm -f $(OBJ)
+	rm -f $(NAME)
 
 .PHONY: all clean fclean re rf

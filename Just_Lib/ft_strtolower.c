@@ -15,40 +15,9 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *src)
-{
-	size_t		i;
-	char		*dest;
-
-	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
-	if (dest == NULL)
-		return (NULL);
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
+const char	*ft_strtolower(const char *str);
+int			ft_tolower(int c);
+char		*ft_strdup(const char *src);
 
 const char	*ft_strtolower(const char *str)
 {
@@ -56,6 +25,8 @@ const char	*ft_strtolower(const char *str)
 	char	*lwr_str;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	lwr_str = ft_strdup(str);
 	if (!lwr_str)
 		return (NULL);
@@ -65,4 +36,34 @@ const char	*ft_strtolower(const char *str)
 		i++;
 	}
 	return (lwr_str);
+}
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
+
+char	*ft_strdup(const char *src)
+{
+	char		*dest;
+	size_t		i;
+
+	i = 0;
+	if (!src)
+		return (NULL);
+	while (src[i])
+		i++;
+	dest = malloc(sizeof(char) * (i + 1));
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

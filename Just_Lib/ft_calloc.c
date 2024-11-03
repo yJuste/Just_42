@@ -16,17 +16,18 @@
 #include <stdlib.h>
 
 // Don't forget to free !
+// Don't forget to put sizof(..) in size .
 
-void	*ft_calloc(int size_of, int size)
+void	*ft_calloc(size_t size)
 {
-	int		i;
-	char	*ptr;
+	size_t		i;
+	char		*ptr;
 
 	i = 0;
-	ptr = malloc(size_of * size);
-	if (ptr == 0)
+	ptr = malloc(size);
+	if (!ptr)
 		return (NULL);
-	while (i < size_of * size)
-		ptr[i++] = 0;
+	while (i < size)
+		ptr[i++] = '\0';
 	return (ptr);
 }

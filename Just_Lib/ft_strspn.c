@@ -17,6 +17,8 @@
 
 const char	*ft_findchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if (*s == c)
@@ -31,6 +33,8 @@ size_t	ft_strspn(const char *s, const char *accept)
 	size_t		i;
 
 	i = 0;
+	if (!s || !accept)
+		return (NULL);
 	while (s[i])
 	{
 		if (ft_findchr(accept, s[i]) == 0)

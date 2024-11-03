@@ -20,6 +20,8 @@ char	*ft_strlowcase(char *str)
 	size_t		i;
 
 	i = 0;
+	if (!str)
+		return (NULL);
 	while (str[i])
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
@@ -36,6 +38,8 @@ char	*ft_strcapitalize(char *str)
 
 	i = 0;
 	flg = 1;
+	if (!str)
+		return (NULL);
 	ft_strlowcase(str);
 	while (str[i])
 	{

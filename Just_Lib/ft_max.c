@@ -15,18 +15,18 @@
 
 int	max(int *tab, int len)
 {
-	int		result;
+	int		res;
 	int		i;
 
 	i = 0;
-	if (len == 0)
+	if (!len || !tab)
 		return (0);
-	result = tab[i];
+	res = tab[i];
 	while (i < len)
 	{
-		if (result < tab[i])
-			result = tab[i];
+		if (res < tab[i])
+			res = tab[i];
 		i++;
 	}
-	return (result);
+	return (res);
 }

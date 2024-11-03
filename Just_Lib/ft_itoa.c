@@ -67,13 +67,18 @@ void	ft_itoa_next(int nbr, char *res, int len)
 
 char	*ft_strdup(const char *src)
 {
-	size_t		i;
 	char		*dest;
+	size_t		i;
 
 	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
-	if (dest == NULL)
+	if (!src)
 		return (NULL);
+	while (src[i])
+		i++;
+	dest = malloc(sizeof(char) * (i + 1));
+	if (!dest)
+		return (NULL);
+	i = 0;
 	while (src[i])
 	{
 		dest[i] = src[i];
