@@ -22,8 +22,6 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i = 0;
 	j = 0;
-	if (!str || !to_find)
-		return (NULL);
 	if (to_find[0] == '\0')
 		return (str);
 	while (str[i])

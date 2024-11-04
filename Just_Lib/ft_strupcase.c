@@ -20,8 +20,6 @@ char	*ft_strupcase(char *str)
 	size_t		i;
 
 	i = 0;
-	if (!str)
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')

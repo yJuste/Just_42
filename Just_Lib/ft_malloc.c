@@ -17,12 +17,10 @@
 
 // Don't forget to free !
 
-void	*ft_malloc(int size)
+void	*ft_malloc(size_t size)
 {
 	void		*ptr;
 
-	if (size < 0)
-		return (NULL);
 	ptr = malloc(size);
 	if (!ptr)
 		return (NULL);

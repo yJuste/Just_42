@@ -24,8 +24,6 @@ int	ft_strlcat(char *dest, const char *src, size_t size)
 
 	dlen = 0;
 	slen = 0;
-	if (!dest || !src || size < 0)
-		return (0);
 	while (dest[dlen] && dlen < size)
 		dlen++;
 	while (src[slen])

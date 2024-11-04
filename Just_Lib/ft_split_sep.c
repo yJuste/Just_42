@@ -69,8 +69,6 @@ int	ft_is_sep(char c, char *charset)
 	size_t		i;
 
 	i = 0;
-	if (!charset)
-		return (0);
 	while (charset[i])
 	{
 		if (c == charset[i])
@@ -85,8 +83,6 @@ size_t	ft_strlen(const char *str)
 	size_t		i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i])
 		i++;
 	return (i);

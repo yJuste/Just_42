@@ -20,8 +20,6 @@ char	*ft_strlowcase(char *str)
 	size_t		i;
 
 	i = 0;
-	if (!str)
-		return (NULL);
 	while (str[i])
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')

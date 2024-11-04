@@ -25,8 +25,6 @@ const char	*ft_strtolower(const char *str)
 	char	*lwr_str;
 
 	i = 0;
-	if (!str)
-		return (NULL);
 	lwr_str = ft_strdup(str);
 	if (!lwr_str)
 		return (NULL);
@@ -51,8 +49,6 @@ char	*ft_strdup(const char *src)
 	size_t		i;
 
 	i = 0;
-	if (!src)
-		return (NULL);
 	while (src[i])
 		i++;
 	dest = malloc(sizeof(char) * (i + 1));

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strspn.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,33 +9,16 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the index of the exact occurences of a str.                    */
-/*   • Prototype:   SIZE_T ( char *, char * )                                 */
-/*        -> size_t                                                           */
+/*   • Calculates the len of a str.                                           */
+/*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
-#include <stdlib.h>
 
-const char	*ft_findchr(const char *s, int c)
+int	ft_strlen(char *str)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return (s);
-		++s;
-	}
-	return (0);
-}
-
-size_t	ft_strspn(const char *s, const char *accept)
-{
-	size_t		i;
+	int	i;
 
 	i = 0;
-	while (s[i])
-	{
-		if (ft_findchr(accept, s[i]) == 0)
-			break ;
-		++i;
-	}
+	while (str[i])
+		i++;
 	return (i);
 }

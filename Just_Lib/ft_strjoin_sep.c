@@ -20,8 +20,6 @@ size_t	ft_strlen(const char *str)
 	size_t		i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -50,8 +48,6 @@ char	*ft_strcat(char *dest, const char *src)
 
 	i = 0;
 	j = 0;
-	if (!dest || !src)
-		return (NULL);
 	while (dest[i])
 		i++;
 	while (src[j])

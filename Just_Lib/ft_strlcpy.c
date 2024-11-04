@@ -22,8 +22,6 @@ int	ft_strlcpy(char *dest, const char *src, size_t size)
 
 	s = 0;
 	i = 0;
-	if (!src || size < 0)
-		return (0);
 	while (src[s])
 		s++;
 	if (size == 0)

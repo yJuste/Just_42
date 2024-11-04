@@ -26,8 +26,6 @@ int	ft_strlen(char *str)
 	size_t		i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	while (str[i])
 		i++;
 	return (i);
@@ -64,8 +62,6 @@ void	ft_putnbr_base(int nbr, char *base)
 	long int	nb;
 
 	nb = nbr;
-	if (!ft_check_base(base) || !base)
-		return ;
 	if (nb < 0)
 	{
 		ft_putchar('-');
