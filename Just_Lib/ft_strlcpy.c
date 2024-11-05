@@ -15,23 +15,23 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-int	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t		s;
 	size_t		i;
 
 	s = 0;
-	i = 0;
 	while (src[s])
 		s++;
-	if (size == 0)
+	if (dstsize == 0)
 		return (s);
-	while (src[i] && i < size - 1)
+	i = 0;
+	while (src[i] && i < dstsize - 1)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	if (size > 0)
-		dest[i] = '\0';
+	if (dstsize > 0)
+		dst[i] = '\0';
 	return (s);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,49 +9,54 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Displays a num.                                                        */
-/*   • Prototype:   VOID ( int )                                              */
-/*        -> write                                                            */
-/* ************************************************************************** */
 #include <unistd.h>
 
-void	ft_putnbr(int nbr)
+void	ft_putchar(char c)
 {
-	char		c;
+	write(1, &c, 1);
+}
 
-	c = 0;
-	if (nbr == -2147483648)
+void	ft_print(int *board, int n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		ft_putchar(board[i] + '0');
+		i++;
 	}
-	if (nbr < 0)
+	if (board[0] != 10 - n)
 	{
-		write(1, "-", 1);
-		nbr = -nbr;
-	}
-	if (nbr >= 10)
-	{
-		ft_putnbr(nbr / 10);
-		ft_putnbr(nbr % 10);
-	}
-	else
-	{
-		c = nbr + '0';
-		write(1, &c, 1);
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
 }
 
-// mini ft_putnbr
-void	ft_putnbr_mini(int nbr)
+void	ft_solve(int *board, int n, int start, int depth)
 {
-	if (nbr < 0)
+	int	i;
+
+	i = start;
+	if (depth == n)
 	{
-		write(1, "-", 1);
-		nbr = -nbr;
+		ft_print(board, n);
+		return ;
 	}
-	if (nbr / 10 > 0)
-		ft_putnbr_mini(nbr / 10);
-	ft_putchar(nbr % 10 + '0');
+	while (i < 10)
+	{
+		board[depth] = i;
+		ft_solve(board, n, i + 1, depth + 1);
+		i++;
+	}
+}
+
+void	ft_print_combn(int n)
+{
+	int	board[10];
+
+	if (n <= 0 || n >= 10)
+		return ;
+	ft_solve(board, n, 0, 0);
 	return ;
 }

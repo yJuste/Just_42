@@ -1,29 +1,28 @@
-NAME = compile
+SRC = *.c
+NAME = libft.a
+OBJ = ${SRC:.c=.o}
+FLAGS = -Wall -Werror -Wextra
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+all : $(NAME)
+	@true
 
-SRCS = ft_compile.c ft_compile_next.c
-OBJS = $(SRCS:.c=.o)
+$(NAME) :
+	gcc -I $(FLAGS) -c $(FLAGS) $(SRC)
+	ar -rcs $(NAME) $(OBJ)
 
-all: $(NAME)
+clean :
+	rm -f $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+fclean : clean
+	rm -rf $(OBJ)
 
-clean:
-	rm -rf $(OBJS)
+dev:
+	make fclean;cd ../libft-unit-test; make f;cd ../libft; make fclean
 
-fclean: clean
-	rm -rf $(NAME)
+re : fclean all
 
-re: fclean all
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
-rf: re
-	rm -rf $(OBJS)
-	rm -rf $(NAME)
-
-s:
-	ls -lh $(NAME)
-
-.PHONY: all clean fclean re rf s
+.PHONY : all clean fclean re dev so

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,16 +9,19 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Calculates the len of a str.                                           */
-/*   • Prototype:   INT ( char * )                                            */
-/* ************************************************************************** */
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-size_t	ft_strlen(const char *s)
+// Structure
+
+typedef struct s_list
 {
-	size_t		i;
+	struct s_list	*next;
+	void			*data;
+}	t_list;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+// ft_create_elem.c
+
+t_list	*ft_create_elem(void *data);
+
+#endif
