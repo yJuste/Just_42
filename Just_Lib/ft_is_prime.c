@@ -12,6 +12,7 @@
 /*   • Returns 1 if prime.                                                    */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_is_prime(int nbr)
 {

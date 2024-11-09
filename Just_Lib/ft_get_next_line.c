@@ -13,15 +13,12 @@
 /*   • Prototype:   CHAR * ( int )                                            */
 /*        -> malloc, size_t, static                                           */
 /* ************************************************************************** */
+#include "just_lib.h"
 #include "ft_get_next_line.h"
 
 // don't forget to free the line !
-
-char	*ft_get_next_line(int fd);
-int		ft_get_line(t_lne *_lne, char *line, int *i);
-char	*ft_strdup(const char *src);
-
 // get_next_line sur la heap
+
 char	*ft_get_next_line(int fd)
 {
 	static t_lne	_lne;
@@ -40,7 +37,7 @@ char	*ft_get_next_line(int fd)
 	return (ft_strdup(line));
 }
 
-int	ft_get_line(t_lne *_lne, char *line, int *i)
+static int	ft_get_line(t_lne *_lne, char *line, int *i)
 {
 	int		flg;
 
@@ -65,28 +62,8 @@ int	ft_get_line(t_lne *_lne, char *line, int *i)
 	return (0);
 }
 
-char	*ft_strdup(const char *src)
-{
-	char		*dest;
-	size_t		i;
+/*	ft_get_next_line_mini sur la stack
 
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-/* ----------ft_get_next_line_mini sur la stack----------
 char	*get_next_line_mini(int fd)
 {
 	static char	buffer[BUFFER_SIZE];

@@ -12,6 +12,7 @@
 /*   • Returns the factorial of a num.                                        */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 // Iterative function
 

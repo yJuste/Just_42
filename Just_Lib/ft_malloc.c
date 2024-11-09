@@ -13,7 +13,7 @@
 /*   • Prototype:   VOID * ( int )                                            */
 /*        -> malloc                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 // Don't forget to free !
 

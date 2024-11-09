@@ -12,8 +12,10 @@
 /*   • Returns the square root of a num.                                      */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 // Only full square root.
+
 int	ft_sqrt(int nbr)
 {
 	int		i;
@@ -28,6 +30,7 @@ int	ft_sqrt(int nbr)
 
 // The square root has 2 pres digits.
 //	-> 3 pres digits : l5. 0.000001 / l15. 1000, 1000
+
 float	ft_sqrt_precise(float nbr)
 {
 	float		n;

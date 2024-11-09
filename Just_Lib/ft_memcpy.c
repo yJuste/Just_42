@@ -9,16 +9,23 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Copies to n bytes a memory block.                                      */
+/*   • Copies a str to another one.                                           */
 /*   • Prototype:   VOID * ( void *, void *, size_t )                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
-// more commonly used with structures or arrays.
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	while (n--)
-		((char *)dst)[n] = ((const char *)src)[n];
+	size_t		i;
+
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((const unsigned char *)src)[i];
+		i++;
+	}
 	return (dst);
 }

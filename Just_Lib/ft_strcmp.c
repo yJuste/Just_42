@@ -13,7 +13,7 @@
 /*   • Prototype:   INT ( char *, char * )                                    */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

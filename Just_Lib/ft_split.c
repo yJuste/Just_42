@@ -11,80 +11,85 @@
 /* ************************************************************************** */
 /*   • Returns an arr of arr defined by a separator.                          */
 /*   • Prototype:   CHAR ** ( char *, char * )                                */
-/*        -> malloc, size_t                                                   */
+/*        -> malloc, free, size_t                                             */
 /* ************************************************************************** */
-/*   • Returns an arr of arr defined by spaces.                               */
-/*   • Prototype:   CHAR ** ( char * )                                        */
-/*        -> malloc, size_t                                                   */
-/* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
-char	**ft_split(char *str);
-int		ft_split_word_count(char *str);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
+static size_t	ft_count_words(const char *s, char c);
+static char		**ft_split_next(char **out, const char *s, char c);
+static char		**ft_split_error(char **out, size_t k);
 
-// attention : pas de gestion d'erreur de malloc
-char	**ft_split(char *str)
+char	**ft_split(const char *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**str_split;
+	size_t		wc;
+	char		**out;
+
+	if (!s)
+		return (NULL);
+	wc = ft_count_words(s, c);
+	out = ft_calloc(wc + 1, sizeof(char *));
+	if (!out)
+		return (NULL);
+	return (ft_split_next(out, s, c));
+}
+
+static size_t	ft_count_words(const char *s, char c)
+{
+	size_t		i;
+	size_t		wc;
+
+	i = 0;
+	wc = 0;
+	while (s[i])
+	{
+		while (s[i] && (s[i] == c))
+			i++;
+		if (s[i])
+			wc++;
+		while (s[i] && (s[i] != c))
+			i++;
+	}
+	return (wc);
+}
+
+static char	**ft_split_next(char **out, const char *s, char c)
+{
+	size_t		i;
+	size_t		j;
+	size_t		k;
 
 	i = 0;
 	j = 0;
 	k = 0;
-	str_split = malloc(sizeof(char *) * (ft_split_word_count(str) + 1));
-	while (str[i])
+	while (s[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (s[i] && (s[i] == c))
 			i++;
 		j = i;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
+		while (s[i] && (s[i] != c))
 			i++;
 		if (i > j)
 		{
-			str_split[k] = malloc(sizeof(char) * ((i - j) + 1));
-			ft_strncpy(str_split[k++], &str[j], i - j);
+			out[k] = ft_calloc(i - j + 1, sizeof(char));
+			if (!out[k])
+				return (ft_split_error(out, k));
+			ft_strncpy(out[k++], &s[j], (i - j));
 		}
 	}
-	str_split[k] = NULL;
-	return (str_split);
+	out[k] = NULL;
+	return (out);
 }
 
-int	ft_split_word_count(char *str)
+static char	**ft_split_error(char **out, size_t k)
 {
-	int		i;
-	int		word_count;
+	size_t		f;
 
-	i = 0;
-	word_count = 0;
-	while (str[i])
+	f = 0;
+	while (f < k)
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
-			i++;
-		if (str[i])
-			word_count++;
-		while (str[i] && (str[i] != ' ' && str[i] != '\t' && str[i] != '\n'))
-			i++;
+		free(out[f]);
+		f++;
 	}
-	return (word_count);
-}
-
-char	*ft_strncpy(char *dest, const char *src, size_t n)
-{
-	size_t		i;
-
-	i = 0;
-	while (src[i] && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	free(out);
+	return (NULL);
 }

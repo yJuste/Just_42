@@ -13,18 +13,7 @@
 /*   • Prototype:   SIZE_T ( char *, char * )                                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
-
-const char	*ft_findchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == c)
-			return (s);
-		++s;
-	}
-	return (0);
-}
+#include "just_lib.h"
 
 size_t	ft_strspn(const char *s, const char *accept)
 {

@@ -13,10 +13,7 @@
 /*   • Prototype:   INT ( char * )                                            */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
-
-int		ft_check_base(char *base);
-size_t	ft_strlen(const char *str);
+#include "just_lib.h"
 
 int	ft_check_base(char *base)
 {
@@ -41,15 +38,5 @@ int	ft_check_base(char *base)
 		}
 		i++;
 	}
-	return (i);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
 	return (i);
 }

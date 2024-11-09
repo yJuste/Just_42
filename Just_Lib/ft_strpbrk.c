@@ -13,7 +13,7 @@
 /*   • Prototype:   CHAR * ( char *, char * )                                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 const char	*ft_strpbrk(const char *s1, const char *s2)
 {

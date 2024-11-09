@@ -13,7 +13,7 @@
 /*   • Prototype:   CHAR * ( char *, char * )                                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 char	*ft_strstr(char *str, char *to_find)
 {

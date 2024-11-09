@@ -13,21 +13,7 @@
 /*   • Prototype:   CHAR * ( char * )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
-
-char	*ft_strlowcase(char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
-}
+#include "just_lib.h"
 
 char	*ft_strcapitalize(char *str)
 {

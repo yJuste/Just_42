@@ -13,12 +13,9 @@
 /*   • Prototype:   INT ( char *, char * )                                    */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
-int		ft_atoi_base(char *str, char *base);
-int		ft_check_base(char *base);
-int		ft_strlen(char *str);
-int		ft_res(char *str, char *base, int i);
+static int	ft_res(char *str, char *base, int i);
 
 int	ft_atoi_base(char *str, char *base)
 {
@@ -40,42 +37,7 @@ int	ft_atoi_base(char *str, char *base)
 	return (ft_res(str, base, i) * sign);
 }
 
-int	ft_check_base(char *base)
-{
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	if (ft_strlen(base) < 2)
-		return (0);
-	while (base[i])
-	{
-		if (base[i] == '+' || base[i] == '-'
-			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13))
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (i);
-}
-
-int	ft_strlen(char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_res(char *str, char *base, int i)
+static int	ft_res(char *str, char *base, int i)
 {
 	int		res;
 	int		j;

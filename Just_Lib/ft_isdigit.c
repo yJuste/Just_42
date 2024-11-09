@@ -12,8 +12,7 @@
 /*   • Parses 1 char if it is a num.                                          */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
-
-//	The 1st transcendent function.
+#include "just_lib.h"
 
 int	ft_isdigit(int c)
 {

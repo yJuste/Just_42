@@ -13,11 +13,7 @@
 /*   • Prototype:   CHAR * ( char * )                                         */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
-
-const char	*ft_strtolower(const char *str);
-int			ft_tolower(int c);
-char		*ft_strdup(const char *src);
+#include "just_lib.h"
 
 const char	*ft_strtolower(const char *str)
 {
@@ -34,32 +30,4 @@ const char	*ft_strtolower(const char *str)
 		i++;
 	}
 	return (lwr_str);
-}
-
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char		*dest;
-	size_t		i;
-
-	i = 0;
-	while (src[i])
-		i++;
-	dest = malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }

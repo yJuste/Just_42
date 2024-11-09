@@ -12,7 +12,7 @@
 /*   • Finds a char from a str.                                               */
 /*   • Prototype:   CHAR * ( char *, char * )                                 */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 const char	*ft_findchr(const char *s, int c)
 {
@@ -22,5 +22,5 @@ const char	*ft_findchr(const char *s, int c)
 			return (s);
 		++s;
 	}
-	return (0);
+	return (NULL);
 }

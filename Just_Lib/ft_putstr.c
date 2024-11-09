@@ -13,7 +13,7 @@
 /*   • Prototype:   VOID ( char * )                                           */
 /*        -> write                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "just_lib.h"
 
 void	ft_putstr(char *str)
 {

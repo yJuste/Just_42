@@ -12,6 +12,9 @@
 /*   • Swaps 2 num.                                                           */
 /*   • Prototype:   VOID ( int *, int * )                                     */
 /* ************************************************************************** */
+#include "just_lib.h"
+
+// Character Swap
 
 void	ft_swap(int *a, int *b)
 {
@@ -22,7 +25,8 @@ void	ft_swap(int *a, int *b)
 	*b = x;
 }
 
-// Ajout de pointeur et change en chaine de caracteres
+// String Swap
+
 void	ft_swap_extra(char **a, char **b)
 {
 	char		*x;

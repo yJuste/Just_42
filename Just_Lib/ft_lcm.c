@@ -12,8 +12,9 @@
 /*   • Calculates the least common divisor of 2 num.                          */
 /*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
+#include "just_lib.h"
 
-int	lcm(int a, int b)
+int	ft_lcm(int a, int b)
 {
 	int		n;
 

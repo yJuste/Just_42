@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,22 +9,16 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Finds the maximum value of an arr.                                     */
-/*   • Prototype:   INT ( int *, int )                                        */
+/*   • Displays a str in a file.                                              */
+/*   • Prototype:   VOID ( char *, int )                                      */
+/*        -> write                                                            */
 /* ************************************************************************** */
+#include "just_lib.h"
 
-int	max(int *tab, int len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		res;
-	int		i;
-
-	i = 0;
-	res = tab[i];
-	while (i < len)
-	{
-		if (res < tab[i])
-			res = tab[i];
-		i++;
-	}
-	return (res);
+	if (!s)
+		return ;
+	while (*s)
+		write(fd, s++, 1);
 }

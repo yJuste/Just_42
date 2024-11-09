@@ -13,7 +13,7 @@
 /*   • Prototype:   VOID ( int )                                              */
 /*        -> write                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "just_lib.h"
 
 void	ft_putnbr(int nbr)
 {
@@ -43,6 +43,7 @@ void	ft_putnbr(int nbr)
 }
 
 // mini ft_putnbr
+
 void	ft_putnbr_mini(int nbr)
 {
 	if (nbr < 0)

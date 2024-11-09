@@ -12,28 +12,25 @@
 /*   • Converts alpha into int.                                               */
 /*   • Prototype:   INT ( char * )                                            */
 /* ************************************************************************** */
+#include "just_lib.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		sign;
-	int		i;
 	int		res;
 
 	sign = 1;
-	i = 0;
 	res = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (str[i] == '-')
-			sign = -sign;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
+		res = res * 10 + (*str - '0');
+		str++;
 	}
 	return (sign * res);
 }

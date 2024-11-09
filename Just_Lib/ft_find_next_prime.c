@@ -12,9 +12,7 @@
 /*   • Finds the next prime.                                                  */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
-
-int		ft_find_next_prime(int nbr);
-int		ft_is_prime(int nbr);
+#include "just_lib.h"
 
 int	ft_is_prime(int nbr)
 {

@@ -12,6 +12,7 @@
 /*   • Parses 1 char if it is a space.                                        */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_isspace(int c)
 {

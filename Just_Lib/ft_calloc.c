@@ -10,24 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Allocates and initializes memory.                                      */
-/*   • Prototype:   VOID * ( int, int )                                       */
-/*        -> malloc                                                           */
+/*   • Prototype:   VOID * ( size_t, size_t )                                 */
+/*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 // Don't forget to free !
-// Don't forget to put sizof(..) in size .
+// Don't forget to put sizof(..) in 'size'.
 
-void	*ft_calloc(size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	size_t		i;
-	char		*ptr;
+	size_t		total_size;
+	void		*ptr;
 
 	i = 0;
-	ptr = malloc(size);
+	if (count == 0 || size == 0)
+		total_size = 0;
+	else if (count > (size_t)-1 / size)
+		return (NULL);
+	else
+		total_size = count * size;
+	ptr = malloc(total_size);
 	if (!ptr)
 		return (NULL);
-	while (i < size)
-		ptr[i++] = '\0';
+	while (i < total_size)
+	{
+		((char *)ptr)[i] = 0;
+		i++;
+	}
 	return (ptr);
 }

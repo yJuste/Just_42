@@ -12,6 +12,7 @@
 /*   • Calculates the len of a num.                                           */
 /*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_len(int nbr, int base_len)
 {

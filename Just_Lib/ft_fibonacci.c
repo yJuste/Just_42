@@ -12,6 +12,7 @@
 /*   • Returns the fibonnacci sequence at an index.                           */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_fibonacci(int index)
 {

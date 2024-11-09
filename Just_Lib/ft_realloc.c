@@ -13,25 +13,10 @@
 /*   • Prototype:   VOID * ( void *, int, int )                               */
 /*        -> malloc, free                                                     */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 // Don't forget to free !
 // Don't forget to put sizof(..) in size .
-
-void	*ft_calloc(size_t size)
-{
-	size_t		i;
-	char		*ptr;
-
-	i = 0;
-	ptr = malloc(size);
-	if (!ptr)
-		return (NULL);
-	while (i < size)
-		ptr[i++] = '\0';
-	return (ptr);
-}
-
 // Si tu veux raccourcir un tableau, tu dois ajouter 1 a la nouvelle taille.
 // Ce sera pour le \0
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
@@ -45,7 +30,7 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 		free(ptr);
 		return (NULL);
 	}
-	n_ptr = ft_calloc(sizeof(char) * new_size);
+	n_ptr = ft_calloc(new_size, sizeof(char));
 	if (!n_ptr)
 	{
 		free(ptr);

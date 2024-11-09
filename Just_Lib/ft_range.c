@@ -13,11 +13,11 @@
 /*   • Prototype:   INT * ( int, int )                                        */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 // only [1, 2, 3] up
 
-int	*ft_range(int start, int end)
+int	*ft_range_up(int start, int end)
 {
 	int			*tab;
 	size_t		i;
@@ -25,7 +25,7 @@ int	*ft_range(int start, int end)
 	i = 0;
 	if (start >= end)
 		return (NULL);
-	tab = (int *)malloc(sizeof(int) * (end - start));
+	tab = malloc(sizeof(int) * (end - start));
 	while (start < end)
 	{
 		tab[i] = end;
@@ -37,17 +37,17 @@ int	*ft_range(int start, int end)
 
 // [1, 2, 3] up & [3, 2, 1] down
 
-int	*ft_range(int start, int end)
+int	*ft_range_up_down(int start, int end)
 {
-	int			len;
 	int			*res;
+	size_t		len;
 	size_t		i;
 
 	i = 0;
 	len = end - start;
 	if (len < 0)
 		len = -len;
-	res = (int *)malloc(sizeof(int) * (len + 1));
+	res = malloc(sizeof(int) * (len + 1));
 	while (i < len)
 	{
 		if (start < end)

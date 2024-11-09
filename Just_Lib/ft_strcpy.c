@@ -13,7 +13,7 @@
 /*   • Prototype:   CHAR * ( char *, char * )                                 */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 char	*ft_strcpy(char *dest, const char *src)
 {

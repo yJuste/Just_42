@@ -13,15 +13,7 @@
 /*   • Prototype:   VOID ( int )                                              */
 /*        -> write                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-void	ft_dual_digit(int nbr);
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include "just_lib.h"
 
 void	ft_dual_digit(int nbr)
 {

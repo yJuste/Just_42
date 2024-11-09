@@ -12,6 +12,7 @@
 /*   • Calculates the greatest common divisor of 2 num.                       */
 /*   • Prototype:   INT ( int, int )                                          */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_pgcd(int a, int b)
 {

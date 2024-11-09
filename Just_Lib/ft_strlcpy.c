@@ -9,11 +9,11 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Copies a str to a size.                                                */
-/*   • Prototype:   INT ( char *, char *, size_t )                            */
+/*   • (null)                                                                 */
+/*   • Prototype:   SIZE_T * ( char *, char *, size_t )                       */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

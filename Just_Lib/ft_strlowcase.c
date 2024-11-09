@@ -13,7 +13,7 @@
 /*   • Prototype:   CHAR * ( char * )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 char	*ft_strlowcase(char *str)
 {

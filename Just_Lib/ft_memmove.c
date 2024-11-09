@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,16 +9,26 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_list.h"
+/*   • Moves one chain into another.                                          */
+/*   • Prototype:   VOID * ( void *, void *, size_t )                         */
+/*        -> size_t                                                           */
+/* ************************************************************************** */
+#include "just_lib.h"
 
-t_list	*ft_create_elem(void *data)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_list	*_elem;
+	size_t		i;
 
-	_elem = malloc(sizeof(t_list));
-	if (!_elem)
-		return (NULL);
-	_elem->next = NULL;
-	_elem->data = data;
-	return (_elem);
+	if (src < dest)
+	{
+		i = n;
+		while (i > 0)
+		{
+			((char *)dest)[i - 1] = ((char *)src)[i - 1];
+			i--;
+		}
+	}
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
 }

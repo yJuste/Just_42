@@ -13,53 +13,11 @@
 /*   • Prototype:   VOID ( int, char * )                                      */
 /*        -> write, size_t                                                    */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int	ft_strlen(char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_check_base(char *base)
-{
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	j = 0;
-	if (ft_strlen(base) < 2)
-		return (0);
-	while (base[i])
-	{
-		if (base[i] == '+' || base[i] == '-'
-			|| base[i] == ' ' || (base[i] >= 9 && base[i] <= 13))
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (base[i] == base[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
+#include "just_lib.h"
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long int	nb;
+	size_t		nb;
 
 	nb = nbr;
 	if (nb < 0)

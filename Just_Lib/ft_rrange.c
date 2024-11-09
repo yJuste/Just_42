@@ -13,13 +13,13 @@
 /*   • Prototype:   INT * ( int, int )                                        */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
 int	*ft_rrange(int start, int end)
 {
-	int			flg;
-	int			len;
 	int			*range;
+	int			flg;
+	size_t			len;
 	size_t		i;
 
 	i = 0;

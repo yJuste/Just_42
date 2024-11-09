@@ -9,35 +9,37 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Duplicates a str to a size.                                            */
-/*   • Prototype:   INT ( char *, char *, int )                               */
+/*   • (null)                                                                 */
+/*   • Prototype:   SIZE_T * ( char *, char *, size_t )                       */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
-int	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t		dlen;
-	size_t		slen;
+	size_t		dl;
+	size_t		sl;
 	size_t		i;
 	size_t		j;
 
-	dlen = 0;
-	slen = 0;
-	while (dest[dlen] && dlen < size)
-		dlen++;
-	while (src[slen])
-		slen++;
-	if (size <= dlen)
-		return (slen + size);
+	sl = 0;
+	while (src[sl])
+		sl++;
+	if (!dst && dstsize == 0)
+		return (sl);
+	dl = 0;
+	while (dst[dl] && dl < dstsize)
+		dl++;
+	if (dstsize <= dl)
+		return (sl + dstsize);
 	i = 0;
-	j = dlen;
-	while (src[i] && dlen + i < size - 1)
+	j = dl;
+	while (src[i] && (dl + i < dstsize - 1))
 	{
-		dest[j] = src[i];
+		dst[j] = src[i];
 		i++;
 		j++;
 	}
-	dest[j] = '\0';
-	return (dlen + slen);
+	dst[j] = '\0';
+	return (dl + sl);
 }

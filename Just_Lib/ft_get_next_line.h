@@ -45,8 +45,6 @@ typedef struct s_lne
 
 // ft_get_next_line.c
 
-char	*ft_get_next_line(int fd);
-int		ft_get_line(t_lne *_lne, char *line, int *i);
-char	*ft_strdup(const char *src);
+static int	ft_get_line(t_lne *_lne, char *line, int *i);
 
 #endif

@@ -13,23 +13,25 @@
 /*   • Prototype:   CHAR * ( char * )                                         */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "just_lib.h"
 
-char	*ft_strdup(const char *src)
+// call the transcendental function : ft_calloc
+
+char	*ft_strdup(const char *s1)
 {
 	char		*dest;
 	size_t		i;
 
 	i = 0;
-	while (src[i])
+	while (s1[i])
 		i++;
-	dest = malloc(sizeof(char) * (i + 1));
+	dest = ft_calloc(i + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (src[i])
+	while (s1[i])
 	{
-		dest[i] = src[i];
+		dest[i] = s1[i];
 		i++;
 	}
 	dest[i] = '\0';

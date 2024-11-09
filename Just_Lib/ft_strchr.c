@@ -9,35 +9,24 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns a str from a separator.                                        */
+/*   • Searches for a char in a string.                                       */
 /*   • Prototype:   CHAR * ( char *, int )                                    */
+/*        -> size_t                                                           */
 /* ************************************************************************** */
-
-char		*ft_strchr(char *s, int c);
-size_t		ft_strlen(const char *str);
-
-size_t	ft_strlen(const char *str)
-{
-	size_t		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "just_lib.h"
 
 char	*ft_strchr(const char *s, int c)
 {
 	size_t		i;
 
 	i = 0;
-	if (c == '\0')
-		return (&s[ft_strlen(s)]);
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return (&s[i]);
+			return ((char *)(s + i));
 		i++;
 	}
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
 	return (NULL);
 }

@@ -9,13 +9,12 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Returns the lower-case equivalent of an upper-case character.          */
+/*   • Returns the lower-case equivalent of an upper-case char.               */
 /*   • Prototype:   INT ( int )                                               */
 /* ************************************************************************** */
+#include "just_lib.h"
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	return (c + (c >= 'A' && c <= 'Z') * 32);
 }
