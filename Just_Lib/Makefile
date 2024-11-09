@@ -1,6 +1,6 @@
 NAME = just_lib.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = *.c

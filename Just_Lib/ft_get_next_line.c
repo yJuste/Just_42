@@ -66,20 +66,20 @@ static int	ft_get_line(t_lne *_lne, char *line, int *i)
 
 char	*get_next_line_mini(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
+	static char	buffer[60];
 	static int	buf_read;
 	static int 	buf_pos;
 	char		line[50000];
 	int			i;
 
 	i = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
 	while (1)
 	{
 		if (buf_pos >= buf_read)
 		{
-			buf_read = read(fd, buffer, BUFFER_SIZE);
+			buf_read = read(fd, buffer, 60);
 			buf_pos = 0;
 			if (buf_read <= 0)
 				break ;

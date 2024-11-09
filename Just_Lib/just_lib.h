@@ -47,7 +47,7 @@ int			ft_isprime(int n);
 char		**ft_split(const char *s, char c);
 char		**ft_split_sep(char *str, char *charset);
 char		*ft_strjoin(const char *s1, const char *s2);
-char		*ft_strjoin_sep(char **strs,  char *sep, size_t size);
+char		*ft_strjoin_sep(char **strs, char *sep, size_t size);
 char		*ft_strdup(const char *s1);
 
 int			ft_memcmp(const void *s1, const void *s2, size_t n);

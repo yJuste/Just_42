@@ -25,7 +25,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	int		sign;
 	char	*res;
 
-	res = malloc(sizeof(char) * 42);
+	res = ft_calloc(42, sizeof(char));
 	if (ft_check_base(base_from) < 2 || ft_check_base(base_to) < 2)
 		return (0);
 	nb = 0;
@@ -33,14 +33,13 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	sign = 1;
 	while (nbr[i] == ' ' || (nbr[i] >= '\t' && nbr[i] <= '\r'))
 		i++;
-	while (nbr[i] == '-' || nbr[i] == '+')
-	{
-		if (nbr[i] == '-')
-			sign *= -1;
+	if (nbr[i] == '-')
+		sign = -sign;
+	if (nbr[i] == '-' || nbr[i] == '+')
 		i++;
-	}
 	while (ft_findchr_convert(base_from, nbr[i]) != -1)
-		nb = nb * ft_check_base(base_from) + (ft_findchr_convert(base_from, nbr[i]));
+		nb = nb * ft_check_base(base_from)
+			+ (ft_findchr_convert(base_from, nbr[i]));
 	i = 0;
 	ft_putnbr_base_convert((nb * sign), base_to, res, &i);
 	res[i] = 0;

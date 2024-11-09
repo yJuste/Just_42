@@ -19,7 +19,7 @@ int	*ft_rrange(int start, int end)
 {
 	int			*range;
 	int			flg;
-	size_t			len;
+	size_t		len;
 	size_t		i;
 
 	i = 0;

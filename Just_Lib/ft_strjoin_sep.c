@@ -17,7 +17,7 @@
 
 static int	ft_len_sep_join(char **strs, char *sep, size_t size);
 
-char	*ft_strjoin_sep(char **strs,  char *sep, size_t size)
+char	*ft_strjoin_sep(char **strs, char *sep, size_t size)
 {
 	size_t		i;
 	char		*tab;
