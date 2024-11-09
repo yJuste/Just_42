@@ -13,7 +13,7 @@
 /*   • Prototype:   INT ( char * )                                            */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "../just_lib.h"
 
 int	ft_str_is_lowercase(char *str)
 {

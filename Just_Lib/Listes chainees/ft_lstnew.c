@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,12 +9,20 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Pointer.                                                               */
-/*   • Prototype:   VOID ( int ********* )                                    */
+/*   • Creates a node.                                                        */
+/*   • Prototype:   STRUCT ( void * )                                         */
+/*        -> malloc                                                           */
 /* ************************************************************************** */
 #include "../just_lib.h"
 
-void	ft_ultimate_ft(int *********nbr)
+t_list	*ft_lstnew(void *content)
 {
-	*********nbr = 42;
+	t_list		*elem;
+
+	elem = malloc(sizeof(t_list));
+	if (!elem)
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

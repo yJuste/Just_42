@@ -14,16 +14,16 @@
 /* ************************************************************************** */
 #include "just_lib.h"
 
-int	ft_is_prime(int nbr)
+int	ft_isprime(int n)
 {
 	int		i;
 
 	i = 2;
-	if (nbr <= 1)
+	if (n <= 1)
 		return (0);
-	while (i < nbr && i > 0)
+	while (i < n && i > 0)
 	{
-		if (nbr % i == 0)
+		if (n % i == 0)
 			return (0);
 		i++;
 	}

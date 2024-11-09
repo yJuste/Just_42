@@ -13,7 +13,7 @@
 /*   • Prototype:   VOID ( void )                                             */
 /*        -> write                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "../just_lib.h"
 
 void	ft_print_alphabet(void)
 {

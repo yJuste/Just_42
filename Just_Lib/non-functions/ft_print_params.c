@@ -13,14 +13,7 @@
 /*        -> write                                                            */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
-
-void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
+#include "../just_lib.h"
 
 int	main(int argc, char **argv)
 {

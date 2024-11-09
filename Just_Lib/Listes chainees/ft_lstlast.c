@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,12 +9,16 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Pointer.                                                               */
-/*   • Prototype:   VOID ( int ********* )                                    */
+/*   • Returns the last node.                                                 */
+/*   • Prototype:   STRUCT ( struct * )                                       */
 /* ************************************************************************** */
 #include "../just_lib.h"
 
-void	ft_ultimate_ft(int *********nbr)
+t_list	*ft_lstlast(t_list *lst)
 {
-	*********nbr = 42;
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

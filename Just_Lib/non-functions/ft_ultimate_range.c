@@ -13,7 +13,7 @@
 /*   • Prototype:   INT ( int **, int, int )                                  */
 /*        -> malloc, size_t                                                   */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "../just_lib.h"
 
 int	ft_ultimate_range(int **range, int start, int end)
 {

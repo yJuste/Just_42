@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,12 +9,19 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Pointer.                                                               */
-/*   • Prototype:   VOID ( int ********* )                                    */
+/*   • Print the list.                                                        */
+/*   • Prototype:   VOID ( list * )                                           */
 /* ************************************************************************** */
 #include "../just_lib.h"
 
-void	ft_ultimate_ft(int *********nbr)
+// can add any other type in the line 6.
+
+void	ft_print_list(t_list *_list)
 {
-	*********nbr = 42;
+	while (_list != NULL)
+	{
+		printf("%d -> ", *(int *)_list->data);
+		_list = _list->next;
+	}
+	printf("NULL\n");
 }

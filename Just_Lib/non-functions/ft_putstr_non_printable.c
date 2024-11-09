@@ -13,23 +13,7 @@
 /*   • Prototype:   VOID ( char * )                                           */
 /*        -> write, size_t                                                    */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_hex(unsigned char c)
-{
-	char		*hex;
-
-	hex = "0123456789abcdef";
-	ft_putchar('\\');
-	ft_putchar(hex[c / 16]);
-	ft_putchar(hex[c % 16]);
-}
+#include "../just_lib.h"
 
 void	ft_putstr_non_printable(char *str)
 {

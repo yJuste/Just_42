@@ -12,6 +12,7 @@
 /*   • Divides & mod.                                                         */
 /*   • Prototype:   VOID ( int, int, int *, int * )                           */
 /* ************************************************************************** */
+#include "../just_lib.h"
 
 void	ft_div_mod(int a, int b, int *div, int *mod)
 {

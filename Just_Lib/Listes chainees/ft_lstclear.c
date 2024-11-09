@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,12 +9,25 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Pointer.                                                               */
-/*   • Prototype:   VOID ( int ********* )                                    */
+/*   • Free all chain lists and its content.                                  */
+/*   • Prototype:   VOID ( struct **, f() )                                   */
+/*        -> free                                                             */
 /* ************************************************************************** */
 #include "../just_lib.h"
 
-void	ft_ultimate_ft(int *********nbr)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	*********nbr = 42;
+	t_list		*tmp;
+
+	tmp = NULL;
+	if (lst == NULL || del == NULL)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = tmp;
+	}
+	*lst = NULL;
 }

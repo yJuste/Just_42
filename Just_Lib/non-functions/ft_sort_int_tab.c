@@ -13,16 +13,7 @@
 /*   • Prototype:   VOID ( int *, int )                                       */
 /*        -> size_t                                                           */
 /* ************************************************************************** */
-#include <stdlib.h>
-
-void	ft_swap(int *a, int *b)
-{
-	int		x;
-
-	x = *a;
-	*a = *b;
-	*b = x;
-}
+#include "../just_lib.h"
 
 void	ft_sort_int_tab(int *tab, int size)
 {
