@@ -45,6 +45,11 @@ git reset --hard <id-commit>
 git push --force
 ```
 '-> suite a reset, tu appliques les modifications.<br>
+``` sh
+git tag -a v1.0 -m "Libft - Version finale"
+git push origin v1.0
+```
+'-> ajouter un tag quand tu as fini un projet.<br>
 
 ##	SHELL //
 

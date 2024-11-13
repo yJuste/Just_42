@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 /*   • Get each line from a file.                                             */
 /*   • Prototype:   CHAR * ( int )                                            */
-/*        -> malloc, size_t, static                                           */
+/*        -> static                                                           */
 /* ************************************************************************** */
 #ifndef FT_GET_NEXT_LINE_H
 # define FT_GET_NEXT_LINE_H
@@ -20,8 +20,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
-# include <stdio.h>
 
 // Buffers
 
@@ -29,22 +27,21 @@
 #  define BUFFER_SIZE 60
 # endif
 
-# ifndef MAX_LINE
-#  define MAX_LINE 50000
+# ifndef FD_MAX
+#  define FD_MAX 500
 # endif
 
 // Structure
 
-typedef struct s_lne
+typedef struct s_buf
 {
 	char	buffer[BUFFER_SIZE];
-	int		read_bf;
-	int		pos_bf;
-	int		fd;
-}	t_lne;
+	int		buf_read;
+	int		buf_pos;
+}	t_buf;
 
 // ft_get_next_line.c
 
-static int	ft_get_line(t_lne *_lne, char *line, int *i);
+char	*get_next_line(int fd);
 
 #endif
