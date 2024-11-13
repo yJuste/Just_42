@@ -17,10 +17,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <fcntl.h>
-# include <errno.h>
-# include <string.h>
-# include <limits.h>
 
 // Structure
 
@@ -96,7 +92,9 @@ int			ft_lstsize(t_list *lst);
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
-void		ft_print_list(t_list *_list);
+void		ft_lstprint(t_list *_list);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstadd_front(t_list **lst, t_list *new);
 
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
