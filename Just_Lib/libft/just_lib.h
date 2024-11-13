@@ -37,6 +37,7 @@ int			ft_isspace(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 int			ft_isprime(int n);
+int			ft_ischar(char const *set, char c);
 
 //	---------- ARRAYS ----------
 
