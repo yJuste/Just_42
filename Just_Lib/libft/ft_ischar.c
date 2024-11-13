@@ -27,4 +27,3 @@ int	ft_ischar(char const *set, char c)
 	}
 	return (0);
 }
-
