@@ -30,7 +30,7 @@ SRC =	ft_isalnum.c			ft_isalpha.c			ft_isascii.c			\
 	ft_realloc.c			ft_find_next_prime.c						\
 	ft_dual_digit.c			ft_putnbr.c							\
 	ft_lcm.c			ft_pgcd.c			ft_factorial.c			\
-	ft_fibonacci.c			ft_power.c			ft_sqrt.c			\
+	ft_power.c			ft_sqrt.c							\
 	ft_range.c			ft_rrange.c							\
 	ft_len.c			ft_atoi_base.c			ft_check_base.c			\
 	ft_convert_base.c		ft_putnbr_base.c						\

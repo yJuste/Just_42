@@ -126,7 +126,6 @@ int			ft_factorial(int nbr);
 int			ft_recursive_factorial(int nbr);
 int			ft_is_prime(int nbr);
 int			ft_find_next_prime(int nbr);
-int			ft_fibonacci(int index);
 int			ft_iterative_power(int nbr, int power);
 int			ft_recursive_power(int nbr, int power);
 int			ft_sqrt(int nbr);
