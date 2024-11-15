@@ -24,8 +24,7 @@ Les fichiers qui vous sont donnes sont disponible pour votre confort. Elles s'ut
 /* ************************************************************************** */
 /*   • Returns an arr of arr defined by a separator.                          */
 /*   • Prototype:   CHAR ** ( char *, char * )                                */
-/*        -> malloc ( sizeof(type) * size )                                   */
-/*        -> size_t                                                           */
+/*        -> malloc, free, size_t                                             */
 /* ************************************************************************** */
 #include <stdlib.h>
 ```
