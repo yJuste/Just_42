@@ -15,7 +15,9 @@
 #include "just_lib.h"
 
 // can add any other type in the line 6.
+// Be careful, using printf !!!
 
+/*
 void	ft_lstprint(t_list *list)
 {
 	while (list)
@@ -25,3 +27,4 @@ void	ft_lstprint(t_list *list)
 	}
 	printf("NULL\n");
 }
+*/
