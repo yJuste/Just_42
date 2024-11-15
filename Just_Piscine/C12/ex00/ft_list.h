@@ -12,12 +12,16 @@
 #ifndef FT_LIST_H
 # define FT_LIST_H
 
+// Standard Library
+
+# include <stdlib.h>
+
 // Structure
 
 typedef struct s_list
 {
-	struct s_list	*next;
 	void			*data;
+	struct s_list	*next;
 }	t_list;
 
 // ft_create_elem.c
