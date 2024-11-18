@@ -2,13 +2,13 @@ Voici toute ma librairie de fonctions basiques en C.
 
 // INTRO
 
-Les fichiers qui vous sont donnes sont disponible pour votre confort. Elles s'utilisent comme une librairie.
+Les fichiers qui vous sont montrés sont disponibles pour votre confort. Les fonctions s'utilisent comme une librairie.
 
 /. LIBRARY
 
-* Les fichiers sont des fonctions simples en C tels que ft_putchar, ft_atoi, ft_putnbr. Ceux-ci sont proviennent de librairie deja existante comme <stdlib.h>, <unistd.h>, <stdio> ...
-* Les fichiers peuvent aussi etre des fichiers C headers pour contenir des prototypes ou des macros comme ft_abs.h, ft_boolean.h ...
-* Les fichiers se presente comme ceci : ( exemple avec ft_split )
+* Il y a les fonctions simples en C tels que ft_putchar, ft_atoi, ft_putnbr. Ceux-ci sont proviennent de librairie déjà existante comme <stdlib.h>, <unistd.h>, <stdio> ...
+* Les fichiers peuvent aussi être des fichiers C headers pour contenir des prototypes ou des macros comme ft_abs.h, ft_boolean.h ...
+* Les fichiers se présente comme ceci : ( exemple avec ft_split )
 
 ```
 /* ************************************************************************** */
@@ -33,9 +33,9 @@ Le header de 42 qui se compose :
 
 * du nom du fichier : ft_split.c
 * d'une description courte de la fonction
-* du prototypage avec le type et le nom des parametres
-* des fonctions externes utilises
-* ( > de la bibliotheque qui se trouve en dessous )
+* du prototypage avec le type et le nom des paramètres
+* des fonctions externes utilisées
+* ( > de la bibliothèque qui se trouve en dessous )
 
 /: PROTOTYPE
 
@@ -50,17 +50,18 @@ ex (pour ft_split): "CHAR ** ( char *, char * )"
 
 /:. MORE
 
-* size_t / il ne peut etre negatif et toujours utilisé pour les incrementations.
-* toujours verifier les parametres si ils sont nuls.
-* \0 et 0 n'est pas la meme chose.
+* size_t / il ne peut être négatif et est toujours utilisé pour les incrémentations.
+* toujours vérifier les paramètres si ils sont nuls.
+* \0 et 0 n'est pas la même chose.
 * Il vaut mieux retourner NULL pour les pointeurs et 0 pour les erreurs de types.
 * Toujours initialiser les variables créées.
 
 /:. EOF
 
-* Et si tout cela vous semble complique, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
+* Et si tout cela vous semble compliqué, demandez de l'aide autour de vous. Internet ainsi que les manuels sont vos amis.
+
 Et Don't Panic!
 
-Modifié le 9 octobre 2024 par Juste
+Modifié le 18 Novembre 2024 par Juste.
 
 Merci à Lucas pour le ft_convert_base

@@ -2,152 +2,154 @@
 
 ## // INTRO
 
-* Voici le tronc commun de 42, tous les exos sont affiches.
+Voici le tronc commun de 42, tous les exos sont affichés.
 
 ## /. HELP
 
-* Toutes ces manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
+* Toutes les manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
 * J'utilise comme IDE : Xcode.
-* Les compilateurs cc, gcc et clang sont par defaut sur les macs.
-* Vim est par defaut sur les macs.
-* Xcode permet de lier git facilement et meme de push sans passer par le terminal.
+* Les compilateurs cc, gcc et clang sont par défaut sur les macs.
+* Vim est par défaut sur les macs.
+* Xcode permet de lier git facilement même de push sans passer par le terminal.
 
-##	GIT //
+## GIT //
 
-###		COMMANDES BASIQUES //
+### COMMANDES BASIQUES //
 
 ``` sh
 git add .
 ```
-'-> ajoute tous les fichiers a l'expediteur.<br>
+→ ajoute tous les fichiers à l'expéditeur.
 ``` sh
 git commit -m "#commentary"
 ```
-'-> package tous les fichiers.<br>
+→ package tous les fichiers.
 ``` sh
 git push
 ```
-'-> envoie tous les fichiers a git, c'est fini.<br>
- ``` sh
+→ envoie tous les fichiers à git, c'est fini.
+``` sh
 git rm .file
 ```
-'-> supprime un fichier du commit.<br>
+→ supprime un fichier du commit.
 ``` sh
 git clone git@github.com:yJuste/#repository.git
 ```
-'-> clone le git de github.<br>
-
+→ clone le git de github.
 ``` sh
 git reset --hard <id-commit>
 ```
-'-> revient a une ancienne version de git.<br>
+→ revient à une ancienne version de git.
 ``` sh
 git push --force
 ```
-'-> suite a reset, tu appliques les modifications.<br>
+→ suite à reset, tu appliques les modifications.
 ``` sh
 git tag -a v1.0 -m "Libft - Version finale"
 git push origin v1.0
 ```
-'-> ajouter un tag quand tu as fini un projet.<br>
+→ ajouter un tag quand tu as fini un projet.
 
-##	SHELL //
+## SHELL //
 
-###		ALIAS CC -WALL -WEXTRA -WERROR //
+### ALIAS CC -Wall -Wextra -Werror //
 
 ``` sh
 touch ~/.shrc
 ```
-'-> creer un fichier si ton shell est sur /bin/zsh ( echo $SHELL )<br>
+→ crée un fichier si ton shell est sur /bin/zsh (echo $SHELL).
+
 ``` sh
 open ~/.shrc
 ```
-'-> ouvrir le fichier et coller.
+→ ouvre le fichier et colle :
+
 ``` sh
 alias W='cc -Wall -Wextra -Werror'
-```
-``` sh
 source ~/.shrc
 ```
-'-> appliquer les modifications.<br>
+→ applique les modifications.
 
-###		STDHEADER 42 //
+### STDHEADER 42 //
 
-Pour installer le header 42 sur sa machine, aller sur le site :<br>
+Pour installer le header 42 sur la machine, va sur le site :
+
 ``` sh
 https://github.com/42Paris/42header
 ```
-Les informations sont clairs et precises. (Si un chemin n'existe pas, vous devez donc le creer soit avec 'mkdir', soit 'touch')<br>
-Faites le directement dans le terminal avec ~/... ou vous pouvez l'avoir partout'<br>
-Apres avoir coller les informations dans zshrc, vous pouvez utiliser les commandes :<br>
-```
+* Les informations sont claires et précises. (Si un chemin n'existe pas, vous devez donc le créer soit avec mkdir, soit touch).
+* Faites-le directement dans le terminal avec ~/... où vous pouvez l'avoir partout.
+* Après avoir collé les informations dans zshrc, vous pouvez utiliser les commandes :
+
+``` sh
 vim file.txt
 ```
-* Dans vim, vous faites `CTRL + :`<br>
-* Vous ecrivez soit Stdheader, soit Std, soit vous appuyez sur F1.<br>
-* Le header apparait.<br>
+Dans vim, vous faites CTRL + :
+* Vous écrivez soit Stdheader, soit Std, soit vous appuyez sur F1.
+Le header apparaît.
 
-###		NORMINETTE 42 //
+### NORMINETTE 42 //
 
-Pour installer la norminette, cherchez j'ai la flemme.<br>
-Sinon 2 commandes à retenir :<br>
+Pour installer la norminette, cherchez j’ai la flemme.
+Sinon, 2 commandes à retenir :
+
 ``` sh
 norminette
 ```
-'-> Vous devez etre dans le dossier en question (cd <dir-name>) et vous lancer la commande sur tous les fichiers du repertoire.<br>
+→ Vous devez être dans le dossier en question (cd <dir-name>) et vous lancez la commande sur tous les fichiers du répertoire.
+
 ``` sh
 norminette -R CheckDefine
 ```
-'-> Les macros des fichiers .H seront ignores.<br>
+→ Les macros des fichiers .H seront ignorées.
 
-###		PMSET //
+### PMSET //
 
-* Commande mac pour changer les temps d'inactivite du pc. Important de le changer rapidement pour economiser.<br>
-* Telecharge en plus la version gratuite de AlDente permettant de charger le pc au maximum a 80%.<br>
+* Commande mac pour changer les temps d’inactivité du pc. Important de le changer rapidement pour économiser.
+* Télécharge en plus la version gratuite de AlDente permettant de charger le pc au maximum à 80 %.
 
-###			GPUSWITCH //
+### GPUSWITCH //
 
-* Sur Macos, on peut changer le basculement pour gerer la puissance du gpu. Si vous ne faites que coder et vous ne compilez pas, vous pouvez mettre le gpu au plus bas et inversement.<br>
+* Sur Macos, on peut changer le basculement pour gérer la puissance du gpu. Si vous ne faites que coder et ne compilez pas, vous pouvez mettre le gpu au plus bas et inversement.
+
 La commande est :
 ``` sh
 pmset gpuswitch [0, 1, 2]
 ```
-Le niveau 0 est le gpu integre et consomme moins, moins de puissance.<br>
-Le niveau 1 est le gpu haute performance, consomme plus, toujours puissant.<br>
-Le niveau 2 est le mode automatique, le mac decide de lui meme quand changer.<br>
+Le niveau 0 est le gpu intégré et consomme moins, moins de puissance.
+Le niveau 1 est le gpu haute performance, consomme plus, toujours puissant.
+Le niveau 2 est le mode automatique, le mac décide de lui-même quand changer.
 
-###			MEMORY LEAKS //
+### MEMORY LEAKS //
 
-* Si tu veux un outil pour identifier les fuites de memoires, tu peux utiliser "Leaks", l'outil de deboggage par defaut de Xcode.<br>
-Il faut tout d'abord initialiser :<br>
+* Si tu veux un outil pour identifier les fuites de mémoires, tu peux utiliser "Leaks", l’outil de débogage par défaut de Xcode.
+Il faut tout d'abord initialiser ( pas obligatoire finalement ) :
 ``` sh
 export MallocStackLogging=1
 ```
-* Ensuite tu peux lancer leaks :<br>
+Ensuite tu peux lancer leaks :
 ``` sh
 leaks --atExit -- ./a.out [parameters]
 ```
-Tu peux ainsi voir les fuites de memoires et les lignes ou elles sont indiquees.<br>
-Toujours tester avec des parametres de ton code pour passer dans toutes les fonctions du programme.<br>
-Comprendre l'essentiel dans Leaks pour identifer les fuites de memoire.
+* Tu peux ainsi voir les fuites de mémoires et les lignes où elles sont indiquées.
+* Toujours tester avec des paramètres de ton code pour passer dans toutes les fonctions du programme.
+* Comprendre l’essentiel dans Leaks pour identifier les fuites de mémoire.
 
-<img width="612" alt="Leaks-example" src="https://github.com/user-attachments/assets/9c9a1a83-cb62-4797-8f7a-9074e8700974">
-
-Tu as le nombre de stack representant les fonctions dans lesquels passent la fuite de memoire.
-La fuite commence à `0`. Il represente l'allocation de ton système.
-A `1`, c'est l'endroit où tu as malloc. Logiquement, la variable alloué doit etre libéré proprement. Evite de renvoyer une variable alloué pour la stocker dans une autre variable, ex à proscrire :
+* Tu as le nombre de stack représentant les fonctions dans lesquels passe la fuite de mémoire.
+* La fuite commence à 0. Il représente l’allocation de ton système.
+À 1, c’est l’endroit où tu as malloc. Logiquement, la variable allouée doit être libérée proprement. Évite de renvoyer une variable allouée pour la stocker dans une autre variable, exemple à proscrire :
 ``` c
 char *block;
 
 block = ft_allocate_str();
 
-char **ft_allocate_str();
+char **ft_allocate_str()
 {
-	str = malloc(...);
-	return (str);
+    str = malloc(...);
+    return (str);
 }
 ```
-Il vaut mieux passer en parametre la seule et unique variable que tu vas utiliser (tu ne peux pas tout le temps le faire mais c'est une erreur courante.)
+* Il vaut mieux passer en paramètre la seule et unique variable que tu vas utiliser (tu ne peux pas tout le temps le faire mais c’est une erreur courante).
 ``` c
 char *block;
 
@@ -155,58 +157,55 @@ ft_allocate_str(&block);
 
 ...
 ```
-* En remontant les stacks, tu trouveras l'endroit ou tu n'utilises plus du tout ta variable et où il faut libérer la mémoire. (j'appelle `stack` mais c'est pas ca, c'est juste la piste ou passe la fuite.)
-* En desous, tu peux voir `1 (48 bytes)`, signifiant que c'est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
+* En remontant les stacks, tu trouveras l’endroit où tu n’utilises plus du tout ta variable et où il faut libérer la mémoire. (j’appelle stack mais ce n’est pas ça, c’est juste la piste où passe la fuite.)
+* En dessous, tu peux voir 1 (48 bytes), signifiant que c’est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
 
+### CODIUM (COPILOT POUR XCODE) //
 
-###		CODIUM ( COPILOT POUR XCODE ) //
+* Aller sur le site et télécharger l’application.
+* Lancer le programme.
+* Accepter les conditions de l’app et de l’extension sur GENERAL et :
+Accessibility Settings (accepte).
+Extensions Settings (accepte).
+* Dans SERVICE :
+Enregistrer un compte avec SIGN IN.
+Codium est prêt.
 
-* Aller sur le site et telecharger l'application.<br>
-* Lancer le programme.<br>
-* Accepeter les conditions de l'app et de l'extension sur GENERAL et :<br>
-	- Accessibility Settings ( accepte )<br>
-	- Extensions Settings ( accepte )<br>
-* Dans SERVICE :<br>
-	- Enregistrer un compte avec SIGN IN.<br>
-* Codium est pret.<br>
+### DEBUGGING //
 
-###		DEBUGGING //
-
-* Tout d'abord, si tu peux debugger par toi-meme avec une feuille de papier et un stylo, tu seras beaucoup plus concentré et tu comprendras mieux ton code en fond. Le debugging sert surtout pour les fuites de mémoire.<br>
-* Creer un algorithme avec un logiciel de debug est à proscrire, vraiment.<br>
-* Donc, j'utilise `lldb`.<br>
-Juste avant, vous devez compiler tout tes fichiers avec -g, ex :<br>
+* Tout d’abord, si tu peux déboguer par toi-même avec une feuille de papier et un stylo, tu seras beaucoup plus concentré et tu comprendras mieux ton code en fond. Le debugging sert surtout pour les fuites de mémoire.
+* Créer un algorithme avec un logiciel de debug est à proscrire, vraiment.
+* Donc, j’utilise lldb.
+Juste avant, vous devez compiler tous vos fichiers avec -g, exemple :
 ``` sh
 cc -g mon-fichier.c
 ```
-Ensuite, vous devez lancer lldb :<br>
+Ensuite, vous devez lancer lldb :
 ``` sh
-lldb mon-fichier.c [parametres]
+lldb mon-fichier.c [paramètres]
 ```
-Mettre les parametres va suivre le deroulement pour ce cas particulier. Tu peux tester avec plusieurs autres parametres en fonction de ton code.<br>
-Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c'est un endroit d'entrée. Car le point d'entree par defaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, ex :<br>
+* Mettre les paramètres va suivre le déroulement pour ce cas particulier. Tu peux tester avec plusieurs autres paramètres en fonction de ton code.
+* Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c’est un endroit d’entrée. Car le point d’entrée par défaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, exemple :
 ``` sh
 breakpoint set --name main
 ```
-Ceci est le main par defaut, pour une fonction comme :		int	ft_get_next_line(int fd)<br>
-``` sh
-breakpoint set --name ft_get_next_line
+Ceci est le main par défaut, pour une fonction comme :
+``` c
+int	ft_get_next_line(int fd)
 ```
-* Il y aura alors une interface ou tu pourras naviguer, les commandes a retenir sont `s`, `n`, `finish`. (s = step, n = next) (tu dois juste marquer la lettre).<br>
 ``` sh
-`s` : avancer pas a pas, instruction par instruction
-`n` : pas a pas mais si il rencontre une fonction, il le passe (comme si il avait terminé la fonction pointé.)
-`finish` : si tu es dans une fonction, tu termines la fonction en cours (tu dois etre dans la fonction.)
+(lldb) breakpoint set --name ft_get_next_line
 ```
-Pour quitter, tu fais `q` (q = quit).<br>
+* Il y aura alors une interface où tu pourras naviguer, les commandes à retenir sont s, n, finish. (s = step, n = next) (tu dois juste marquer la lettre).
+* s : avancer pas à pas, instruction par instruction  
+* n : pas à pas mais si il rencontre une fonction, il la passe (comme si il avait terminé la fonction pointée).  
+* finish : si tu es dans une fonction, tu termines la fonction en cours (tu dois être dans la fonction).  
+* Pour quitter, tu fais q (q = quit).
 
-###		MAKEFILE
+### MAKEFILE
 
-* Make (petit logiciel utilisé avec les fichiers Makefile (et pas Makefile.txt, il y a une grande différence)) est utile pour compiler plusieurs fichiers .c en meme temps. Ca utilise des commandes **shell**. Voici un exemple de Makefile tres simple :
+* Make (petit logiciel utilisé avec les fichiers Makefile (et pas Makefile.txt, il y a une grande différence)) est utile pour compiler plusieurs fichiers .c en même temps. Ça utilise des commandes shell. Voici un exemple de Makefile très simple :
 
-<img width="675" alt="Makefil example" src="https://github.com/user-attachments/assets/a44fd852-9ec3-43e3-8dcb-0a68ebfc8121">
+## // EOF:
 
-
-##	/: EOF
-
-Modifié le 9 octobre 2024 par Juste.<br>
+Modifié le 9 octobre 2024 par Juste.

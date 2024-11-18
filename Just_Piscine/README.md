@@ -1,13 +1,13 @@
 # Just_Piscine42
+
 Voici ma piscine C 42 personnelle. Les exos sont exclusivement à des fins académiques.
 
 
-//  INTRO
+// INTRO
 
-Les exos qui vous sont proposés n'ont pas été touchés ni modifiés. Cela signifie que certains exos sont susceptibles d'avoir de petites erreurs ou que certains codes ne soient pas optimisés. Merci de prendre en compte ce message.
+Les exos qui vous sont proposés ont été modifié et avancé. Cela signifie que certains exos sont susceptibles d'avoir de petites erreurs ou que certains codes ne soient pas optimisés. Merci de prendre en compte ce message.
 
-
-/.  PISCINE
+/. PISCINE
 
 Les exos comprennent les Shell, les Rushs et les Days C.
 
@@ -26,7 +26,7 @@ Pour finir, profitez à fond de votre piscine, ceci est un moment inoubliable. C
 Et Don't Panic!
 
 
-/:  EOF
+/: EOF
 
-Modifié le 30 août 2024 par Juste<br>
-Merci à Gab pour le coup de main du rush-02
+Modifié le 18 Novembre 2024 par Juste<br>
+Merci à Gab pour le coup de main du rush-02.
