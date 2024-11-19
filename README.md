@@ -206,6 +206,24 @@ int	ft_get_next_line(int fd)
 
 * Make (petit logiciel utilisé avec les fichiers Makefile (et pas Makefile.txt, il y a une grande différence)) est utile pour compiler plusieurs fichiers .c en même temps. Ça utilise des commandes shell. Voici un exemple de Makefile très simple :
 
+### Les archives
+
+* Si tu souhaites utiliser des archives de fichiers compilés pour en faire une librairie static, voila comment faire :
+``` sh
+ar rcs libft.a *.o
+```
+* Il faut que le nom de la lib commence par 'lib...'.
+* Ensuite, pour le relier à un main, tu dois inclure le fichier .h de la bibliotheque
+``` c
+#include "libft.h"
+```
+
+* Lors de la compilation, tu dois en flags `-L. -lft`
+``` sh
+cc ft_test.c -L. -lft
+```
+* Cette commande signifie : J'inclus la lbrairie '-L' depuis le dossier courant '.', puis j'inclus la lib.a '-lft' ( c'est en fait le nom sans le .a et en raccourci '-l' plutôt que 'lib')
+
 ## // EOF:
 
 Modifié le 9 octobre 2024 par Juste.
