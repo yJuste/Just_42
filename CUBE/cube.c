@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cube.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By:                                            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created:   by Awnis'                              #+#    #+#             */
+/*   Updated:   by Awnis'                             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,7 +27,6 @@ float tableau[8][3] = {
 	{30, -30, -30}
 };
 
-
 float camera[3] = {0, 0, 70};
 float FOV = 50;
 float degre = 0.05;
@@ -25,128 +35,146 @@ int decalage = 70;
 
 char *ascii = "@&NM0KAUh6PkqwSE2]ayjx[IifFJ)vTz/*cr!+><;=^,:'-.` "; // 52 caracteres
 
-float vabs(float n)
+float	vabs(float n)
 {
-    if (n < 0)
-        return -n;
-    return n;
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
 char	dist_to_ascii(float distance)
 {
-	int res = roundf(distance / 2);
+	int		res;
+
+	res = roundf(distance / 2);
 	if (res >= 52)
-	{
 		res = 52;
-	}
-	
 	return (ascii[res - 10]);
 }
 
-float dist_3d(float p1[3])
+float	dist_3d(float p1[3])
 {
-	int res = vabs(p1[2] - camera[2]);
+	int		res;
+
+	res = vabs(p1[2] - camera[2]);
 	return (res);
 }
 
-
-char get_random_char()
+char	get_random_char()
 {
-    int random_char = rand() % (126 - 32 + 1) + 32;
-    return (char)random_char;
+	int		random_char;
+
+	random_char= rand() % (126 - 32 + 1) + 32;
+	return ((char)random_char);
 }
 
-char *creer_chaine(int lignes, int espaces_par_ligne) {
-    // Calcul de la taille totale de la chaîne
-    int taille_totale = lignes * (espaces_par_ligne + 1) + 1;
+char	*creer_chaine(int lignes, int espaces_par_ligne)
+{
+	int		taille_totale;
+	int		i;
+	char	*chaine;
 
-    // Allocation du buffer pour la chaîne
-    char *chaine = (char *)malloc(taille_totale * sizeof(char));
-    if (chaine == NULL) {
-        printf("Erreur d'allocation de mémoire.\n");
-        return NULL;
-    }
-
-    // Remplissage de la chaîne
-    for (int i = 0; i < lignes; i++) {
-        // Remplir 100 espaces puis un '\n'
-        memset(chaine + i * (espaces_par_ligne + 1), ' ', espaces_par_ligne);
-        chaine[i * (espaces_par_ligne + 1) + espaces_par_ligne] = '\n';
-    }
-    chaine[taille_totale - 1] = '\0';  // Ajouter le caractère de fin de chaîne
-
-    return chaine;
+	taille_totale = lignes * (espaces_par_ligne + 1) + 1;
+	chaine = malloc(sizeof(char) * taille_totale);
+	if (chaine == NULL)
+	{
+		printf("Erreur d'allocation de mémoire.\n");
+		return (NULL);
+	}
+	i = 0;
+	while (i < lignes)
+	{
+		memset(chaine + i * (espaces_par_ligne + 1), ' ', espaces_par_ligne);
+		chaine[i * (espaces_par_ligne + 1) + espaces_par_ligne] = '\n';
+		i++;
+	}
+	chaine[taille_totale - 1] = '\0';
+	return (chaine);
 }
 
-
-void xyz_to_xy(float point[3], float res[2])
+void	xyz_to_xy(float point[3], float res[2])
 {
 	res[0] = (point[1] * FOV) / vabs(camera[2] - point[2]);
 	res[1] = (point[0] * FOV) / vabs(camera[2] - point[2]);
 }
 
-int xy_to_str(float x, float y)
+int	xy_to_str(float x, float y)
 {
-	int resx = roundf(y) / 2;
-	int resy = roundf(x);
+	int		resx;
+	int		resy;
+
+	resx = roundf(y) / 2;
+	resy = roundf(x);
 	return (resx * 102 + resy);
 }
 
-void rotatey(float point[3])
+void	rotatey(float point[3])
 {
-	float x = (point[0] * cos(degre)) - (point[2] * sin(degre));
-	float z = (point[0] * sin(degre)) + (point[2] * cos(degre));
+	float		x;
+	float		z;
+
+	x = (point[0] * cos(degre)) - (point[2] * sin(degre));
+	z = (point[0] * sin(degre)) + (point[2] * cos(degre));
 	point[0] = x;
 	point[2] = z;
 }
 
-void rotatex(float point[3])
+void	rotatex(float point[3])
 {
-	float x = (point[0] * cos(degre)) - (point[1] * sin(degre));
-	float z = (point[0] * sin(degre)) + (point[1] * cos(degre));
+	float		x;
+	float		z;
+
+	x = (point[0] * cos(degre)) - (point[1] * sin(degre));
+	z = (point[0] * sin(degre)) + (point[1] * cos(degre));
 	point[0] = x;
 	point[1] = z;
 }
 
-void rotatez(float point[3])
+void	rotatez(float point[3])
 {
-	float x = (point[1] * cos(degre * 2)) - (point[2] * sin(degre * 2));
-	float z = (point[1] * sin(degre * 2)) + (point[2] * cos(degre * 2));
+	float		x;
+	float		z;
+
+	x = (point[1] * cos(degre * 2)) - (point[2] * sin(degre * 2));
+	z = (point[1] * sin(degre * 2)) + (point[2] * cos(degre * 2));
 	point[1] = x;
 	point[2] = z;
 }
 
 int	get_ascii(int indexchar, char *str)
 {
-	char c = str[indexchar];
-	int i = 0;
+	int		i;
+	char	c;
+
+	i = 0;
+	c = str[indexchar];
 	while (ascii[i] != c)
+		i++;
+	return (i);
+}
+
+void	drawline(float p1[2], float p2[2], char *str)
+{
+	int			steps;
+	int			i;
+	float		dx;
+	float		dy;
+	float		distance;
+
+	dx = p2[0] - p1[0];
+	dy = p2[1] - p1[1];
+	distance = sqrt(dx * dx + dy * dy);
+	steps = (int)(distance * 10);
+	i = 0;
+	while (i <= steps)
 	{
-		i ++;
+		float t = i / (float)steps;
+		float x = p1[0] + t * dx;
+		float y = p1[1] + t * dy;
+		str[xy_to_str(x, y)] = get_random_char();
+		i++;
 	}
-	return i;
 }
-
-void drawline(float p1[2], float p2[2], char *str) {
-    float dx = p2[0] - p1[0];
-    float dy = p2[1] - p1[1];
-
-    // Calcul du nombre d'itérations en fonction de la distance entre p1 et p2
-    float distance = sqrt(dx * dx + dy * dy);
-    int steps = (int)(distance * 10); // Precision au dixième
-
-    // Itérer sur les points de la droite entre p1 et p2
-    for (int i = 0; i <= steps; ++i) {
-        // Calcul de l'interpolation pour x et y
-        float t = i / (float)steps;
-        float x = p1[0] + t * dx;
-        float y = p1[1] + t * dy;
-
-        // Affichage du point avec une précision au dixième près
-        str[xy_to_str(x, y)] = get_random_char();
-    }
-}
-
 
 void	strchange(char *str, char *str2)
 {
@@ -233,46 +261,41 @@ void	strchange(char *str, char *str2)
 
 
 	printf("%s", str);
+	int		console_width;
+	int		i;
+	int		j;
 
-    int console_width = 80;
-
-	for (int i = 0; i < 8; i++) {
-		// Utiliser les bonnes projections selon l'indice
+	i = 0;
+	console_width = 80;
+	while (i < 8)
+	{
 		float *projection = (i < 4) ? p01 : p11;  // Choisir p01 ou p11 selon l'indice
 		printf("p%02d: projection x = %.2f, projection y = %.2f", i + 1, projection[0], projection[1]);
-		
-		// Ajouter des espaces entre les données
-		for (int j = 0; j < console_width - 40; j++) {
+		j = 0;
+		while (j < console_width - 40)
+		{
 			printf(" ");
+			j++;
 		}
-
-		// Affichage des coordonnées originales
 		printf("p%02d: x = %.2f, y = %.2f, z = %.2f\n", i + 1, tableau[i][0], tableau[i][1], tableau[i][2]);
+		i++;
 	}
-
 	usleep(50000);
 }
 
+int	main(void)
+{
+	int		lignes = 52;
+	int		espaces_par_ligne = 101;
+	char	*chaine;
+	char	*chaine2;
 
-int main() {
-    int lignes = 52;
-    int espaces_par_ligne = 101;
-
-    char *chaine = creer_chaine(lignes, espaces_par_ligne);
-    if (chaine == NULL) {
-        return 1;
-    }
-
-    char *chaine2 = creer_chaine(lignes, espaces_par_ligne);
-    if (chaine == NULL) {
-        return 1;
-    }
-
-    while (1) {
-        strchange(chaine, chaine2);
-    }
-
-    free(chaine);
-
-    return 0;
+	chaine = creer_chaine(lignes, espaces_par_ligne);
+	chaine2 = creer_chaine(lignes, espaces_par_ligne);
+	if (!chaine2 || !chaine)
+		return (1);
+	while (1)
+		strchange(chaine, chaine2);
+	free(chaine);
+	return (0);
 }
