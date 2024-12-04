@@ -13,9 +13,10 @@
 
 // ----------------------------------PROTOTYPE----------------------------------
 void		strchange(t_params *params, t_pxx *pxx, char *str, char *str2);
-void		strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2);
-void		strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2);
-void		strchange_next(t_params *params);
+void		strchange_2(t_params *params, t_pxx *pxx, char *str);
+void		strchange_3(t_params *params, t_pxx *pxx, char *str);
+void		strchange_4(t_params *params, t_pxx *pxx, char *str);
+void		strchange_next(t_params *params, t_pxx *pxx);
 // -----------------------------------------------------------------------------
 
 void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
@@ -47,7 +48,7 @@ void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 	strchange_2(params, pxx, str, str2);
 }
 
-void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
+void	strchange_2(t_params *params, t_pxx *pxx, char *str)
 {
 	int		i;
 
@@ -66,7 +67,7 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 	strchange_3(params, pxx, str, str2);
 }
 
-void	strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2)
+void	strchange_3(t_params *params, t_pxx *pxx, char *str)
 {
 	str[xy_to_str(pxx->p01[0], pxx->p01[1])]
 		= dist_to_ascii(params, dist_3d(params, params->tableau[0]));
@@ -95,7 +96,7 @@ void	strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2)
 	strchange_4(params, pxx, str, str2);
 }
 
-void	strchange_4(t_params *params, t_pxx *pxx, char *str, char *str2)
+void	strchange_4(t_params *params, t_pxx *pxx, char *str)
 {
 	rotatex(params->tableau[0]);
 	rotatex(params->tableau[1]);
@@ -121,7 +122,7 @@ void	strchange_4(t_params *params, t_pxx *pxx, char *str, char *str2)
 	strchange_next(params);
 }
 
-void	strchange_next(t_params *params)
+void	strchange_next(t_params *params, t_pxx *pxx)
 {
 	int		console_width;
 	int		i;
@@ -133,9 +134,9 @@ void	strchange_next(t_params *params)
 	while (i < 8)
 	{
 		if (i < 4)
-			projection = p01;
+			projection = pxx->p01;
 		else
-			projection = p11;
+			projection = pxx->p11;
 		printf("p%02d: projection x = %.2f, projection y = %.2f",
 			i + 1, projection[0], projection[1]);
 		j = -1;

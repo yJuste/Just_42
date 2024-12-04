@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "cube.h"
 
-// -------------------------PROTOTYPE--------------------------
+// -------------------------PROTOTYPE-------------------------
 void		rotatey(float point[3]);
 void		rotatex(float point[3]);
 void		rotatez(float point[3]);
 void		drawline(float p1[2], float p2[2], char *str);
 char		get_random_char(void);
-// ------------------------------------------------------------
+// -----------------------------------------------------------
 
 void	rotatey(float point[3])
 {

@@ -58,8 +58,10 @@ void		ft_init_tableau(t_params *params);
 // cube_2.c
 
 void		strchange(t_params *params, t_pxx *pxx, char *str, char *str2);
-void		strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2);
-void		strchange_next(t_params *params);
+void		strchange_2(t_params *params, t_pxx *pxx, char *str);
+void		strchange_3(t_params *params, t_pxx *pxx, char *str);
+void		strchange_4(t_params *params, t_pxx *pxx, char *str);
+void		strchange_next(t_params *params, t_pxx *pxx);
 
 // cube_3.c
 
@@ -74,12 +76,7 @@ float		vabs(float n);
 void		rotatey(float point[3]);
 void		rotatex(float point[3]);
 void		rotatez(float point[3]);
-
-// cube_5.c
-
 void		drawline(float p1[2], float p2[2], char *str);
 char		get_random_char(void);
-int			get_ascii(int indexchar, char *str);
-// cube_6.c
 
 #endif
