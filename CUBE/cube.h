@@ -13,8 +13,8 @@
 /*   • ./a.out [ taille ] [ vitesse ]                                         */
 /*      -> taille        [ -50 <=> 50 ]                                       */
 /*      -> vitesse       [ -1 <=> 1 ]                                         */
-/*      -> Ajouter un moins devant la taille ou la vitesse, peut changer      */
-/*           la rotation du cube.                                             */
+/*      -> Ajouter un moins devant la taille ou la vitesse, change la         */
+/*            rotation du cube.                                               */
 /* ************************************************************************** */
 #ifndef CUBE_H
 # define CUBE_H
