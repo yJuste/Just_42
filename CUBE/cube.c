@@ -19,7 +19,7 @@
 #include "cube.h"
 
 // ----------------------------------PROTOTYPE--------------------------------
-int		main(int argc, char **argv);
+int			main(int argc, char **argv);
 void		ft_change_parameters(t_params *params, int argc, char **argv);
 char		*creer_chaine(int lignes, int espaces_par_ligne);
 void		ft_init_params(t_params *params);
