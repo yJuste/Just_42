@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 #include "cube.h"
 
-// ----------------------------------PROTOTYPE---------------------------------
+// -----------------------------------PROTOTYPE----------------------------------
 void		strchange(t_params *params, t_pxx *pxx, char *str, char *str2);
 void		strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2);
+void		strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2);
 void		strchange_next(t_params *params);
-// ----------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
 void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
@@ -49,7 +50,7 @@ void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
 	int		i;
-
+	
 	i = -1;
 	while (++i <= 1)
 	{
@@ -62,14 +63,27 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 		pxx->p13[0] *= params->size;
 		pxx->p14[0] *= params->size;
 	}
-	str[xy_to_str(p01[0], p01[1])] = dist_to_ascii(dist_3d(tableau[0]));
-	str[xy_to_str(p02[0], p02[1])] = dist_to_ascii(dist_3d(tableau[1]));
-	str[xy_to_str(p03[0], p03[1])] = dist_to_ascii(dist_3d(tableau[2]));
-	str[xy_to_str(p04[0], p04[1])] = dist_to_ascii(dist_3d(tableau[3]));
-	str[xy_to_str(p11[0], p11[1])] = dist_to_ascii(dist_3d(tableau[4]));
-	str[xy_to_str(p12[0], p12[1])] = dist_to_ascii(dist_3d(tableau[5]));
-	str[xy_to_str(p13[0], p13[1])] = dist_to_ascii(dist_3d(tableau[6]));
-	str[xy_to_str(p14[0], p14[1])] = dist_to_ascii(dist_3d(tableau[7]));
+	strchange_3(params, pxx, str, str2);
+}
+
+void	strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2)
+{
+	str[xy_to_str(pxx->p01[0], pxx->p01[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[0]));
+	str[xy_to_str(pxx->p02[0], pxx->p02[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[1]));
+	str[xy_to_str(pxx->p03[0], pxx->p03[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[2]));
+	str[xy_to_str(pxx->p04[0], pxx->p04[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[3]));
+	str[xy_to_str(pxx->p11[0], pxx->p11[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[4]));
+	str[xy_to_str(pxx->p12[0], pxx->p12[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[5]));
+	str[xy_to_str(pxx->p13[0], pxx->p13[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[6]));
+	str[xy_to_str(pxx->p14[0], pxx->p14[1])]
+		= dist_to_ascii(params, dist_3d(params, tableau[7]));
 	rotatey(tableau[0]);
 	rotatey(tableau[1]);
 	rotatey(tableau[2]);
@@ -78,7 +92,11 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 	rotatey(tableau[5]);
 	rotatey(tableau[6]);
 	rotatey(tableau[7]);
+	strchange_4(params, pxx, str, str2);
+}
 
+void	strchange_4(t_params *params, t_pxx *pxx, char *str, char *str2)
+{
 	rotatex(tableau[0]);
 	rotatex(tableau[1]);
 	rotatex(tableau[2]);

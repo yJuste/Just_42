@@ -65,22 +65,21 @@ void		strchange_next(t_params *params);
 
 void		xyz_to_xy(t_params *params, float point[3], float res[2]);
 int			xy_to_str(float x, float y);
-char		dist_to_ascii(float distance);
-float		dist_3d(float p1[3]);
+char		dist_to_ascii(t_params *params, float distance);
+float		dist_3d(t_params *params, float p1[3]);
+float		vabs(float n);
 
 // cube_4.c
 
 void		rotatey(float point[3]);
 void		rotatex(float point[3]);
 void		rotatez(float point[3]);
-void		drawline(float p1[2], float p2[2], char *str);
-int			get_ascii(int indexchar, char *str);
 
 // cube_5.c
 
-float		vabs(float n);
+void		drawline(float p1[2], float p2[2], char *str);
 char		get_random_char(void);
-
+int			get_ascii(int indexchar, char *str);
 // cube_6.c
 
 #endif
