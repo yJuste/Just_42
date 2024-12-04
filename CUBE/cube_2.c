@@ -12,20 +12,19 @@
 #include "cube.h"
 
 // ----------------------------------PROTOTYPE----------------------------------
-void		strchange(t_params *params, t_pxx *pxx, char *str, char *str2);
+void		strchange(t_params *params, t_pxx *pxx, char *str);
 void		strchange_2(t_params *params, t_pxx *pxx, char *str);
 void		strchange_3(t_params *params, t_pxx *pxx, char *str);
 void		strchange_4(t_params *params, t_pxx *pxx, char *str);
 void		strchange_next(t_params *params, t_pxx *pxx);
 // -----------------------------------------------------------------------------
 
-void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
+void	strchange(t_params *params, t_pxx *pxx, char *str)
 {
 	int		i;
 
 	i = -1;
 	printf("\033[H\033[J");
-	memcpy(str, str2, strlen(str2) + 1);
 	xyz_to_xy(params, params->tableau[0], pxx->p01);
 	xyz_to_xy(params, params->tableau[1], pxx->p02);
 	xyz_to_xy(params, params->tableau[2], pxx->p03);

@@ -23,17 +23,16 @@ int	main(void)
 	t_params	params;
 	t_pxx		pxx;
 	char		*chaine;
-	char		*chaine2;
 
-	chaine = creer_chaine(52, 101);
-	chaine2 = creer_chaine(52, 101);
-	if (!chaine || !chaine2)
-		return (1);
 	ft_init_params(&params);
 	while (1)
-		strchange(&params, &pxx, chaine, chaine2);
-	free(chaine);
-	free(chaine2);
+	{
+		chaine = creer_chaine(52, 101);
+		if (!chaine)
+			return (1);
+		strchange(&params, &pxx, chaine);
+		free(chaine);
+	}
 	return (0);
 }
 
