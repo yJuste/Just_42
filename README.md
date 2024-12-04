@@ -218,11 +218,11 @@ ar rcs libft.a *.o
 #include "libft.h"
 ```
 
-* Lors de la compilation, tu dois en flags `-L. -lft`
+* Lors de la compilation, tu dois utiliser en flags `-L. -lft`
 ``` sh
-cc ft_test.c -L. -lft
+cc ft_test.c -L . -lft
 ```
-* Cette commande signifie : J'inclus la lbrairie '-L' depuis le dossier courant '.', puis j'inclus la lib.a '-lft' ( c'est en fait le nom sans le .a et en raccourci '-l' plutôt que 'lib')
+* Cette commande signifie : J'inclus la lbrairie '-L' depuis le dossier courant '.', puis j'inclus la libft.a '-lft' ( c'est en fait le nom sans le .a et en raccourci '-l' plutôt que 'lib')
 
 ## // EOF:
 
