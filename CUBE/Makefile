@@ -1,7 +1,7 @@
 NAME = cube
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g
 
 SRC =	cube.c		\
 	cube_2.c	\
@@ -36,8 +36,8 @@ rf: re
 s:
 	ls -lh $(NAME)
 
-h:
-	head -n 18 main.c
+help:
+	head -n 18 cube.c
 
 .PHONY: all clean fclean re rf
 

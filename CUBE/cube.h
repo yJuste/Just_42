@@ -9,6 +9,13 @@
 /*   Updated:   by Awnis'                             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Shows a rotating cube in 3D.                                           */
+/*   • ./a.out [ taille ] [ vitesse ]                                         */
+/*      -> taille        [ -50 <=> 50 ]                                       */
+/*      -> vitesse       [ -1 <=> 1 ]                                         */
+/*      -> Ajouter un moins devant la taille ou la vitesse, peut changer      */
+/*           la rotation du cube.                                             */
+/* ************************************************************************** */
 #ifndef CUBE_H
 # define CUBE_H
 
@@ -50,7 +57,8 @@ typedef struct s_pxx
 
 // cube.c
 
-int			main(void);
+int		main(int argc, char **argv);
+void		ft_change_parameters(t_params *params, int argc, char **argv);
 char		*creer_chaine(int lignes, int espaces_par_ligne);
 void		ft_init_params(t_params *params);
 void		ft_init_tableau(t_params *params);
