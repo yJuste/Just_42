@@ -15,7 +15,7 @@
 int			main(void);
 char		*creer_chaine(int lignes, int espaces_par_ligne);
 void		ft_init_params(t_params *params);
-void	ft_init_tableau(t_params *params);
+void		ft_init_tableau(t_params *params);
 // --------------------------------------------------------------
 
 int	main(void)
