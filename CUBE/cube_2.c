@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "cube.h"
 
-// -----------------------------------PROTOTYPE----------------------------------
+// ----------------------------------PROTOTYPE----------------------------------
 void		strchange(t_params *params, t_pxx *pxx, char *str, char *str2);
 void		strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2);
 void		strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2);
 void		strchange_next(t_params *params);
-// ------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
@@ -50,7 +50,7 @@ void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
 	int		i;
-	
+
 	i = -1;
 	while (++i <= 1)
 	{
@@ -69,58 +69,54 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str, char *str2)
 void	strchange_3(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
 	str[xy_to_str(pxx->p01[0], pxx->p01[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[0]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[0]));
 	str[xy_to_str(pxx->p02[0], pxx->p02[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[1]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[1]));
 	str[xy_to_str(pxx->p03[0], pxx->p03[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[2]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[2]));
 	str[xy_to_str(pxx->p04[0], pxx->p04[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[3]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[3]));
 	str[xy_to_str(pxx->p11[0], pxx->p11[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[4]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[4]));
 	str[xy_to_str(pxx->p12[0], pxx->p12[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[5]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[5]));
 	str[xy_to_str(pxx->p13[0], pxx->p13[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[6]));
+		= dist_to_ascii(params, dist_3d(params, params->tableau[6]));
 	str[xy_to_str(pxx->p14[0], pxx->p14[1])]
-		= dist_to_ascii(params, dist_3d(params, tableau[7]));
-	rotatey(tableau[0]);
-	rotatey(tableau[1]);
-	rotatey(tableau[2]);
-	rotatey(tableau[3]);
-	rotatey(tableau[4]);
-	rotatey(tableau[5]);
-	rotatey(tableau[6]);
-	rotatey(tableau[7]);
+		= dist_to_ascii(params, dist_3d(params, params->tableau[7]));
+	rotatey(params->tableau[0]);
+	rotatey(params->tableau[1]);
+	rotatey(params->tableau[2]);
+	rotatey(params->tableau[3]);
+	rotatey(params->tableau[4]);
+	rotatey(params->tableau[5]);
+	rotatey(params->tableau[6]);
+	rotatey(params->tableau[7]);
 	strchange_4(params, pxx, str, str2);
 }
 
 void	strchange_4(t_params *params, t_pxx *pxx, char *str, char *str2)
 {
-	rotatex(tableau[0]);
-	rotatex(tableau[1]);
-	rotatex(tableau[2]);
-	rotatex(tableau[3]);
-	rotatex(tableau[4]);
-	rotatex(tableau[5]);
-	rotatex(tableau[6]);
-	rotatex(tableau[7]);
-
-	drawline(p01, p02, str);
-	drawline(p03, p04, str);
-	drawline(p01, p03, str);
-	drawline(p02, p04, str);
-
-	drawline(p11, p12, str);
-	drawline(p13, p14, str);
-	drawline(p11, p13, str);
-	drawline(p12, p14, str);
-
-	drawline(p01, p11, str);
-	drawline(p02, p12, str);
-	drawline(p03, p13, str);
-	drawline(p04, p14, str);
-
+	rotatex(params->tableau[0]);
+	rotatex(params->tableau[1]);
+	rotatex(params->tableau[2]);
+	rotatex(params->tableau[3]);
+	rotatex(params->tableau[4]);
+	rotatex(params->tableau[5]);
+	rotatex(params->tableau[6]);
+	rotatex(params->tableau[7]);
+	drawline(pxx->p01, pxx->p02, str);
+	drawline(pxx->p03, pxx->p04, str);
+	drawline(pxx->p01, pxx->p03, str);
+	drawline(pxx->p02, pxx->p04, str);
+	drawline(pxx->p11, pxx->p12, str);
+	drawline(pxx->p13, pxx->p14, str);
+	drawline(pxx->p11, pxx->p13, str);
+	drawline(pxx->p12, pxx->p14, str);
+	drawline(pxx->p01, pxx->p11, str);
+	drawline(pxx->p02, pxx->p12, str);
+	drawline(pxx->p03, pxx->p13, str);
+	drawline(pxx->p04, pxx->p14, str);
 	printf("%s", str);
 	strchange_next(params);
 }
