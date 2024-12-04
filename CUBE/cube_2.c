@@ -36,14 +36,14 @@ void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 	xyz_to_xy(params, params->tableau[7], pxx->p14);
 	while (++i <= 1)
 	{
-		pxx->p01[0] += params->decalage;
-		pxx->p02[0] += params->decalage;
-		pxx->p03[0] += params->decalage;
-		pxx->p04[0] += params->decalage;
-		pxx->p11[0] += params->decalage;
-		pxx->p12[0] += params->decalage;
-		pxx->p13[0] += params->decalage;
-		pxx->p14[0] += params->decalage;
+		pxx->p01[i] += params->decalage;
+		pxx->p02[i] += params->decalage;
+		pxx->p03[i] += params->decalage;
+		pxx->p04[i] += params->decalage;
+		pxx->p11[i] += params->decalage;
+		pxx->p12[i] += params->decalage;
+		pxx->p13[i] += params->decalage;
+		pxx->p14[i] += params->decalage;
 	}
 	strchange_2(params, pxx, str);
 }
@@ -55,14 +55,14 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str)
 	i = -1;
 	while (++i <= 1)
 	{
-		pxx->p01[0] *= params->size;
-		pxx->p02[0] *= params->size;
-		pxx->p03[0] *= params->size;
-		pxx->p04[0] *= params->size;
-		pxx->p11[0] *= params->size;
-		pxx->p12[0] *= params->size;
-		pxx->p13[0] *= params->size;
-		pxx->p14[0] *= params->size;
+		pxx->p01[i] *= params->size;
+		pxx->p02[i] *= params->size;
+		pxx->p03[i] *= params->size;
+		pxx->p04[i] *= params->size;
+		pxx->p11[i] *= params->size;
+		pxx->p12[i] *= params->size;
+		pxx->p13[i] *= params->size;
+		pxx->p14[i] *= params->size;
 	}
 	strchange_3(params, pxx, str);
 }
@@ -85,27 +85,27 @@ void	strchange_3(t_params *params, t_pxx *pxx, char *str)
 		= dist_to_ascii(params, dist_3d(params, params->tableau[6]));
 	str[xy_to_str(pxx->p14[0], pxx->p14[1])]
 		= dist_to_ascii(params, dist_3d(params, params->tableau[7]));
-	rotatey(params->tableau[0]);
-	rotatey(params->tableau[1]);
-	rotatey(params->tableau[2]);
-	rotatey(params->tableau[3]);
-	rotatey(params->tableau[4]);
-	rotatey(params->tableau[5]);
-	rotatey(params->tableau[6]);
-	rotatey(params->tableau[7]);
+	rotatey(params, params->tableau[0]);
+	rotatey(params, params->tableau[1]);
+	rotatey(params, params->tableau[2]);
+	rotatey(params, params->tableau[3]);
+	rotatey(params, params->tableau[4]);
+	rotatey(params, params->tableau[5]);
+	rotatey(params, params->tableau[6]);
+	rotatey(params, params->tableau[7]);
 	strchange_4(params, pxx, str);
 }
 
 void	strchange_4(t_params *params, t_pxx *pxx, char *str)
 {
-	rotatex(params->tableau[0]);
-	rotatex(params->tableau[1]);
-	rotatex(params->tableau[2]);
-	rotatex(params->tableau[3]);
-	rotatex(params->tableau[4]);
-	rotatex(params->tableau[5]);
-	rotatex(params->tableau[6]);
-	rotatex(params->tableau[7]);
+	rotatex(params, params->tableau[0]);
+	rotatex(params, params->tableau[1]);
+	rotatex(params, params->tableau[2]);
+	rotatex(params, params->tableau[3]);
+	rotatex(params, params->tableau[4]);
+	rotatex(params, params->tableau[5]);
+	rotatex(params, params->tableau[6]);
+	rotatex(params, params->tableau[7]);
 	drawline(pxx->p01, pxx->p02, str);
 	drawline(pxx->p03, pxx->p04, str);
 	drawline(pxx->p01, pxx->p03, str);

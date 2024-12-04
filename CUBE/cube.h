@@ -73,9 +73,9 @@ float		vabs(float n);
 
 // cube_4.c
 
-void		rotatey(float point[3]);
-void		rotatex(float point[3]);
-void		rotatez(float point[3]);
+void		rotatey(t_params *params, float point[3]);
+void		rotatex(t_params *params, float point[3]);
+void		rotatez(t_params *params, float point[3]);
 void		drawline(float p1[2], float p2[2], char *str);
 char		get_random_char(void);
 

@@ -12,44 +12,46 @@
 #include "cube.h"
 
 // -------------------------PROTOTYPE-------------------------
-void		rotatey(float point[3]);
-void		rotatex(float point[3]);
-void		rotatez(float point[3]);
+void		rotatey(t_params *params, float point[3]);
+void		rotatex(t_params *params, float point[3]);
+void		rotatez(t_params *params, float point[3]);
 void		drawline(float p1[2], float p2[2], char *str);
 char		get_random_char(void);
 // -----------------------------------------------------------
 
-void	rotatey(float point[3])
+void	rotatey(t_params *params, float point[3])
 {
 	float		x;
 	float		z;
 
-	x = (point[0] * cos(degre)) - (point[2] * sin(degre));
-	z = (point[0] * sin(degre)) + (point[2] * cos(degre));
+	x = (point[0] * cos(params->degre)) - (point[2] * sin(params->degre));
+	z = (point[0] * sin(params->degre)) + (point[2] * cos(params->degre));
 	point[0] = x;
 	point[2] = z;
 	return ;
 }
 
-void	rotatex(float point[3])
+void	rotatex(t_params *params, float point[3])
 {
 	float		x;
 	float		z;
 
-	x = (point[0] * cos(degre)) - (point[1] * sin(degre));
-	z = (point[0] * sin(degre)) + (point[1] * cos(degre));
+	x = (point[0] * cos(params->degre)) - (point[1] * sin(params->degre));
+	z = (point[0] * sin(params->degre)) + (point[1] * cos(params->degre));
 	point[0] = x;
 	point[1] = z;
 	return ;
 }
 
-void	rotatez(float point[3])
+void	rotatez(t_params *params, float point[3])
 {
 	float		x;
 	float		z;
 
-	x = (point[1] * cos(degre * 2)) - (point[2] * sin(degre * 2));
-	z = (point[1] * sin(degre * 2)) + (point[2] * cos(degre * 2));
+	x = (point[1] * cos(params->degre * 2))
+		- (point[2] * sin(params->degre * 2));
+	z = (point[1] * sin(params->degre * 2))
+		+ (point[2] * cos(params->degre * 2));
 	point[1] = x;
 	point[2] = z;
 	return ;

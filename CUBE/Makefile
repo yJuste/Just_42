@@ -6,9 +6,7 @@ CFLAGS = -g -Wall -Wextra -Werror
 SRC =	cube.c		\
 	cube_2.c	\
 	cube_3.c	\
-	cube_4.c	\
-	cube_5.c	\
-	cube_6.c
+	cube_4.c
 
 OBJ = $(SRC:.c=.o)
 
