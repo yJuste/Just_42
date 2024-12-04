@@ -57,14 +57,14 @@ void	rotatez(float point[3])
 
 void	drawline(float p1[2], float p2[2], char *str)
 {
-	int		steps;
-	int		i;
+	int			steps;
+	int			i;
 	float		t;
 	float		x;
 	float		y;
 
 	steps = (int)(sqrt((p2[0] - p1[0]) * (p2[0] - p1[0])
-			+ (p2[1] - p1[1]) * (p2[1] - p1[1])) * 10);
+				+ (p2[1] - p1[1]) * (p2[1] - p1[1])) * 10);
 	i = 0;
 	while (i <= steps)
 	{
