@@ -6,7 +6,7 @@
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created:   by Awnis'                              #+#    #+#             */
-/*   Updated:   by Awnis'                             ###   ########.fr       */
+/*   Updated: 2024/12/04 17:25:47 by jlongin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Shows a rotating cube in 3D.                                           */
@@ -102,7 +102,7 @@ void	ft_init_params(t_params *params)
 	params->camera[1] = 0;
 	params->camera[2] = 70;
 	params->fov = -50;
-	params->degre = -0.04;
+	params->degre = -0.03;
 	params->size = 0.8;
 	params->decalage = 70;
 	params->ascii = "@&NM0KAUh6PkqwSE2]ayjx[IifFJ)vTz/*cr!+><;=^,:'-.` ";
