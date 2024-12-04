@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "cube.h"
 
-// ----------------------------------PROTOTYPE----------------------------------
+// ----------------------------PROTOTYPE-----------------------------
 void		strchange(t_params *params, t_pxx *pxx, char *str);
 void		strchange_2(t_params *params, t_pxx *pxx, char *str);
 void		strchange_3(t_params *params, t_pxx *pxx, char *str);
 void		strchange_4(t_params *params, t_pxx *pxx, char *str);
 void		strchange_next(t_params *params, t_pxx *pxx);
-// -----------------------------------------------------------------------------
+// ------------------------------------------------------------------
 
 void	strchange(t_params *params, t_pxx *pxx, char *str)
 {
