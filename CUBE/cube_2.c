@@ -45,7 +45,7 @@ void	strchange(t_params *params, t_pxx *pxx, char *str, char *str2)
 		pxx->p13[0] += params->decalage;
 		pxx->p14[0] += params->decalage;
 	}
-	strchange_2(params, pxx, str, str2);
+	strchange_2(params, pxx, str);
 }
 
 void	strchange_2(t_params *params, t_pxx *pxx, char *str)
@@ -64,7 +64,7 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str)
 		pxx->p13[0] *= params->size;
 		pxx->p14[0] *= params->size;
 	}
-	strchange_3(params, pxx, str, str2);
+	strchange_3(params, pxx, str);
 }
 
 void	strchange_3(t_params *params, t_pxx *pxx, char *str)
@@ -93,7 +93,7 @@ void	strchange_3(t_params *params, t_pxx *pxx, char *str)
 	rotatey(params->tableau[5]);
 	rotatey(params->tableau[6]);
 	rotatey(params->tableau[7]);
-	strchange_4(params, pxx, str, str2);
+	strchange_4(params, pxx, str);
 }
 
 void	strchange_4(t_params *params, t_pxx *pxx, char *str)
@@ -119,7 +119,7 @@ void	strchange_4(t_params *params, t_pxx *pxx, char *str)
 	drawline(pxx->p03, pxx->p13, str);
 	drawline(pxx->p04, pxx->p14, str);
 	printf("%s", str);
-	strchange_next(params);
+	strchange_next(params, pxx);
 }
 
 void	strchange_next(t_params *params, t_pxx *pxx)
@@ -137,13 +137,15 @@ void	strchange_next(t_params *params, t_pxx *pxx)
 			projection = pxx->p01;
 		else
 			projection = pxx->p11;
-		printf("p%02d: projection x = %.2f, projection y = %.2f",
-			i + 1, projection[0], projection[1]);
+		printf("p%02d: projection x = %.2f, projection y = %.2f", i + 1,
+			projection[0], projection[1]);
 		j = -1;
 		while (++j < console_width - 40)
 			printf(" ");
-		printf("p%02d: x = %.2f, y = %.2f, z = %.2f\n",
-			i + 1, tableau[i][0], tableau[i][1], tableau[i][2]);
+		printf("p%02d: x = %.2f, y = %.2f, z = %.2f\n", i + 1,
+			params->tableau[i][0],
+			params->tableau[i][1],
+			params->tableau[i][2]);
 		i++;
 	}
 	usleep(50000);
