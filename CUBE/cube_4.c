@@ -94,7 +94,7 @@ void	ft_init_params(t_params *params)
 	params->fov = -50;
 	params->degre = -0.03;
 	params->size = 0.8;
-	params->ascii = "";
+	params->ascii = NULL;
 }
 
 void	ft_init_tableau(t_params *params)
