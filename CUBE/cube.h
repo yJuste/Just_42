@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Shows a rotating cube in 3D.                                           */
-/*   • ./a.out [ taille ] [ vitesse ]                                         */
+/*   • ./a.out [ characters ] [ taille ] [ vitesse ]                          */
+/*      -> characters    [   asciis   ]                                       */
 /*      -> taille        [ -50 <=> 50 ]                                       */
-/*      -> vitesse       [ -1 <=> 1 ]                                         */
+/*      -> vitesse       [  -1 <=> 1  ]                                       */
 /*      -> Ajouter un moins devant la taille ou la vitesse, change la         */
 /*            rotation du cube.                                               */
 /* ************************************************************************** */
