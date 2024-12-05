@@ -13,53 +13,15 @@
 /* ************************************************************************** */
 #include "cube.h"
 
-// -------------------------PROTOTYPE-------------------------
-void		rotatey(t_params *params, float point[3]);
-void		rotatex(t_params *params, float point[3]);
-void		rotatez(t_params *params, float point[3]);
-void		drawline(float p1[2], float p2[2], char *str);
-char		get_random_char(void);
-// -----------------------------------------------------------
+// ----------------------------------PROTOTYPE----------------------------------
+void		drawline(t_params *params, float p1[2], float p2[2], char *str);
+char		get_random_char(t_params *params);
+char		*creer_chaine(int lignes, int espaces_par_ligne);
+void		ft_init_params(t_params *params);
+void		ft_init_tableau(t_params *params);
+// -----------------------------------------------------------------------------
 
-void	rotatey(t_params *params, float point[3])
-{
-	float		x;
-	float		z;
-
-	x = (point[0] * cos(params->degre)) - (point[2] * sin(params->degre));
-	z = (point[0] * sin(params->degre)) + (point[2] * cos(params->degre));
-	point[0] = x;
-	point[2] = z;
-	return ;
-}
-
-void	rotatex(t_params *params, float point[3])
-{
-	float		x;
-	float		z;
-
-	x = (point[0] * cos(params->degre)) - (point[1] * sin(params->degre));
-	z = (point[0] * sin(params->degre)) + (point[1] * cos(params->degre));
-	point[0] = x;
-	point[1] = z;
-	return ;
-}
-
-void	rotatez(t_params *params, float point[3])
-{
-	float		x;
-	float		z;
-
-	x = (point[1] * cos(params->degre * 2))
-		- (point[2] * sin(params->degre * 2));
-	z = (point[1] * sin(params->degre * 2))
-		+ (point[2] * cos(params->degre * 2));
-	point[1] = x;
-	point[2] = z;
-	return ;
-}
-
-void	drawline(float p1[2], float p2[2], char *str)
+void	drawline(t_params *params, float p1[2], float p2[2], char *str)
 {
 	int			steps;
 	int			i;
@@ -75,16 +37,86 @@ void	drawline(float p1[2], float p2[2], char *str)
 		t = i / (float)steps;
 		x = p1[0] + t * (p2[0] - p1[0]);
 		y = p1[1] + t * (p2[1] - p1[1]);
-		str[xy_to_str(x, y)] = get_random_char();
+		str[xy_to_str(x, y)] = get_random_char(params);
 		i++;
 	}
 	return ;
 }
 
-char	get_random_char(void)
+char	get_random_char(t_params *params)
 {
-	int		random_char;
+	int				random_char;
+	static unsigned int	i = 0;
 
-	random_char = rand() % (126 - 32 + 1) + 32;
+	if (params->ascii == NULL || strcmp(params->ascii, "") == 0)
+		random_char = rand() % (126 - 32 + 1) + 32;
+	else
+	{
+		random_char = params->ascii[i];
+		i++;
+		if (strlen(params->ascii) == i)
+			i = 0;
+	}
 	return ((char)random_char);
+}
+
+char	*creer_chaine(int lignes, int espaces_par_ligne)
+{
+	int		taille_totale;
+	int		i;
+	char	*chaine;
+
+	taille_totale = lignes * (espaces_par_ligne + 1) + 1;
+	chaine = malloc(sizeof(char) * taille_totale);
+	if (!chaine)
+	{
+		printf("Erreur d'allocation de mémoire.\n");
+		return (NULL);
+	}
+	i = 0;
+	while (i < lignes)
+	{
+		memset(chaine + i * (espaces_par_ligne + 1), ' ', espaces_par_ligne);
+		chaine[i * (espaces_par_ligne + 1) + espaces_par_ligne] = '\n';
+		i++;
+	}
+	chaine[taille_totale - 1] = '\0';
+	return (chaine);
+}
+
+void	ft_init_params(t_params *params)
+{
+	ft_init_tableau(params);
+	params->camera[0] = 0;
+	params->camera[1] = 0;
+	params->camera[2] = 70;
+	params->decalage = 70;
+	params->fov = -50;
+	params->degre = -0.03;
+	params->size = 0.8;
+	params->ascii = "";
+}
+
+void	ft_init_tableau(t_params *params)
+{
+	int		i;
+
+	i = 0;
+	while (i < 8)
+	{
+		if (i % 2 == 0)
+			params->tableau[i][0] = -30;
+		else
+			params->tableau[i][0] = 30;
+		if ((i & 2) != 0)
+			params->tableau[i][1] = -30;
+		else
+			params->tableau[i][1] = 30;
+		if ((i & 4) != 0)
+			params->tableau[i][2] = -30;
+		else
+			params->tableau[i][2] = 30;
+		i++;
+	}
+	return ;
 }

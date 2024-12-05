@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*   • Shows a rotating cube in 3D.                                           */
-/*   • ./a.out [ taille ] [ vitesse ]                                         */
+/*   • ./a.out [ characters ] [ taille ] [ vitesse ]                          */
+/*      -> characters    [   asciis   ]                                       */
 /*      -> taille        [ -50 <=> 50 ]                                       */
-/*      -> vitesse       [ -1 <=> 1 ]                                         */
+/*      -> vitesse       [  -1 <=> 1  ]                                       */
 /*      -> Ajouter un moins devant la taille ou la vitesse, change la         */
 /*            rotation du cube.                                               */
 /* ************************************************************************** */
 #include "cube.h"
 
-// ----------------------------------PROTOTYPE--------------------------------
+// ------------------------------PROTOTYPE-----------------------------
 int			main(int argc, char **argv);
-void		ft_change_parameters(t_params *params, int argc, char **argv);
-char		*creer_chaine(int lignes, int espaces_par_ligne);
-void		ft_init_params(t_params *params);
-void		ft_init_tableau(t_params *params);
-// ---------------------------------------------------------------------------
+void		ft_parameters(t_params *params, int argc, char **argv);
+// --------------------------------------------------------------------
 
 int	main(int argc, char **argv)
 {
@@ -33,8 +31,9 @@ int	main(int argc, char **argv)
 	char		*chaine;
 
 	ft_init_params(&params);
-	ft_change_parameters(&params, argc, argv);
-	while (1)
+	ft_parameters(&params, argc, argv);
+	int i = -1;
+	while (++i < 2)
 	{
 		chaine = creer_chaine(52, 101);
 		if (!chaine)
@@ -45,89 +44,30 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-void	ft_change_parameters(t_params *params, int argc, char **argv)
+void	ft_parameters(t_params *params, int argc, char **argv)
 {
 	float		taille;
 	float		vitesse;
 
-	if (argc == 2 || argc == 3)
+	if (argc == 2 || argc == 3 || argc == 4)
 	{
-		taille = strtof(argv[1], NULL);
-		if (taille >= -50 && taille <= 50)
-			params->fov = taille;
+		params->ascii = argv[1];
 		if (argc == 3)
 		{
 			vitesse = strtof(argv[2], NULL);
 			if (vitesse >= -1 && vitesse <= 1)
 				params->degre = vitesse;
+			if (argc == 4)
+			{
+				taille = strtof(argv[3], NULL);
+				if (taille >= -50 && taille <= 50)
+					params->fov = taille;
+			}
 		}
-		return ;
 	}
 	if (argc > 3)
 	{
 		printf("Error, please do :\n	--- `make help` ---\n");
 		exit(2);
 	}
-	return ;
-}
-
-char	*creer_chaine(int lignes, int espaces_par_ligne)
-{
-	int		taille_totale;
-	int		i;
-	char	*chaine;
-
-	taille_totale = lignes * (espaces_par_ligne + 1) + 1;
-	chaine = malloc(sizeof(char) * taille_totale);
-	if (!chaine)
-	{
-		printf("Erreur d'allocation de mémoire.\n");
-		return (NULL);
-	}
-	i = 0;
-	while (i < lignes)
-	{
-		memset(chaine + i * (espaces_par_ligne + 1), ' ', espaces_par_ligne);
-		chaine[i * (espaces_par_ligne + 1) + espaces_par_ligne] = '\n';
-		i++;
-	}
-	chaine[taille_totale - 1] = '\0';
-	return (chaine);
-}
-
-void	ft_init_params(t_params *params)
-{
-	ft_init_tableau(params);
-	params->camera[0] = 0;
-	params->camera[1] = 0;
-	params->camera[2] = 70;
-	params->fov = -50;
-	params->degre = -0.03;
-	params->size = 0.8;
-	params->decalage = 70;
-	params->ascii = "@&NM0KAUh6PkqwSE2]ayjx[IifFJ)vTz/*cr!+><;=^,:'-.` ";
-}
-
-void	ft_init_tableau(t_params *params)
-{
-	int		i;
-
-	i = 0;
-	while (i < 8)
-	{
-		if (i % 2 == 0)
-			params->tableau[i][0] = -30;
-		else
-			params->tableau[i][0] = 30;
-		if ((i & 2) != 0)
-			params->tableau[i][1] = -30;
-		else
-			params->tableau[i][1] = 30;
-		if ((i & 4) != 0)
-			params->tableau[i][2] = -30;
-		else
-			params->tableau[i][2] = 30;
-		i++;
-	}
-	return ;
 }

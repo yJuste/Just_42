@@ -22,22 +22,21 @@
 // Standard Libraries
 
 # include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
 # include <math.h>
 # include <unistd.h>
-# include <time.h>
+# include <stdlib.h>
+# include <string.h>
 
 // Structures
 
 typedef struct s_params
 {
+	int			decalage;
 	float		tableau[8][3];
 	float		camera[3];
 	float		fov;
 	float		degre;
 	float		size;
-	int			decalage;
 	char		*ascii;
 }	t_params;
 
@@ -58,10 +57,7 @@ typedef struct s_pxx
 // cube.c
 
 int			main(int argc, char **argv);
-void		ft_change_parameters(t_params *params, int argc, char **argv);
-char		*creer_chaine(int lignes, int espaces_par_ligne);
-void		ft_init_params(t_params *params);
-void		ft_init_tableau(t_params *params);
+void		ft_parameters(t_params *params, int argc, char **argv);
 
 // cube_2.c
 
@@ -73,18 +69,18 @@ void		strchange_next(t_params *params, t_pxx *pxx);
 
 // cube_3.c
 
-void		xyz_to_xy(t_params *params, float point[3], float res[2]);
 int			xy_to_str(float x, float y);
-char		dist_to_ascii(t_params *params, float distance);
-float		dist_3d(t_params *params, float p1[3]);
-float		vabs(float n);
-
-// cube_4.c
-
+void		xyz_to_xy(t_params *params, float point[3], float res[2]);
 void		rotatey(t_params *params, float point[3]);
 void		rotatex(t_params *params, float point[3]);
 void		rotatez(t_params *params, float point[3]);
-void		drawline(float p1[2], float p2[2], char *str);
-char		get_random_char(void);
+
+// cube_4.c
+
+void		drawline(t_params *params, float p1[2], float p2[2], char *str);
+char		get_random_char(t_params *params);
+char		*creer_chaine(int lignes, int espaces_par_ligne);
+void		ft_init_params(t_params *params);
+void		ft_init_tableau(t_params *params);
 
 #endif

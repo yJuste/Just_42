@@ -70,22 +70,6 @@ void	strchange_2(t_params *params, t_pxx *pxx, char *str)
 
 void	strchange_3(t_params *params, t_pxx *pxx, char *str)
 {
-	str[xy_to_str(pxx->p01[0], pxx->p01[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[0]));
-	str[xy_to_str(pxx->p02[0], pxx->p02[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[1]));
-	str[xy_to_str(pxx->p03[0], pxx->p03[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[2]));
-	str[xy_to_str(pxx->p04[0], pxx->p04[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[3]));
-	str[xy_to_str(pxx->p11[0], pxx->p11[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[4]));
-	str[xy_to_str(pxx->p12[0], pxx->p12[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[5]));
-	str[xy_to_str(pxx->p13[0], pxx->p13[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[6]));
-	str[xy_to_str(pxx->p14[0], pxx->p14[1])]
-		= dist_to_ascii(params, dist_3d(params, params->tableau[7]));
 	rotatey(params, params->tableau[0]);
 	rotatey(params, params->tableau[1]);
 	rotatey(params, params->tableau[2]);
@@ -107,18 +91,18 @@ void	strchange_4(t_params *params, t_pxx *pxx, char *str)
 	rotatex(params, params->tableau[5]);
 	rotatex(params, params->tableau[6]);
 	rotatex(params, params->tableau[7]);
-	drawline(pxx->p01, pxx->p02, str);
-	drawline(pxx->p03, pxx->p04, str);
-	drawline(pxx->p01, pxx->p03, str);
-	drawline(pxx->p02, pxx->p04, str);
-	drawline(pxx->p11, pxx->p12, str);
-	drawline(pxx->p13, pxx->p14, str);
-	drawline(pxx->p11, pxx->p13, str);
-	drawline(pxx->p12, pxx->p14, str);
-	drawline(pxx->p01, pxx->p11, str);
-	drawline(pxx->p02, pxx->p12, str);
-	drawline(pxx->p03, pxx->p13, str);
-	drawline(pxx->p04, pxx->p14, str);
+	drawline(params, pxx->p01, pxx->p02, str);
+	drawline(params, pxx->p03, pxx->p04, str);
+	drawline(params, pxx->p01, pxx->p03, str);
+	drawline(params, pxx->p02, pxx->p04, str);
+	drawline(params, pxx->p11, pxx->p12, str);
+	drawline(params, pxx->p13, pxx->p14, str);
+	drawline(params, pxx->p11, pxx->p13, str);
+	drawline(params, pxx->p12, pxx->p14, str);
+	drawline(params, pxx->p01, pxx->p11, str);
+	drawline(params, pxx->p02, pxx->p12, str);
+	drawline(params, pxx->p03, pxx->p13, str);
+	drawline(params, pxx->p04, pxx->p14, str);
 	printf("%s", str);
 	strchange_next(params, pxx);
 }

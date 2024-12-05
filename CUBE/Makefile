@@ -38,7 +38,7 @@ s:
 	ls -lh $(NAME)
 
 help:
-	head -n 18 cube.c
+	head -n 19 cube.c
 
 .PHONY: all clean fclean re rf
 
