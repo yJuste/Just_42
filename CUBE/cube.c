@@ -32,8 +32,7 @@ int	main(int argc, char **argv)
 
 	ft_init_params(&params);
 	ft_parameters(&params, argc, argv);
-	int i = -1;
-	while (++i < 2)
+	while (1)
 	{
 		chaine = creer_chaine(52, 101);
 		if (!chaine)

@@ -45,7 +45,7 @@ void	drawline(t_params *params, float p1[2], float p2[2], char *str)
 
 char	get_random_char(t_params *params)
 {
-	int				random_char;
+	int					random_char;
 	static unsigned int	i = 0;
 
 	if (params->ascii == NULL || strcmp(params->ascii, "") == 0)
