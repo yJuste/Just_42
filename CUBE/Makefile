@@ -19,26 +19,28 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-	@echo $(GREEN)"--- EXECUTABLE ./$(NAME) is ready ---"$(RESET)
+	@echo $(GREEN)"--- EXECUTABLE ./$(NAME) is ready --- for help : `make help`"$(RESET)
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
 rf: re
-	@rm -f $(OBJ)
-	@rm -f $(NAME)
+	rm -f $(OBJ)
+	rm -f $(NAME)
 	@echo $(RED)"--- EXECUTABLE ./$(NAME) is removed ---"$(RESET)
 
 s:
 	ls -lh $(NAME)
 
 help:
-	head -n 19 cube.c
+	@echo $(GREEN)
+	@head -n 20 cube.c
+	@echo $(RESET)
 
 .PHONY: all clean fclean re rf
 
