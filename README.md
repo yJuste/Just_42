@@ -23,6 +23,13 @@ Voici le tronc commun de 42, tous les exos sont affichés.
 - [Just_Fdf](https://github.com/yJuste/Just_Fdf)
 - [Eval 2](https://github.com/yJuste/Just_Eval)
 
+* Other Ressources
+
+- [Just_Piscine](https://github.com/yJuste/Just_Piscine)
+- [Just_Reloaded](https://github.com/yJuste/Just_Reloaded)
+- [Just_Lib](https://github.com/yJuste/Just_Lib)
+- [Just_Eval](https://github.com/yJuste/Just_Eval)
+
 ## /. HELP
 
 * Toutes les manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
