@@ -4,6 +4,25 @@
 
 Voici le tronc commun de 42, tous les exos sont affichés.
 
+### Références de mes projets 42 :
+
+* Le Milestone 0:
+
+- [Just_Libft](https://github.com/yJuste/Just_Libft)
+
+* Le Milestone 1:
+
+- [Just_Born2BeRoot](https://github.com/yJuste/Just_Born2beRoot)
+- [Just_Get_Next_Line](https://github.com/yJuste/Just_Get_Next_Line)
+- [Just_Printf](https://github.com/yJuste/Just_Printf)
+
+* Le Milestone 2:
+
+- [Just_Push_Swap](https://github.com/yJuste/Just_Push_Swap)
+- [Just_Minitalk](https://github.com/yJuste/Just_Minitalk)
+- [Just_Fdf](https://github.com/yJuste/Just_Fdf)
+- [Eval 2](https://github.com/yJuste/Just_Eval)
+
 ## /. HELP
 
 * Toutes les manipulations sont faites sur MACOS, je ne donne pas d'astuces pour les autres systèmes.
