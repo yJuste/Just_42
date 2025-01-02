@@ -23,6 +23,11 @@ Voici le tronc commun de 42, tous les exos sont affichés.
 - [Just_Fdf](https://github.com/yJuste/Just_Fdf)
 - [Eval 2](https://github.com/yJuste/Just_Eval)
 
+* Le Milestone 3:
+
+- [Just_Philosophers](https://github.com/yJuste/Just_Philosophers)
+... en cours.
+
 * Other Ressources
 
 - [Just_Piscine](https://github.com/yJuste/Just_Piscine)
@@ -70,6 +75,9 @@ git reset --hard <id-commit>
 git push --force
 ```
 → suite à reset, tu appliques les modifications.
+
+* For adding a tag:
+
 ``` sh
 git tag -a v1.0 -m "Libft - Version finale"
 git push origin v1.0
