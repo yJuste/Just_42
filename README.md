@@ -21,12 +21,17 @@ Voici le tronc commun de 42, tous les exos sont affichés.
 - [Just_Push_Swap](https://github.com/yJuste/Just_Push_Swap)
 - [Just_Minitalk](https://github.com/yJuste/Just_Minitalk)
 - [Just_Fdf](https://github.com/yJuste/Just_Fdf)
+- [Just_Fractol](https://github.com/yJuste/Just_Fractol)
+- [Just_So_Long](https://github.com/yJuste/Just_So_long)
+
 - [Eval 2](https://github.com/yJuste/Just_Eval)
 
 * Le Milestone 3:
 
 - [Just_Philosophers](https://github.com/yJuste/Just_Philosophers)
 ... en cours.
+
+- [Eval 3](https://github.com/yJuste/Just_Eval)
 
 * Other Ressources
 
