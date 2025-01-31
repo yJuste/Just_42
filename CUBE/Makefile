@@ -1,7 +1,7 @@
 NAME = cube
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =	cube.c		\
 	cube_2.c	\
