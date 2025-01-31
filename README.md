@@ -226,12 +226,12 @@ ssh -i chemin/id_rsa
 * Aller voir qui explique parfaitement comment fonctionne les types de clé et les chiffrements: [Les clés SSH](https://www.acceis.fr/comment-casser-des-cles-privees-ssh-chiffrees/)
 * Voici un exemple:
 ```sh
-ssh-keygen -t ed25519 -Z aes256-gcm@openssh.com -b 256 -f ~/.ssh/ -o -a 500
+ssh-keygen -t ed25519 -Z aes256-gcm@openssh.com -b 256 -f ~/.ssh/id_rsa -o -a 500
 ```
 * Le flag `-t` spécifie le type de clé. Les plus connus sont le RSA et le ed25519.
 * Le flag `-Z` spécifie le chiffrement. Le plus connu est le AES.
 * Le flag `-b` spécifie la taille de la clé. 256bits est bien pour ed25519.
-* Le flag `-f` spécifie le dossier dans lequel le duo de clé privé/public seront enregistrés.
+* Le flag `-f` spécifie le nom dans lequel le duo de clé privé/public seront enregistrés.
 * Le flag `-o` utilise le nouveau format openSSH.
 * Le flag `-a` le nombre d'itération.
 
