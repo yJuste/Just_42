@@ -234,6 +234,11 @@ ssh-keygen -t ed25519 -Z aes256-gcm@openssh.com -b 256 -f ~/.ssh/id_rsa -o -a 50
 * Le flag `-f` spécifie le nom dans lequel le duo de clé privé/public seront enregistrés.
 * Le flag `-o` utilise le nouveau format openSSH.
 * Le flag `-a` le nombre d'itération.
+* Si tu as ajouté une passphrase, il se peut que à chaque utilisation de la clé ssh, tu dois mettre celui-ci. Pour pallier à ce problème, tu peux le mettre dans l'agent ssh.
+```sh
+ssh-add ~/.ssh/id_rsa
+```
+* Le nom id_rsa peut se changer en fonction du nom donné du fichier.
 
 ### CODIUM (COPILOT POUR XCODE) //
 

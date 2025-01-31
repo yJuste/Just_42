@@ -2,6 +2,7 @@ NAME = cube
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+FLAGS = -lm
 
 SRC =	cube.c		\
 	cube_2.c	\
@@ -18,7 +19,7 @@ YELLOW			= "\033[33m"	# Jaune
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(FLAGS)
 	@echo $(GREEN)"--- EXECUTABLE ./$(NAME) is ready --- for help : `make help`"$(RESET)
 
 clean:
