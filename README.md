@@ -199,6 +199,26 @@ ft_allocate_str(&block);
 * En remontant les stacks, tu trouveras l’endroit où tu n’utilises plus du tout ta variable et où il faut libérer la mémoire. (j’appelle stack mais ce n’est pas ça, c’est juste la piste où passe la fuite.)
 * En dessous, tu peux voir 1 (48 bytes), signifiant que c’est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
 
+### SSH
+
+* SSH permet de se connecter de facon sécurisé à distant via un réseau.
+* La commande pour s'y connecter est:
+```sh
+ssh [ip]
+```
+* Pour voir les ip connecté au réseau tu peux faire: (cela va lister toutes les connexions présents en temps réel).
+```sh
+arp -a
+```
+* Par exemple, j'ai un raspberry et pour me connecter je dois mettre :
+```sh
+ssh username@hostname.local
+```
+* Pour se connecter via une clé privée spécifique. Tu dois ajouter le chemin.
+```sh
+ssh -i chemin/id_rsa
+```
+
 ### CODIUM (COPILOT POUR XCODE) //
 
 * Aller sur le site et télécharger l’application.
@@ -240,6 +260,19 @@ int	ft_get_next_line(int fd)
 * n : pas à pas mais si il rencontre une fonction, il la passe (comme si il avait terminé la fonction pointée).  
 * finish : si tu es dans une fonction, tu termines la fonction en cours (tu dois être dans la fonction).  
 * Pour quitter, tu fais q (q = quit).
+
+### Debbuging with Instruments
+
+* Créer un ficher : entitlements.plist
+* Tu peux maitenant le trouver dans le dossier `Instruments`. Le ficher doit etre dans le meme directory que l'executable .out.
+* Ensuite, tu peux le signer avec ad-hoc. Cela ne requiert pas un certificat car il inclut deja un titre pour le debugging.
+``` sh
+codesign --entitlements entitlements.plist --sign - a.out
+```
+* Vérifie qu'il possède bien les perms:
+``` sh
+codesign -dvvv --entitlements - a.out
+```
 
 ### MAKEFILE
 
