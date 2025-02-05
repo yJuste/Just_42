@@ -199,6 +199,45 @@ ft_allocate_str(&block);
 * En remontant les stacks, tu trouveras l’endroit où tu n’utilises plus du tout ta variable et où il faut libérer la mémoire. (j’appelle stack mais ce n’est pas ça, c’est juste la piste où passe la fuite.)
 * En dessous, tu peux voir 1 (48 bytes), signifiant que c’est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
 
+### TMUX
+
+* Bon, je te présente un gestionnaire de terminaux, plus besoin d'en ouvrir 150 mille, voici Tmux. Il te permet d'en créer sur mesure et n'import au, toujours au bon format.
+* Pour ouvrir un tmux, il faut taper `tmux`. Tu te retrouve avec une interface où en bas il y a une bande verte, tu gestionneras tout ici. Ainsi que avec les touches Ctrl + b qui est la commande de base pour tout gérer.
+* Les commandes de base pour bien commencer :
+- `tmux ls` -> affiche toutes les sessions.
+* Pour revenir à une session et la quitter lorsque tu es dans tmux, tu peux faire :
+```sh
+tmux attach -t 0
+```
+- 0 peut être changé par X nombre et X nom.
+* Pour quitter quand t es dans tmux, c'est:
+```sh
+Ctrl + b -- d
+```
+* Cela détache la session tmux, cela signifie que il tourne en arrière-plan, sauf quand le pc est en veille ou éteint, donc pas de panique sur la batterie.
+* Dans tmux, il te sera utile de connaître le manuel de leur commande qui se trouve avec : (`--` signifie: et ensuite tape .. )
+```sh
+Ctrl + b -- Shift + ?
+```
+* On peut créer plusieurs fenêtres dans une session avec :
+```sh
+Ctrl + b -- c
+```
+* (ne pas oublier que ce sont des terminaux, donc si tu veux les quitter, tu peux faire `exit`).
+* Ensuite dans une fenêtre, tu peux split les terminaux et travaille avec.
+* Les commandes pour gérer efficacement les fenêtres sans connaître par coeur tous les raccourcis, tu peux utiliser :
+```sh
+Ctrl + b -- Shift + <
+Ctrl + b -- Shift + >
+```
+* D'ici tu peux split les terminaux, c'est très efficace, pour se déplacer, tu fais `Ctrl + b -- [fleches directionelles]`.
+* Quand tout est setup, tu peux utiliser Vim et allier les 2 pour encore plus de fun!
+* Ensuite pour les tmuxiens, vous avez certains commandes qui me sont très utiles comme :
+```sh
+Ctrl + b -- Shift + :
+```
+* Ouvre une invite pour tu peux taper ici, `:resize-pane -X Y`, permet de redimensioner les split de terminaux. Remplace X par -U -D -L -R pour up, down, left, right. Remplace Y par la taille, une taille de 10 est bien.
+
 ### SSH
 
 * SSH permet de se connecter de facon sécurisé à distant via un réseau.
