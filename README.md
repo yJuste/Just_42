@@ -171,33 +171,30 @@ Ensuite tu peux lancer leaks :
 leaks --atExit -- ./a.out [parameters]
 ```
 * Tu peux ainsi voir les fuites de mémoires et les lignes où elles sont indiquées.
-* Toujours tester avec des paramètres de ton code pour passer dans toutes les fonctions du programme.
+* Tester avec des parametres, si le test de leak que tu veux faire en a besoin.
 * Comprendre l’essentiel dans Leaks pour identifier les fuites de mémoire.
 
 * Tu as le nombre de stack représentant les fonctions dans lesquels passe la fuite de mémoire.
 * La fuite commence à 0. Il représente l’allocation de ton système.
-À 1, c’est l’endroit où tu as malloc. Logiquement, la variable allouée doit être libérée proprement. Évite de renvoyer une variable allouée pour la stocker dans une autre variable, exemple à proscrire :
-``` c
-char *block;
-
-block = ft_allocate_str();
-
-char **ft_allocate_str()
-{
-    str = malloc(...);
-    return (str);
-}
-```
-* Il vaut mieux passer en paramètre la seule et unique variable que tu vas utiliser (tu ne peux pas tout le temps le faire mais c’est une erreur courante).
-``` c
-char *block;
-
-ft_allocate_str(&block);
-
-...
-```
+À 1, c’est l’endroit où tu as malloc. Logiquement, la variable allouée doit être libérée proprement.
 * En remontant les stacks, tu trouveras l’endroit où tu n’utilises plus du tout ta variable et où il faut libérer la mémoire. (j’appelle stack mais ce n’est pas ça, c’est juste la piste où passe la fuite.)
-* En dessous, tu peux voir 1 (48 bytes), signifiant que c’est un emplacement mémoire de taille 48 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
+* En dessous, tu peux voir 1 (128 bytes), signifiant que c’est un emplacement mémoire de taille 128 bytes. (les bytes peuvent varier en fonction du type, souvent les doubles tableaux).
+* 1 signifie qu'il te reste 1 malloc() à free().
+Voici l'exemple:
+```sh
+leaks Report Version: 4.0, multi-line stacks
+Process 71341: 185 nodes malloced for 14 KB
+Process 71341: 1 leak for 128 total leaked bytes.
+
+STACK OF 1 INSTANCE OF 'ROOT LEAK: <malloc in ft_calloc>':
+4   dyld                                  0x1877a8274 start + 2840
+3   philo                                 0x1043365ec main + 104
+2   philo                                 0x1043366a8 ft_init + 120
+1   philo                                 0x104337bfc ft_calloc + 48
+0   libsystem_malloc.dylib                0x1879627cc _malloc_zone_malloc_instrumented_or_legacy + 148 
+====
+    1 (128 bytes) ROOT LEAK: <malloc in ft_calloc 0x137f04200> [128]
+```
 
 ### TMUX
 
@@ -232,7 +229,7 @@ Ctrl + b -- Shift + >
 ```
 * D'ici tu peux split les terminaux, c'est très efficace, pour se déplacer, tu fais `Ctrl + b -- [fleches directionelles]`.
 * Quand tout est setup, tu peux utiliser Vim et allier les 2 pour encore plus de fun!
-* Ensuite pour les tmuxiens, vous avez certains commandes qui me sont très utiles comme :
+* Ensuite pour les tmuxiens, vous avez certaines commandes qui me sont très utiles comme :
 ```sh
 Ctrl + b -- Shift + :
 ```
