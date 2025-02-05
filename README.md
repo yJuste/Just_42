@@ -301,16 +301,13 @@ Ensuite, vous devez lancer lldb :
 lldb mon-fichier.c [paramètres]
 ```
 * Mettre les paramètres va suivre le déroulement pour ce cas particulier. Tu peux tester avec plusieurs autres paramètres en fonction de ton code.
-* Ensuite, tu vas devoir ajouter un breakpoint. Si vous voulez, c’est un endroit d’entrée. Car le point d’entrée par défaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, exemple :
+* Ensuite, tu vas devoir ajouter un breakpoint avec `b`. Si vous voulez, c’est un endroit d’entrée. Car le point d’entrée par défaut est le main(), si tu veux commencer un peu plus loin, tu vas devoir le lancer avec le nom de la fonction, exemple :
 ``` sh
-breakpoint set --name main
+(lldb ) b main
 ```
-Ceci est le main par défaut, pour une fonction comme :
-``` c
-int	ft_get_next_line(int fd)
-```
+Ceci est le main par défaut, pour une fonction comme : get_next_line(fd);
 ``` sh
-(lldb) breakpoint set --name ft_get_next_line
+(lldb) b get_next_line
 ```
 * Il y aura alors une interface où tu pourras naviguer, les commandes à retenir sont s, n, finish. (s = step, n = next) (tu dois juste marquer la lettre).
 * s : avancer pas à pas, instruction par instruction  
@@ -334,6 +331,54 @@ codesign -dvvv --entitlements - a.out
 ### MAKEFILE
 
 * Make (petit logiciel utilisé avec les fichiers Makefile (et pas Makefile.txt, il y a une grande différence)) est utile pour compiler plusieurs fichiers .c en même temps. Ça utilise des commandes shell. Voici un exemple de Makefile très simple :
+```make
+NAME = rush-02
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+SRC =	srcs/ft_get_next_line.c	\
+	    srcs/ft_lib.c	    	\
+    	srcs/ft_lib2.c	    	\
+    	main.c		        	\
+    	rush-01.c		        \
+    	rush-02.c		        \
+	    rush-03.c		        \
+    	rush-04.c		        \
+
+OBJ = $(SRC:.c=.o)
+
+RESET			= "\033[0m"
+GREEN			= "\033[92m"	# Green
+RED			    = "\033[91m"	# Red
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@echo $(GREEN)"--- EXECUTABLE ./$(NAME) is ready ---"$(RESET)
+
+clean:
+	@rm -f $(OBJ)
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
+
+rf: re
+	@rm -f $(OBJ)
+	@rm -f $(NAME)
+	@echo $(RED)"--- EXECUTABLE ./$(NAME) is removed ---"$(RESET)
+
+s:
+	ls -lh $(NAME)
+
+h:
+	head -n 18 main.c
+
+.PHONY: all clean fclean re rf
+```
 
 ### Les archives
 
