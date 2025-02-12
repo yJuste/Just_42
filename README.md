@@ -127,6 +127,43 @@ Dans vim, vous faites CTRL + :
 * Vous écrivez soit Stdheader, soit Std, soit vous appuyez sur F1.
 Le header apparaît.
 
+## MACOS TERMINAL
+
+* Le terminal Macos est l'outil idéal pour vos projets 42.
+* Vous pourrez créer des onglets de terminaux, personnaliser vos terminaux. Utile aussi avec tmux et vim.
+* Le site pour voir les raccourcis : [Raccourcis Apple](https://support.apple.com/et-ee/guide/terminal/trmlshtcts/mac)
+* Voici les commandes utiles qui sont importants à apprendre:
+```sh
+Cmd + n
+```
+* Permet d'ouvrir un terminal.
+```sh
+Cmd + w
+```
+* Exit un terminal (ou un onglet).
+* Les commandes lorsque vous venez d'ouvrir un terminal.
+```sh
+Cmd + t
+```
+* Ouvrre un onglet.
+```sh
+Cmd + ,
+```
+* Ouvre les réglages.
+```sh
+Cmd + i
+```
+* Renomme le nom de l'onglet.
+* Pour naviguer:
+```sh
+Cmd + [tab]
+```
+* Passe au prochain onglet.
+```sh
+Cmd + [shift] + [tab]
+```
+* Passe à l'onglet précedent.
+
 ### NORMINETTE 42 //
 
 Pour installer la norminette, cherchez j’ai la flemme.
