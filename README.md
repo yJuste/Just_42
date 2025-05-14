@@ -29,13 +29,15 @@ Voici le tronc commun de 42, tous les exos sont affichés.
 * Le Milestone 3:
 
 - [Just_Philosophers](https://github.com/yJuste/Just_Philosophers)
-- [Just_Minishell](https://github.com/yJuste/Just_Minishell) (en cours)
+- [Just_Minishell](https://github.com/yJuste/Just_Minishell)
 
 - [Eval 3: ft_printf/gnl](https://github.com/yJuste/Just_Eval)
 
 * Le Milestone 4:
 
 - [Just_NetPractice](https://github.com/yJuste/Just_NetPractice)
+- [Just_CPP](https://github.com/yJuste/Just_CPP)
+- [Just_miniRT](https://github.com/yJuste/Just_miniRT) (en cours)
 - [Eval 4: Microshell](https://github.com/yJuste/Just_Eval)
 
 * Other Ressources
@@ -442,4 +444,5 @@ cc ft_test.c -L . -lft
 
 ## // EOF:
 
-Modifié le 9 octobre 2024 par Juste.
+Modifié le 9 octobre 2024 par Juste.<br>
+Modifié le 14 Mai 2025 par Juste.
